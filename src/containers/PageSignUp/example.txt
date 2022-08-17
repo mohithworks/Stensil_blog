@@ -1,0 +1,58 @@
+{
+  "aud": "authenticated",
+  "exp": 1660591123,
+  "sub": "210dfb39-0634-4eab-9fd4-349e53464fa4",
+  "email": "mivekart432@gmail.com",
+  "phone": "",
+  "app_metadata": {
+    "provider": "google",
+    "providers": [
+      "google"
+    ]
+  },
+  "user_metadata": {
+    "avatar_url": "https://lh3.googleusercontent.com/a/AItbvmlrYnRFFOteg9iu8e6nAr2s4SY5nmfo5tChFafN=s96-c",
+    "email": "mivekart432@gmail.com",
+    "email_verified": true,
+    "full_name": "mive 3",
+    "iss": "https://www.googleapis.com/userinfo/v2/me",
+    "name": "mive 3",
+    "picture": "https://lh3.googleusercontent.com/a/AItbvmlrYnRFFOteg9iu8e6nAr2s4SY5nmfo5tChFafN=s96-c",
+    "provider_id": "105377248996982660801",
+    "sub": "105377248996982660801"
+  },
+  "role": "authenticated"
+}
+
+{
+  "aud": "authenticated",
+  "exp": 1660592164,
+  "sub": "ba8a1935-3b38-4a08-94f4-f7bdd59511f3",
+  "email": "savithamohi43@gmail.com",
+  "phone": "",
+  "app_metadata": {
+    "provider": "email",
+    "providers": [
+      "email",
+      "google",
+      "facebook"
+    ]
+  },
+  "user_metadata": {
+    "avatar_url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=1253884692083019&height=50&width=50&ext=1663180564&hash=AeStTiDLY7Nr8JRgt_4",
+    "email": "savithamohi43@gmail.com",
+    "email_verified": true,
+    "firstname": "Mohith",
+    "full_name": "MOhith Acharya",
+    "iss": "https://graph.facebook.com/me?fields=email,first_name,last_name,name,picture",
+    "lastname": "B",
+    "name": "MOhith Acharya",
+    "nickname": "MOhith B Acharya",
+    "picture": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=1253884692083019&height=50&width=50&ext=1663180564&hash=AeStTiDLY7Nr8JRgt_4",
+    "provider_id": "1253884692083019",
+    "slug": "MOhith B Acharya",
+    "sub": "1253884692083019",
+    "username": "mohithbacharya"
+  },
+  "role": "authenticated"
+}
