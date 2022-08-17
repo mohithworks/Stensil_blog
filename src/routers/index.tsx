@@ -117,14 +117,14 @@ export const pages: Page[] = [
 const Routes = () => {
   const [user, setUser] = useState<any>(null);
   const [event, setEvent] = useState<any>(null);
-  const [loading, setLoading] = useState<any>(true);
+  const [loading, setLoading] = useState<any>(false);
 
   const authUser = supabaseClient.auth.user();
   
   useEffect(() => {
-    setLoading(true);
+    //setLoading(true);
     setUser(authUser);
-    setLoading(false);
+    //setLoading(false);
   }, [authUser]);
 
   // useEffect(() => {
