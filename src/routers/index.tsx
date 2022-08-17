@@ -147,7 +147,7 @@ const Routes = () => {
     <MyGlobalContext.Provider value={{ user, setUser, event, setEvent, loading, setLoading }}>
       <BrowserRouter
         basename={
-          import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/ncmaz-rtl" : "/ncmaz"
+          import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
         }
       >
         <MediaRunningContainer />
