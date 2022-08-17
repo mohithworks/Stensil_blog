@@ -37,19 +37,7 @@ import PageHomeDemo6 from "containers/PageHome/PageHomeDemo6";
 import PageHomeDemo7 from "containers/PageHome/PageHomeDemo7";
 import PageSingleTemp4Sidebar from "containers/PageSingle/PageSingleTemp4Sidebar";
 import MediaRunningContainer from "containers/MediaRunningContainer/MediaRunningContainer";
-import { MyGlobalContext } from 'utils/context';
-import { DominoSpinner } from "react-spinners-kit";
-import LayoutPage from "components/LayoutPage/LayoutPage";
-import {Alert} from "components/Alert/Alert";
-import facebookSvg from "images/Facebook.svg";
-import twitterSvg from "images/Twitter.svg";
-import googleSvg from "images/Google.svg";
-import Input from "components/Input/Input";
-import ButtonPrimary from "components/Button/ButtonPrimary";
-import NcLink from "components/NcLink/NcLink";
-import { Helmet } from "react-helmet";
-import Collapse from '@mui/material/Collapse';
-import checkDetails from "utils/checkDetails";
+import { MyGlobalContext } from "utils/context"; 
 
 import supabaseClient from "utils/supabaseClient";
 
