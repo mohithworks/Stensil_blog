@@ -137,6 +137,7 @@ const Routes = () => {
   if(loading == true) {
     return (
       <div>
+        Loading....
       </div>
     )
   }else {
