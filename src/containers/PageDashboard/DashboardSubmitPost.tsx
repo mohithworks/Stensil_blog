@@ -85,6 +85,7 @@ const DashboardSubmitPost = () => {
                   200
                 );
               } catch (err) {
+                console.log(err);
                 alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
               }
             },
@@ -93,6 +94,7 @@ const DashboardSubmitPost = () => {
             200
           );
         } catch (err) {
+          console.log(err);
           alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
         }
         setFi(e.target.files[0]);
