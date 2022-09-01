@@ -20,7 +20,7 @@ const DashboardSubmitPost = () => {
   const [alertType, setalertType] = useState("");
   const [btnLoading, setbtnLoading] = useState(false);
   const [btnDisabled, setbtnDisabled] = useState(false);
-  const [oauthToken, setoauthToken] = useState();
+  const [oauthToken, setoauthToken] = useState<any>();
   const [docs, setDocs] = useState();
   const [docsName, setdocsName] = useState("Select your Google Docs from your Google Account");
   const { user } = useGDocsContext();
@@ -127,8 +127,8 @@ const DashboardSubmitPost = () => {
             setdocsName(data.docs[0].name + ' Selected');
             const fileId = data.docs[0].id;
             console.log(data.docs[0].id);
-            console.log(user.accessToken);
-            setoauthToken(user.accessToken);
+            console.log(provider);
+            setoauthToken(provider);
             setTitle(data.docs[0].name);
             setpostmetaCon(true);
             // axios.post("http://localhost:55232/.netlify/functions/gdocs/", { 
