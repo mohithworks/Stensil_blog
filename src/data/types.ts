@@ -1,6 +1,6 @@
 //  ######  CustomLink  ######## //
 export interface CustomLink {
-  label: string;
+  label: number;
   href: string;
   targetBlank?: boolean;
 }
@@ -19,22 +19,19 @@ export interface TaxonomyType {
 
 export interface PostAuthorType {
   id: string | number;
-  firstName: string;
-  lastName: string;
-  displayName: string;
-  avatar: string;
+  full_name: string;
+  avatar_url: string;
   bgImage?: string;
   email?: string;
-  count: number;
+  posts: number;
   desc: string;
-  jobName: string;
   href: string;
 }
 
 export interface PostDataType {
   id: string | number;
-  author: PostAuthorType;
-  date: string;
+  authors: PostAuthorType;
+  created_at: string;
   href: string;
   categories: TaxonomyType[];
   title: string;

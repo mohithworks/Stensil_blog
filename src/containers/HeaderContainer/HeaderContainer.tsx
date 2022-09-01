@@ -26,7 +26,7 @@ export interface HeaderContainerProps {
 }
 
 const HeaderContainer: FC<HeaderContainerProps> = ({ className = "" }) => {
-  const { user, event } = useGlobalContext();
+  //const { user, event } = useGlobalContext();
 
   const anchorRef = React.useRef<HTMLDivElement>(null);
 
@@ -63,7 +63,8 @@ const HeaderContainer: FC<HeaderContainerProps> = ({ className = "" }) => {
 
   const [isTopOfPage, setIsTopOfPage] = React.useState(window.pageYOffset < 5);
   const location = useLocation();
-  //const user = supabaseClient.auth.user();
+  const user = supabaseClient.auth.user();
+  const session = supabaseClient.auth.session();
 
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
@@ -105,9 +106,12 @@ const HeaderContainer: FC<HeaderContainerProps> = ({ className = "" }) => {
     if (user) {
       setHeaderSelected("Header 3");
       console.log("User exists");
+      console.log(session);
+      console.log(user);
     }else {
-      setHeaderSelected("Header 2");
+      setHeaderSelected("Header 1");
       console.log("User doesnot exists");
+      console.log(session);
     }
   }, [user]);
 

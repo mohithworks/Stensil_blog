@@ -1,0 +1,765 @@
+import LayoutPage from "components/LayoutPage/LayoutPage";
+import React, { ComponentType, FC, useState, useEffect } from "react";
+import { Redirect, Route, Switch, useRouteMatch } from "react-router";
+import { NavLink } from "react-router-dom";
+import DashboardBillingAddress from "./DashboardBillingAddress";
+import DashboardEditProfile from "./DashboardEditProfile";
+import DashboardPosts from "./DashboardPosts";
+import DashboardRoot from "./DashboardRoot";
+import DashboardSubcription from "./DashboardSubcription";
+import DashboardSubmitPost from "./DashboardSubmitPost";
+import { Helmet } from "react-helmet";
+import { GoogleLogin, GoogleLogout  } from 'react-google-login';
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import { gapi } from "gapi-script";
+import { GdocsContext } from "utils/gdocscontext"; 
+
+export interface PageDashboardProps {
+  className?: string;
+}
+
+interface DashboardLocationState {
+  "/root"?: {};
+  "/posts"?: {};
+  "/edit-profile"?: {};
+  "/subscription"?: {};
+  "/billing-address"?: {};
+  "/submit-post"?: {};
+  "/account"?: {};
+}
+
+interface DashboardPage {
+  sPath: keyof DashboardLocationState;
+  exact?: boolean;
+  component: ComponentType<Object>;
+  emoij: string;
+  pageName: string;
+}
+
+const subPages: DashboardPage[] = [
+  {
+    sPath: "/root",
+    exact: true,
+    component: DashboardRoot,
+    emoij: "🕹",
+    pageName: "Dashboard",
+  },
+  {
+    sPath: "/posts",
+    component: DashboardPosts,
+    emoij: "📕",
+    pageName: "Posts",
+  },
+  {
+    sPath: "/edit-profile",
+    component: DashboardEditProfile,
+    emoij: "🛠",
+    pageName: "Edit profile",
+  },
+  {
+    sPath: "/subscription",
+    component: DashboardSubcription,
+    emoij: "📃",
+    pageName: "Subscription",
+  },
+  {
+    sPath: "/billing-address",
+    component: DashboardBillingAddress,
+    emoij: "✈",
+    pageName: "Billing address",
+  },
+  {
+    sPath: "/submit-post",
+    component: DashboardSubmitPost,
+    emoij: "✍",
+    pageName: "Create a post",
+  },
+];
+
+const PageDashboard: FC<PageDashboardProps> = ({ className = "" }) => {
+  let { path, url } = useRouteMatch();
+  //"You have created a new client application that uses libraries for user authentication or authorization that will soon be deprecated. New clients must use the new libraries instead; existing clients must also migrate before these libraries are deprecated. See the [Migration Guide](https://developers.google.com/identity/gsi/web/guides/gis-migration) for more information."
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+        scope: 'https://www.googleapis.com/auth/drive.file',
+      });
+    }
+
+    gapi.load('client:auth2', start);
+  }, []);
+
+  const [btntxt, setbtntxt] = useState("Connect your Google Docs Account");
+  const [user, setUser] = useState();
+  
+  var usrdata:any = '';
+
+  const responseGoogle = (response: any) => {
+    usrdata = response;
+    console.log(usrdata);
+    setUser(usrdata);
+    setbtntxt("Reconnect your Google Docs Account");
+  }
+  const responseGoogle2 = (response: any) => {
+    console.log(response);
+    setbtntxt("Reconnect your Google Docs Account");
+  }
+
+  return (
+    <div className={`nc-PageDashboard ${className}`} data-nc-id="PageDashboard">
+      <Helmet>
+        <title>Dashboard || Blog Magazine React Template</title>
+      </Helmet>
+      <LayoutPage
+        subHeading="View your dashboard, manage your Posts, Subscription, edit password and profile"
+        headingEmoji="⚙"
+        heading="Dashboard"
+      >
+          <div className="items-center text-center">
+            <GoogleLogin
+              clientId={import.meta.env.VITE_GAUTHDOCS_CLIENTID}
+              render={renderProps => (
+                
+                <ButtonPrimary onClick={renderProps.onClick} disabled={renderProps.disabled} className="md:col-span-2 mb-20" type="submit">
+                  {btntxt}
+                </ButtonPrimary>
+              )}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle2}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
+            />
+          </div>
+          <GdocsContext.Provider value={{ user, setUser }}>
+            <div className="flex flex-col space-y-8 xl:space-y-0 xl:flex-row">
+              {/* SIDEBAR */}
+              <div className="flex-shrink-0 max-w-xl xl:w-80 xl:pr-8">
+                <ul className="text-base space-y-1 text-neutral-6000 dark:text-neutral-400">
+                  {subPages.map(({ sPath, pageName, emoij }, index) => {
+                    return (
+                      <li key={index}>
+                        <NavLink
+                          className="flex px-6 py-2.5 font-medium rounded-lg hover:text-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                          to={`${url}${sPath}`}
+                          activeClassName="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                        >
+                          <span className="w-8 mr-1">{emoij}</span>
+                          {pageName}
+                        </NavLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="border border-neutral-100 dark:border-neutral-800 md:hidden"></div>
+              <div className="flex-grow">
+                <Switch>
+                  {subPages.map(({ component, sPath, exact }, index) => {
+                    return (
+                      <Route
+                        key={index}
+                        exact={exact}
+                        component={component}
+                        path={!!sPath ? `${path}${sPath}` : path}
+                      />
+                    );
+                  })}
+                  <Redirect to={path + "/root"} />
+                </Switch>
+              </div>
+            </div>
+          </GdocsContext.Provider>
+      </LayoutPage>
+    </div>
+  );
+};
+
+export default PageDashboard;
+
+
+
+//import express from 'express';
+
+var { createClient } = require('@supabase/supabase-js');
+var { decode } = require('base64-arraybuffer');
+var {google} = require('googleapis');
+var fs = require('fs');
+var mammoth = require("mammoth");
+var express = require('express');
+
+// Create a single supabase client for interacting with your database
+const supabase = createClient('https://vwporhpsnujzncbdxtaj.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3cG9yaHBzbnVqem5jYmR4dGFqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MDIxNzI5NSwiZXhwIjoxOTc1NzkzMjk1fQ.f-VMEowcO6Mncg_sAsq5v4Pnb2ytN58VoukpG1931fs');
+
+//1zmZpRnHZOGYBXWiZ8Lw99oHePNF4BZPxRjjPBLUzFVc
+//1FVbkaybntDQBcNMk6e_kJZGfxe_TrjIt
+//ya29.A0AVA9y1trkldFMNiHgPi8MrAbq0RfAoq4rrQqGvKLyJtCk7FmwtkCryKIRvaHKwZF-Z8NgZPv9FfudZQbsoYAqNDwgHjQBY50uWaiSIG-uirqbtjwxpRnwFXRGBawzstIZRgICGaieJ7y-Y2vtV2vF62aIimWaCgYKATASATASFQE65dr8kQEX8gaRYvKZh0E8d35-5g0163
+
+// variables
+
+// async function uploadImg(imgname, imgdata, contentType) {
+//     const imgext = contentType.replace("image/", "");
+//     const imagepath = 'public/'+titletest+'/'+imgname+'.'+imgext;
+//     const { data, error } = await supabase.storage
+//     .from('posts')
+//     .upload(imagepath, decode(imgdata), {
+//         contentType: contentType,
+//     });
+//     if(error) {
+//         console.log(error);
+//     }
+//     if(data) {
+//         const { publicURL, error } = await supabase.storage
+//         .from('posts')
+//         .getPublicUrl(imagepath);
+//         if(error) {
+//             console.log(error);
+//         }
+//         if(publicURL) {
+//             //console.log(publicURL);
+//             return publicURL;
+//         }
+//     }
+// }
+//email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email openid
+async function getdata() {
+        var fileId = '127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8',
+            accessToken = 'ya29.a0AVA9y1t0jEQ16pp-smoADTXwcYEW-l9IRJjOkWmV4afsF2YV8dWH3f3_AthrRTjoJ32sv3mOMPHBll5Gpw240Zoe0pzbgUvULv43Xc0vlbbx61QYJ7KPqqgpiSObTg2BQbKhipxcnY21xbRF01tLdUtOgB-HHQaCgYKATASATASFQE65dr8hEG8ckHp_aTJTUlk5gvV5A0165';
+
+        // oauth setup
+        var OAuth2 = google.auth.OAuth2,
+            OAuth2Client = new OAuth2();
+
+        // set oauth credentials
+        OAuth2Client.setCredentials({access_token: accessToken});
+
+        // google drive setup
+        var drive = google.drive({version: 'v3', auth: OAuth2Client});
+
+        var i = 0;
+        
+        
+        const url = '';
+
+        console.log("Started");
+
+        var options = {
+            styleMap: [
+                "p[style-name='Heading 1'] => h2:fresh",
+            ],
+            convertImage: mammoth.images.imgElement(function(image) {
+                i++;
+                const contentType = image.contentType;
+                return image.read("base64").then(async function(imageBuffer) {
+                    const imgext = contentType.replace("image/", "");
+                    var titletest = "this-is-a-test-title-3";
+                    const imagepath = 'public/'+titletest+'/'+i+'.'+imgext;
+                    const { data, error } = await supabase.storage
+                    .from('posts')
+                    .upload(imagepath, decode(imageBuffer), {
+                        contentType: contentType,
+                    });
+                    if(error) {
+                        console.log(error);
+                    }
+                    if(data) {
+                        const { publicURL } = await supabase.storage
+                        .from('posts')
+                        .getPublicUrl(imagepath);
+                        if(error) {
+                            console.log(error);
+                        }
+                        console.log(publicURL);
+                        return {
+                            src: publicURL.toString(),
+                            alt: 'Test',
+                        };
+                        // if(publicURL) { 
+                        //     url = publicURL;
+                        //     console.log(publicURL);
+
+                        // }
+                    }
+                    //const url = uploadImg(i, imageBuffer, contentType);      
+                    //url.then(function(url) { 
+                        
+                    //});
+                });
+            })
+        }
+        // download file as text/html
+        var buffers = [];
+        console.log("Started 2");
+        try {
+            const result = await drive.files.export(
+                {
+                fileId: fileId,
+                mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                },
+            {responseType: 'arraybuffer'});
+            console.log(result.status);
+            buffers.push(Buffer.from(result.data));
+            console.log(buffers);
+            var buffer = Buffer.concat(buffers);
+            var html;
+            mammoth.convertToHtml({buffer: buffer}, options)
+            .then(function(result){
+                html = result.value; // The generated HTML
+                var messages = result.messages; // Any messages, such as warnings during conversion
+                console.log(messages);
+                var editedHtml = html.replace(/<img /g, "<img style={{borderRadius: 20}} ");
+                fs.writeFile('binary2.html', editedHtml, function(err){
+                    if(err)
+                    {
+                        console.log(err);
+                
+                    }
+                    else
+                    {
+                    console.log("Success");
+                    }
+                });
+            })
+            .done();
+        }catch(err){ 
+            console.log(err);
+        }
+        // fs.writeFile('binary5.docx', result.data, function(err){
+        //     if(err)
+        //     {
+        //         console.log(err);
+        
+        //     }
+        //     else
+        //     {
+        //         console.log("Success");
+        //     }
+        // });
+
+}
+getdata();
+// .on('error', function(err) {
+//         // handle error
+// }).on('data', function(data) {
+//         buffers.push(data); // data is a buffer
+// }).on('end', function() {
+//         var buffer = Buffer.concat(buffers),
+//             googleDocAsHtml = buffer.toString();
+//             console.log(googleDocAsHtml);
+// });
+
+
+
+
+
+// var mammoth = require("mammoth");
+// var fs = require('fs');
+
+// var html;
+// mammoth.convertToHtml({path: "./Letter.docx"})
+// .then(function(result){
+//     html = result.value; // The generated HTML
+//     var messages = result.messages; // Any messages, such as warnings during conversion
+//     fs.writeFile('binary5.html', html, function(err){
+//         if(err)
+//         {
+//             console.log(err);
+    
+//         }
+//         else
+//         {
+//            console.log("Success");
+//         }
+//     });
+// })
+// .done();
+
+// const app = express();
+// const port = 3000;
+
+// app.get('/', function(req, res, next){
+//     res.send("Started");
+// });
+
+// app.listen(port, () => console.log(`server started on port ${port}`));
+
+// export default app;
+
+
+begin
+  UPDATE public.authors
+  SET posts = posts + 1
+  WHERE email = new.email
+end;
+
+
+
+import React, { FC, ReactNode, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { PostDataType, TaxonomyType } from "data/types";
+import NcImage from "components/NcImage/NcImage";
+import { SINGLE } from "data/single";
+import SingleContent from "./SingleContent";
+import { CommentType } from "components/CommentCard/CommentCard";
+import { useAppDispatch } from "app/hooks";
+import { changeCurrentPage } from "app/pages/pages";
+import { Sidebar } from "./Sidebar";
+import SingleRelatedPosts from "./SingleRelatedPosts";
+import SingleHeader from "./SingleHeader";
+import SingleHeader4 from "./SingleHeader4";
+import supabaseClient from "utils/supabaseClient";
+
+export interface PageSingleTemp4SidebarProps {
+  className?: string;
+}
+
+export interface SinglePageType extends PostDataType {
+  tags: TaxonomyType[];
+  content: string | ReactNode;
+  comments: CommentType[];
+}
+
+const PageSingleTemp4Sidebar: FC<PageSingleTemp4SidebarProps> = ({
+  className = "",
+}) => {
+  // DEMO DATA
+  const dispatch = useAppDispatch();
+
+  const { authorslug, postslug } = useParams<any>();
+
+  const [loading, setLoading] = useState(true);
+  const [post, setPost] = useState<any>();
+
+  // UPDATE CURRENTPAGE DATA IN PAGEREDUCERS
+  useEffect(() => {
+    dispatch(changeCurrentPage({ type: "/single/:slug", data: SINGLE }));
+    return () => {
+      dispatch(changeCurrentPage({ type: "/", data: {} }));
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(authorslug);
+    console.log(postslug);
+
+    const fetchPost = async() => {
+      const { data, error } = await supabaseClient
+        .from('posts')
+        .select("*")
+        .eq('posttitle', postslug)
+        .eq('postedby', authorslug)
+
+        if(error) {
+          console.log(error);
+        }
+
+        if(data) {
+          setPost(data);
+          console.log(data);
+          setLoading(false);
+        }
+    }
+    fetchPost();
+  }, []);
+
+  if(loading) {
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          
+          <div className="container relative py-16 lg:py-20">
+            {/* HEADER */}
+            <header className="text-center max-w-2xl mx-auto space-y-7">
+              <h2 className="text-7xl md:text-8xl"></h2>
+              <h1 className="text-6xl md:text-6xl font-semibold tracking-widest">
+                LOADING....
+              </h1>
+              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+              </span>
+            </header>
+          </div>
+        </div>
+      </>
+    );
+  }else {
+    
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative pt-10 lg:pt-16 ${className}`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          <div className="absolute top-0 inset-x-0 bg-neutral-900 dark:bg-black/30 h-[480px] md:h-[600px] lg:h-[700px] xl:h-[95vh]"></div>
+
+          <div className="relative">
+            {/* SINGLE HEADER */}
+            <header className="container rounded-xl ">
+              <SingleHeader4 pageData={SINGLE} />
+            </header>
+
+            {/* SINGLE MAIN CONTENT */}
+            <div className="container flex flex-col my-10 lg:flex-row ">
+              <div className="w-full lg:w-3/5 xl:w-2/3 xl:pr-20">
+                <SingleContent data={post[0].post} />
+              </div>
+              <div className="w-full mt-12 lg:mt-0 lg:w-2/5 lg:pl-10 xl:pl-0 xl:w-1/3">
+                <Sidebar />
+              </div>
+            </div>
+
+            {/* RELATED POSTS */}
+            <SingleRelatedPosts />
+          </div>
+        </div>
+      </>
+    );
+    
+  }
+};
+
+export default PageSingleTemp4Sidebar;
+
+
+import React, { FC, useEffect, useRef } from "react";
+import Tag from "components/Tag/Tag";
+import { SinglePageType } from "./PageSingle";
+import SingleAuthor from "./SingleAuthor";
+import SingleCommentForm from "./SingleCommentForm";
+import SingleCommentLists from "./SingleCommentLists";
+import SingleContentDemo from "./SingleContentDemo";
+import { useLocation } from "react-router";
+
+export interface SingleContentProps {
+  data: SinglePageType;
+}
+
+const SingleContent: FC<SingleContentProps> = ({ data }) => {
+  //const { tags, author, commentCount, comments } = data;
+  const commentRef = useRef<HTMLDivElement>(null);
+  //
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log(data);
+    //  SCROLL TO COMMENT AREA
+    if (location.hash !== "#comment") {
+      return;
+    }
+    //
+    if (location.hash === "#comment") {
+      setTimeout(() => {
+        if (commentRef.current) {
+          commentRef.current.scrollIntoView();
+        }
+      }, 500);
+    }
+  }, [location]);
+
+  return (
+    <div className="nc-SingleContent space-y-10">
+      {/* ENTRY CONTENT */}
+      <div
+        id="single-entry-content"
+        className="prose lg:prose-lg !max-w-screen-md mx-auto dark:prose-invert"
+      >
+        {/* THIS IS THE DEMP CONTENT */}
+        {/* IF YOUR DATA IS JSON, YOU CAN USE render with html-react-parser (https://www.npmjs.com/package/html-react-parser) */}
+        <SingleContentDemo data={data} />
+      </div>
+
+      {/* TAGS */}
+      {/* <div className="max-w-screen-md mx-auto flex flex-wrap">
+        {tags.map((item) => (
+          <Tag hideCount key={item.id} tag={item} className="mr-2 mb-2" />
+        ))}
+      </div> */}
+
+      {/* AUTHOR */}
+      {/* <div className="max-w-screen-md mx-auto border-b border-t border-neutral-100 dark:border-neutral-700"></div>
+      <div className="max-w-screen-md mx-auto ">
+        <SingleAuthor author={author} />
+      </div> */}
+
+      {/* COMMENT FORM */}
+      {/* <div
+        id="comment"
+        ref={commentRef}
+        className="max-w-screen-md mx-auto pt-5"
+      >
+        <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+          Responses ({commentCount})
+        </h3>
+        <SingleCommentForm
+          onClickSubmit={(id) => console.log(id)}
+          onClickCancel={(id) => console.log(id)}
+        />
+      </div> */}
+
+      {/* COMMENTS LIST */}
+      {/* <div className="max-w-screen-md mx-auto">
+        <SingleCommentLists comments={comments} />
+      </div> */}
+    </div>
+  );
+};
+
+export default SingleContent;
+
+
+import React, { FC, ReactNode, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { PostDataType, TaxonomyType } from "data/types";
+import NcImage from "components/NcImage/NcImage";
+import { SINGLE } from "data/single";
+import SingleContent from "./SingleContent";
+import { CommentType } from "components/CommentCard/CommentCard";
+import { useAppDispatch } from "app/hooks";
+import { changeCurrentPage } from "app/pages/pages";
+import SingleHeader from "./SingleHeader";
+import SingleRelatedPosts from "./SingleRelatedPosts";
+import supabaseClient from "utils/supabaseClient";
+
+export interface PageSingleProps {
+  className?: string;
+}
+
+export interface SinglePageType extends PostDataType {
+  tags: TaxonomyType[];
+  content: string | ReactNode;
+  comments: CommentType[];
+}
+
+const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
+  const dispatch = useAppDispatch();
+
+  const { authorslug, postslug } = useParams<any>();
+
+  const [loading, setLoading] = useState(true);
+  const [post, setPost] = useState<any>();
+
+  useEffect(() => {
+    console.log(authorslug);
+    console.log(postslug);
+
+    const fetchPost = async() => {
+      const { data, error } = await supabaseClient
+        .from('posts')
+        .select(`*, authors(*)`)
+        .eq('posttitle', postslug)
+        .eq('postedby', authorslug)
+
+        if(error) {
+          console.log(error);
+        }
+
+        if(data) {
+          setPost(data);
+          console.log(data);
+          setLoading(false);
+        }
+    }
+    fetchPost();
+  }, []);
+
+  useEffect(() => {
+    // UPDATE CURRENTPAGE DATA IN PAGE-REDUCERS
+    dispatch(changeCurrentPage({ type: "/single/:slug", data: SINGLE }));
+
+    return () => {
+      dispatch(changeCurrentPage({ type: "/", data: {} }));
+    };
+  }, []);
+
+  if(loading) {
+
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          
+          <div className="container relative py-16 lg:py-20">
+            {/* HEADER */}
+            <header className="text-center max-w-2xl mx-auto space-y-7">
+              <h2 className="text-7xl md:text-8xl"></h2>
+              <h1 className="text-6xl md:text-6xl font-semibold tracking-widest">
+                LOADING....
+              </h1>
+              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+              </span>
+            </header>
+          </div>
+        </div>
+      </>
+    );
+
+  }else if(!post[0]) {
+
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          
+          <div className="container relative py-16 lg:py-20">
+            {/* HEADER */}
+            <header className="text-center max-w-2xl mx-auto space-y-7">
+              <h2 className="text-7xl md:text-8xl">🪔</h2>
+              <h1 className="text-8xl md:text-9xl font-semibold tracking-widest">
+                404
+              </h1>
+              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+                THE PAGE YOU WERE LOOKING FOR DOESN'T EXIST.{" "}
+              </span>
+            </header>
+          </div>
+        </div>
+      </>
+    );
+
+  }else { 
+
+    return (
+      <>
+        <div
+          className={`nc-PageSingle pt-8 lg:pt-16 ${className}`}
+          data-nc-id="PageSingle"
+        >
+          {/* SINGLE HEADER */}
+          <header className="container rounded-xl">
+            <div className="max-w-screen-md mx-auto">
+              <SingleHeader pageData={post[0]} />
+            </div>
+          </header>
+  
+          {/* FEATURED IMAGE */}
+          <NcImage
+            containerClassName="container my-10 sm:my-12"
+            className="object-cover w-full h-full rounded-xl"
+            src={post[0].featured_imghd}
+          />
+  
+          {/* SINGLE MAIN CONTENT */}
+          <div className="container">
+            <SingleContent data={post[0].post} />
+          </div>
+  
+          {/* RELATED POSTS */}
+          {/* <SingleRelatedPosts /> */}
+        </div>
+      </>
+    );
+
+  }
+};
+
+export default PageSingle;

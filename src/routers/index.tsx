@@ -82,6 +82,10 @@ export const pages: Page[] = [
     component: PageSingleTemp4Sidebar,
   },
   {
+    path: "/:authorslug/posts/:postslug",
+    component: PageSingle,
+  },
+  {
     path: "/single-gallery/:slug",
     component: PageSingleGallery,
   },
@@ -119,14 +123,20 @@ const Routes = () => {
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState<any>(false);
 
-  const authUser = supabaseClient.auth.user();
+ // const authUser = supabaseClient.auth.user();
   
   useEffect(() => {
     //setLoading(true);
-    setUser(authUser);
+    checkUser();
+    
     //setLoading(false);
-  }, [authUser]);
+  }, []);
 
+  async function checkUser() {
+    /* when the component loads, checks user to show or hide Sign In link */
+    setUser(await supabaseClient.auth.user());
+  }
+  
   // useEffect(() => {
   //   supabaseClient.auth.onAuthStateChange((event) => {
   //     setEvent(event);

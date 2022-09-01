@@ -1,8 +1,8 @@
 import supabaseClient from './supabaseClient';
 
-const checkDetails = async (user: string, type: string, query: string) => {
+const checkDetails = async (user: string, type: string, query: string, table: string) => {
     const { data, error } = await supabaseClient
-        .from('authors')
+        .from(table)
         .select(query)
         .eq(type, user)
         .single();

@@ -21,6 +21,7 @@ export interface LocationStates {
   "/single-2-sidebar/:slug"?: {};
   "/single-3-sidebar/:slug"?: {};
   "/single-4-sidebar/:slug"?: {};
+  "/:authorslug/posts/:postslug"?: {};
   "/single-gallery/:slug"?: {};
   "/single-audio/:slug"?: {};
   "/single-video/:slug"?: {};

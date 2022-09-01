@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import Collapse from '@mui/material/Collapse';
 import supabaseClient from 'utils/supabaseClient';
 import checkDetails from "utils/checkDetails";
+import { useGlobalContext } from 'utils/context';
 
 export interface PageSignUpProps {
   className?: string;
@@ -19,7 +20,7 @@ export interface PageSignUpProps {
 const loginSocials = [
   {
     name: "Continue with Google",
-    provider: "google",
+    provider: 'google',
     icon: googleSvg,
   },
 ];
@@ -35,6 +36,7 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [errortxt, setErrortxt] = useState("");
+  const { user, setUser } = useGlobalContext();
   
   const alertMsg = (val: string, errtype: string) => {
     setErrortxt(val);
@@ -44,12 +46,12 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
   }
 
   const socialSignup = async (provider: string) => {
-    if(provider == "google") {
+    if(provider == 'google') {
       const { user, session, error } = await supabaseClient.auth.signIn({
-        // https://vwporhpsnujzncbdxtaj.supabase.co/auth/v1/authorize?provider=google
         provider: 'google'
       })
       if(error) throw alertMsg(error.message, "error");
+      setUser(user);
       console.log(user);
     } 
     // else if(provider == "facebook") {
@@ -82,10 +84,10 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
     }else if(!lname.match(lnameReg)) {
       alertMsg("Lastname entered is invalid", "error");
     }else {
-      setErrortxt("");
+      setErrortxt(""); 
       setshowAlert(false);
       setbtnLoading(true);
-      checkDetails(email, "email", "email").then(async (res) => {
+      checkDetails(email, "email", "email", "authors").then(async (res) => {
         if(res.email == email) {
           alertMsg("User already exists", "error");
         }else if(res.code && res.code == "PGRST116") {

@@ -56,3 +56,1217 @@
   },
   "role": "authenticated"
 }
+
+{
+    "action": "picked",
+    "viewToken": [
+        "documents",
+        null,
+        {}
+    ],
+    "docs": [
+        {
+            "id": "127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8",
+            "serviceId": "doc",
+            "mimeType": "application/vnd.google-apps.document",
+            "name": "TestBrochure",
+            "description": "",
+            "type": "document",
+            "lastEditedUtc": 1660764893880,
+            "iconUrl": "https://drive-thirdparty.googleusercontent.com/16/type/application/vnd.google-apps.document",
+            "url": "https://docs.google.com/document/d/127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8/edit?usp=drive_web",
+            "embedUrl": "https://docs.google.com/document/d/127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8/preview",
+            "sizeBytes": 0,
+            "parentId": "0AGfaf3I8bN9SUk9PVA"
+        }
+    ]
+}
+<img alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiNhNGE0YTQiPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+
+
+import React, {useEffect, useState} from "react";
+import Input from "components/Input/Input";
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import Select from "components/Select/Select";
+import Textarea from "components/Textarea/Textarea";
+import Label from "components/Label/Label";
+import { gapi } from 'gapi-script';
+import useDrivePicker from 'react-google-drive-picker';
+
+const SCOPES = ["https://www.googleapis.com/auth/some.scope"];
+const DISCOVERY_DOCS = [
+  "https://www.googleapis.com/discovery/v1/apis/people/v1/rest"
+];
+
+let done = false;
+
+
+function GoogleDocsButton(options: {
+  loggedIn: boolean;
+  logIn: (e:any) => void;
+  logOut: (e:any) => void;
+}) {
+  const { loggedIn, logIn, logOut } = options;
+  const buttonText = loggedIn ? "Log out" : "Log in";
+  const buttonAction = loggedIn ? logOut : logIn;
+
+  return <ButtonPrimary onClick={buttonAction}className="md:col-span-2" type="submit">{buttonText}</ButtonPrimary>;
+}
+
+const DashboardSubmitPost = () => {
+  const [openPicker, authResponse] = useDrivePicker(); 
+  const [loggedInStatus, setLoggedInStatus] = useState<boolean>(false);
+  const [initiatedClient, setInitiatedClient] = useState<boolean>(false);
+  
+  const [docs, setDocs] = useState<any>();
+  const [user, setUser] = useState<any>();
+  const [docsName, setDocsName] = useState("Select your Google Doc file from your account");
+
+
+  const initClient = (options: {
+    updateLoggedInStatus: (status: boolean) => void;
+  }) => {
+    if (done) {
+      return;
+    }
+    done = true;
+    gapi.client
+      .init({
+        apiKey: import.meta.env.VITE_GAUTHDOCS_CLIENTSECRET,
+        client_id: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+        discoveryDocs: DISCOVERY_DOCS,
+        scope: SCOPES,
+      })
+      .then(() => {
+        // Listen for sign-in state changes.
+        console.log("gapi.auth2", gapi.auth2);
+  
+        gapi.auth2.getAuthInstance().isSignedIn.listen(options.updateLoggedInStatus);
+  
+        // Handle the initial sign-in state.
+        options.updateLoggedInStatus(
+          gapi.auth2.getAuthInstance().isSignedIn.get()
+        );
+      })
+      .catch((err: any) => {
+        console.error("Caught error", err);
+      });
+  };
+
+  // const initClient = () => {
+  //   gapi.client
+  //     .init({
+  //       apiKey: import.meta.env.VITE_GAUTHDOCS_CLIENTSECRET,
+  //       client_id: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+  //       discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/people/v1/rest"],
+  //       scope: 'https://www.googleapis.com/auth/some.scope',
+  //     })
+  //     .then(() => {
+  //       // Listen for sign-in state changes.
+  //       gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+  //       updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        
+  //       // Handle the initial sign-in state.
+  //     })
+  //     .catch((err: any) => {
+  //       console.error("Caught error", err);
+  //     });
+  // };
+
+  // function updateSigninStatus(isSignedIn: any) {
+  //   if (isSignedIn) {
+  //     setUser(true);
+  //   } else {
+  //     setUser(false);
+  //   }
+  //   console
+  // }
+
+  useEffect(() => {
+    gapi.load("client:auth2", () =>
+      initClient({
+        updateLoggedInStatus: (status) => {
+          console.log("Login status", status);
+          setLoggedInStatus(status);
+        },
+      })
+    );
+
+    setInitiatedClient(true);
+
+  }, [initiatedClient]);
+
+
+  const connectGDocs = (e:any) => {
+    e.preventDefault();
+    openPicker({
+      clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+      developerKey: "AIzaSyCdQsWC2gvOAJOOPi_l8wKOAaHBKsQIILQ",
+      viewId: "DOCUMENTS",
+      // token: token, // pass oauth token in case you already have one
+      showUploadView: false,
+      showUploadFolders: true,
+      supportDrives: true,
+      multiselect: false,
+      // customViews: customViewsArray, // custom view
+      callbackFunction: (data) => {
+        if (data.action === 'cancel') {
+          console.log('User clicked cancel/close button')
+        }
+        setDocs(data.docs[0].id);
+        setDocsName(data.docs[0].name + " Selected");
+      },
+    })
+  }
+
+  return (
+    <div className="rounded-xl md:border md:border-neutral-100 dark:border-neutral-800 md:p-6">
+      <form className="grid md:grid-cols-2 gap-6" action="#" method="post">
+      
+        <label className="block md:col-span-2">
+          <Label>Post Title *</Label>
+
+          <Input type="text" className="mt-1" />
+        </label>
+        {/* <label className="block md:col-span-2">
+          <Label>Post Excerpt</Label>
+
+          <Textarea className="mt-1" rows={4} />
+          <p className="mt-1 text-sm text-neutral-500">
+            Brief description for your article. URLs are hyperlinked.
+          </p>
+        </label> */}
+        <label className="block md:col-span-2">
+          <Label>Category</Label>
+
+          <Select className="mt-1">
+            <option value="-1">– select –</option>
+            <option value="ha'apai">Category 1</option>
+            <option value="tongatapu">Category 2</option>
+            <option value="vava'u">Category 3</option>
+          </Select>
+        </label>
+        {/* <label className="block">
+          <Label>Tags</Label>
+
+          <Input type="text" className="mt-1" />
+        </label> */}
+
+        <div onClick={(e: any) => connectGDocs(e)} className="block md:col-span-2 cursor-pointer ">
+          <Label>Select Google Doc</Label>
+
+          <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-md">
+            <div className="space-y-1 text-center">
+            <img className="mx-auto h-12 w-12 text-neutral-400" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiM3Nzc3NzciPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+              {/* <svg className="mx-auto h-12 w-12 text-neutral-400" viewBox="0 0 231.306 231.306">  
+                
+                <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813   c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985   C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747   C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574   C219.306,206.41,206.41,219.306,190.559,219.306z"/>
+                <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"/>
+              </svg> */}
+              {/* <div className="flex flex-col sm:flex-row text-sm text-neutral-6000">
+                <label
+                  htmlFor="file-upload"
+                  className="item-center cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div> */}
+              <p className="text-xs text-neutral-500">
+                {docsName}
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <label className="block md:col-span-2">
+          <Label> Post Content</Label>
+
+          <Textarea className="mt-1" rows={16} />
+        </label> */}
+
+        <GoogleDocsButton
+          loggedIn={loggedInStatus}
+          logIn={(e:any) => {e.preventDefault(); gapi.auth2.getAuthInstance().signIn();}}
+          logOut={(e:any) => {e.preventDefault(); gapi.auth2.getAuthInstance().signOut();}}
+        />
+      </form>
+    </div>
+  );
+};
+
+export default DashboardSubmitPost;
+
+
+
+
+
+import React, {useEffect, useState} from "react";
+import Input from "components/Input/Input";
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import Select from "components/Select/Select";
+import Textarea from "components/Textarea/Textarea";
+import Label from "components/Label/Label";
+import { gapi } from 'gapi-script';
+import useDrivePicker from 'react-google-drive-picker'
+
+
+const DashboardSubmitPost = () => {
+  const [openPicker, authResponse] = useDrivePicker(); 
+  
+  const [docs, setDocs] = useState<any>();
+  const [user, setUser] = useState<any>();
+  const [docsName, setDocsName] = useState("Select your Google Doc file from your account");
+
+  const initClient = () => {
+    gapi.client
+      .init({
+        apiKey: "AIzaSyCdQsWC2gvOAJOOPi_l8wKOAaHBKsQIILQ",
+        client_id: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/people/v1/rest"],
+        scope: 'https://www.googleapis.com/auth/some.scope',
+      })
+      .then(() => {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        
+        // Handle the initial sign-in state.
+      })
+      .catch((err: any) => {
+        console.error("Caught error", err);
+      });
+  };
+
+  function updateSigninStatus(isSignedIn: any) {
+    if (isSignedIn) {
+      setUser(true);
+    } else {
+      setUser(false);
+    }
+    console.log(isSignedIn);
+  }
+
+  useEffect(() => {
+    gapi.load("client:auth2", () =>
+      initClient()
+    );
+
+  }, []);
+
+
+  const connectGDocs = (e:any) => {
+    e.preventDefault();
+    openPicker({
+      clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+      developerKey: "AIzaSyCdQsWC2gvOAJOOPi_l8wKOAaHBKsQIILQ",
+      viewId: "DOCUMENTS",
+      // token: token, // pass oauth token in case you already have one
+      showUploadView: false,
+      showUploadFolders: true,
+      supportDrives: true,
+      multiselect: false,
+      // customViews: customViewsArray, // custom view
+      callbackFunction: (data) => {
+        if (data.action === 'cancel') {
+          console.log('User clicked cancel/close button')
+        }
+        setDocs(data.docs[0].id);
+        setDocsName(data.docs[0].name + " Selected");
+      },
+    })
+  }
+
+  return (
+    <div className="rounded-xl md:border md:border-neutral-100 dark:border-neutral-800 md:p-6">
+      <form className="grid md:grid-cols-2 gap-6" action="#" method="post">
+      
+        <label className="block md:col-span-2">
+          <Label>Post Title *</Label>
+
+          <Input type="text" className="mt-1" />
+        </label>
+        {/* <label className="block md:col-span-2">
+          <Label>Post Excerpt</Label>
+
+          <Textarea className="mt-1" rows={4} />
+          <p className="mt-1 text-sm text-neutral-500">
+            Brief description for your article. URLs are hyperlinked.
+          </p>
+        </label> */}
+        <label className="block md:col-span-2">
+          <Label>Category</Label>
+
+          <Select className="mt-1">
+            <option value="-1">– select –</option>
+            <option value="ha'apai">Category 1</option>
+            <option value="tongatapu">Category 2</option>
+            <option value="vava'u">Category 3</option>
+          </Select>
+        </label>
+        {/* <label className="block">
+          <Label>Tags</Label>
+
+          <Input type="text" className="mt-1" />
+        </label> */}
+
+        <div onClick={(e: any) => connectGDocs(e)} className="block md:col-span-2 cursor-pointer ">
+          <Label>Select Google Doc</Label>
+
+          <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-md">
+            <div className="space-y-1 text-center">
+            <img className="mx-auto h-12 w-12 text-neutral-400" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiM3Nzc3NzciPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+              {/* <svg className="mx-auto h-12 w-12 text-neutral-400" viewBox="0 0 231.306 231.306">  
+                
+                <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813   c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985   C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747   C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574   C219.306,206.41,206.41,219.306,190.559,219.306z"/>
+                <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"/>
+              </svg> */}
+              {/* <div className="flex flex-col sm:flex-row text-sm text-neutral-6000">
+                <label
+                  htmlFor="file-upload"
+                  className="item-center cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div> */}
+              <p className="text-xs text-neutral-500">
+                {docsName}
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <label className="block md:col-span-2">
+          <Label> Post Content</Label>
+
+          <Textarea className="mt-1" rows={16} />
+        </label> */}
+
+        <ButtonPrimary className="md:col-span-2" type="submit">
+          Submit post
+        </ButtonPrimary>
+      </form>
+    </div>
+  );
+};
+
+export default DashboardSubmitPost;
+
+
+
+          setDocs(data.docs[0].id);
+          var request = gapi.client.drive.files.get({
+            fileId: docs
+          });
+          request.then(function(resp: any){
+              console.log(resp.result);
+              const type = resp.result.mimeType;
+              const id = resp.result.id;
+              var request = gapi.client.drive.files.export({
+                  fileId:id,
+                  mimeType:type
+              })
+              request.execute(function(resp: any){
+                  console.log(resp);
+              });
+          });
+
+
+
+
+import React, {useEffect, useState} from "react";
+import Input from "components/Input/Input";
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import Select from "components/Select/Select";
+import Textarea from "components/Textarea/Textarea";
+import Label from "components/Label/Label";
+import { gapi } from 'gapi-script';
+import useDrivePicker from 'react-google-drive-picker'
+
+
+const DashboardSubmitPost = () => {
+  const [openPicker, authResponse] = useDrivePicker(); 
+  const [oauthToken, setoauthToken] = useState();
+  const [docs, setDocs] = useState<any>();
+
+  var scope = ['https://www.googleapis.com/auth/drive.file'];
+
+  function connectGDocs(e: any) {
+    e.preventDefault();
+    gapi.load('auth', {'callback': onAuthApiLoad});
+  }
+
+  function onAuthApiLoad() {
+    gapi.auth.authorize(
+        {
+          'client_id': import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+          'scope': scope,
+          'immediate': false
+        },
+        handleAuthResult);
+  }
+
+  function handleAuthResult(authResult: any) {
+    if (authResult && !authResult.error) {
+      const authtoken = authResult.access_token;
+      if(authtoken) {
+        setoauthToken(authtoken);
+        createPicker(authtoken);
+
+      }
+    }
+  }
+
+  const createPicker = (authtoken: any) => {
+    if(authtoken) {
+      openPicker({
+        clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+        developerKey: "AIzaSyCdQsWC2gvOAJOOPi_l8wKOAaHBKsQIILQ",
+        viewId: "DOCUMENTS",
+        token: authtoken, // pass oauth token in case you already have one
+        showUploadView: false,
+        showUploadFolders: true,
+        supportDrives: true,
+        multiselect: false,
+        // customViews: customViewsArray, // custom view
+        callbackFunction: (data) => {
+          if (data.action === 'cancel') {
+            console.log('User clicked cancel/close button')
+          }else if (data.action === 'picked') {
+            setDocs(data.docs[0].id);
+            gapi.client.drive.files.list({
+              pageSize: 10,
+              fields: 'nextPageToken, files(id, name, mimeType, modifiedTime)',
+            })
+            .then(function (response: any) {
+              console.log(response);
+            });
+            // const docsid = data.docs[0].id;
+            //   console.log("Inside drive");
+            //   var request = gapi.client.drive.files.get({
+            //     fileId: docsid
+            //   });
+            //   request.then(function(resp: any){
+            //       console.log(resp.result);
+            //       const type = resp.result.mimeType;
+            //       const id = resp.result.id;
+            //       var request = gapi.drive.client.files.export({
+            //           fileId:id,
+            //           mimeType:type
+            //       })
+            //       request.execute(function(resp: any){
+            //           console.log(resp);
+            //       });
+            //   });
+              // now we can use gapi.client.drive
+              // ...
+          }
+          console.log(data);
+          // setDocsName(data.docs[0].name + " Selected");
+        },
+      })
+    }
+  }
+
+  return (
+    <div className="rounded-xl md:border md:border-neutral-100 dark:border-neutral-800 md:p-6">
+      <form className="grid md:grid-cols-2 gap-6" action="#" method="post">
+      
+        <label className="block md:col-span-2">
+          <Label>Post Title *</Label>
+
+          <Input type="text" className="mt-1" />
+        </label>
+        {/* <label className="block md:col-span-2">
+          <Label>Post Excerpt</Label>
+
+          <Textarea className="mt-1" rows={4} />
+          <p className="mt-1 text-sm text-neutral-500">
+            Brief description for your article. URLs are hyperlinked.
+          </p>
+        </label> */}
+        <label className="block md:col-span-2">
+          <Label>Category</Label>
+
+          <Select className="mt-1">
+            <option value="-1">– select –</option>
+            <option value="ha'apai">Category 1</option>
+            <option value="tongatapu">Category 2</option>
+            <option value="vava'u">Category 3</option>
+          </Select>
+        </label>
+        {/* <label className="block">
+          <Label>Tags</Label>
+
+          <Input type="text" className="mt-1" />
+        </label> */}
+
+        <div onClick={(e: any) => connectGDocs(e)} className="block md:col-span-2 cursor-pointer ">
+          <Label>Select Google Doc</Label>
+
+          <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-md">
+            <div className="space-y-1 text-center">
+            <img className="mx-auto h-12 w-12 text-neutral-400" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiM3Nzc3NzciPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+              {/* <svg className="mx-auto h-12 w-12 text-neutral-400" viewBox="0 0 231.306 231.306">  
+                
+                <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813   c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985   C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747   C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574   C219.306,206.41,206.41,219.306,190.559,219.306z"/>
+                <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"/>
+              </svg> */}
+              {/* <div className="flex flex-col sm:flex-row text-sm text-neutral-6000">
+                <label
+                  htmlFor="file-upload"
+                  className="item-center cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div> */}
+              <p className="text-xs text-neutral-500">
+                This is a test
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <label className="block md:col-span-2">
+          <Label> Post Content</Label>
+
+          <Textarea className="mt-1" rows={16} />
+        </label> */}
+
+        <ButtonPrimary className="md:col-span-2" type="submit">
+          Submit post
+        </ButtonPrimary>
+      </form>
+    </div>
+  );
+};
+
+export default DashboardSubmitPost;
+
+
+
+
+
+import React, {useState, useEffect} from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { GoogleLogout, GoogleLogin } from 'react-google-login';
+const {OAuth2Client} = require('google-auth-library');
+
+function App() {
+  const [user, setUser] = useState();
+
+  const responseGoogle = (response) => {
+    console.log(response);
+    setUser(response.Qt)
+  };
+
+  const logout = () => {
+    console.log('logged out')
+    setUser();
+  }
+  useEffect(() => {
+    let authObj;
+    window.gapi.load('auth2', () => {
+    window.gapi.auth2.init({
+      client_id:
+      'YOUR_CLIENT_ID_HERE.apps.googleusercontent.com',
+      })
+      .then(() => {
+        authObj = window.gapi.auth2.getAuthInstance();
+        if (authObj.isSignedIn.get()) {
+          const userObj = authObj.currentUser.get();
+          const client = new OAuth2Client('YOUR_CLIENT_ID_HERE.apps.googleusercontent.com');
+          async function verify() {
+            const ticket = await client.verifyIdToken({
+              idToken: userObj.wc.id_token,
+              audience: 'YOUR_CLIENT_ID_HERE.apps.googleusercontent.com',
+            });
+            const payload = ticket.getPayload();
+            const userid = payload['sub'];
+          }
+          verify()
+          .then(() => setUser(userObj.Qt))
+          .catch(console.error);
+        }
+      })
+      .catch((err) => {
+         console.error(err);
+      });
+    });
+  }, []);
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        {user && (
+        <h1>Welcome, {user.Bd}</h1>
+        )}
+        <GoogleLogin
+          clientId="YOUR_CLIENT_ID_HERE.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+        />
+        <GoogleLogout
+        clientId="YOUR_CLIENT_ID_HERE.apps.googleusercontent.com"
+        buttonText="Logout"
+        onLogoutSuccess={logout}
+        />
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+export default App;
+
+
+
+
+
+
+import React, {useEffect, useState} from "react";
+import Input from "components/Input/Input";
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import Select from "components/Select/Select";
+import Textarea from "components/Textarea/Textarea";
+import Label from "components/Label/Label";
+import { gapi } from 'gapi-script';
+import useDrivePicker from 'react-google-drive-picker';
+import { useGDocsContext } from 'utils/gdocscontext';
+
+
+const DashboardSubmitPost = () => {
+  const [openPicker, authResponse] = useDrivePicker(); 
+  const [oauthToken, setoauthToken] = useState();
+  const [docs, setDocs] = useState<any>();
+  const { user } = useGDocsContext();
+
+  var scope = ['https://www.googleapis.com/auth/drive.file'];
+  var authtoken: any = '';
+  
+  useEffect(() => {
+    console.log(user);
+    
+  }, []);
+
+  function connectGDocs(e: any) {
+    e.preventDefault();
+    gapi.load('auth', {'callback': onAuthApiLoad});
+  }
+
+  function onAuthApiLoad() {
+    gapi.auth.authorize(
+        {
+          'client_id': import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+          'scope': scope,
+          'immediate': false
+        },
+        handleAuthResult);
+  }
+
+  function handleAuthResult(authResult: any) {
+    if (authResult && !authResult.error) {
+      authtoken = authResult.access_token;
+      if(authtoken) {
+        setoauthToken(authtoken);
+        createPicker(authtoken);
+
+      }
+    }
+  }
+
+  const createPicker = (authtoken: any) => {
+    if(authtoken) {
+      openPicker({
+        clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+        developerKey: "AIzaSyCdQsWC2gvOAJOOPi_l8wKOAaHBKsQIILQ",
+        viewId: "DOCUMENTS",
+        token: authtoken, // pass oauth token in case you already have one
+        showUploadView: false,
+        showUploadFolders: true,
+        supportDrives: true,
+        multiselect: false,
+        // customViews: customViewsArray, // custom view
+        callbackFunction: (data: any) => {
+          if (data.action === 'cancel') {
+            console.log('User clicked cancel/close button')
+          }else if (data.action === 'picked') {
+            setDocs(data.docs[0].id);
+            const fileId = data.docs[0].id;
+            const accessToken = oauthToken;
+            console.log(data.docs[0].id);
+            console.log(authtoken);
+
+            //ya29.A0AVA9y1uXLbkFNLYSzS5b17Rgjhx6ABewSg9edy6S0Rj7OieEC7h4prEXxwdthqcsSqOpKmSjQJ7fMlPrQIyRBYYfa-BOCF6QnxpBlug3heMsMPPgz9JaBCiE4BWVjY_0siHVGcNT4jfEaG2tBfz_L2PedmKEfgaCgYKATASATASFQE65dr8gGyJTDjtNR7Pwty4HxAC4g0165
+            //ya29.A0AVA9y1sDaXIgikim_f4jl0A49Ov8CteIbYrL1c7mzrXAHollhY5wbNlpeY-oMo0nspP1aOKK2cXuioC2-kYhushsjLQOH0UWrnNfvMj2PqsPcwlPsXb0_8G7GyTA_J6RE9cUMpYR3E2qoYCmJ_X57XigpxsrUwaCgYKATASATASFQE65dr8C_awIJoa2InWHHEoHrdm0A0165
+            // gapi.client.drive.files.list({
+            //   pageSize: 10,
+            //   fields: 'nextPageToken, files(id, name, mimeType, modifiedTime)',
+            // })
+            // .then(function (response: any) {
+            //   console.log(response);
+            // });
+            // const docsid = data.docs[0].id;
+            //   console.log("Inside drive");
+            //   var request = gapi.client.drive.files.get({
+            //     fileId: docsid
+            //   });
+            //   request.then(function(resp: any){
+            //       console.log(resp.result);
+            //       const type = resp.result.mimeType;
+            //       const id = resp.result.id;
+            //       var request = gapi.drive.client.files.export({
+            //           fileId:id,
+            //           mimeType:type
+            //       })
+            //       request.execute(function(resp: any){
+            //           console.log(resp);
+            //       });
+            //   });
+              // now we can use gapi.client.drive
+              // ...
+          }
+          console.log(data);
+          // setDocsName(data.docs[0].name + " Selected");
+        },
+      })
+    }
+  }
+
+  return (
+    <div className="rounded-xl md:border md:border-neutral-100 dark:border-neutral-800 md:p-6">
+      <form className="grid md:grid-cols-2 gap-6" action="#" method="post">
+      
+        <label className="block md:col-span-2">
+          <Label>Post Title *</Label>
+
+          <Input type="text" className="mt-1" />
+        </label>
+        {/* <label className="block md:col-span-2">
+          <Label>Post Excerpt</Label>
+
+          <Textarea className="mt-1" rows={4} />
+          <p className="mt-1 text-sm text-neutral-500">
+            Brief description for your article. URLs are hyperlinked.
+          </p>
+        </label> */}
+        <label className="block md:col-span-2">
+          <Label>Category</Label>
+
+          <Select className="mt-1">
+            <option value="-1">– select –</option>
+            <option value="ha'apai">Category 1</option>
+            <option value="tongatapu">Category 2</option>
+            <option value="vava'u">Category 3</option>
+          </Select>
+        </label>
+        {/* <label className="block">
+          <Label>Tags</Label>
+
+          <Input type="text" className="mt-1" />
+        </label> */}
+
+        <div onClick={(e: any) => connectGDocs(e)} className="block md:col-span-2 cursor-pointer ">
+          <Label>Select Google Doc</Label>
+
+          <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-md">
+            <div className="space-y-1 text-center">
+            <img className="mx-auto h-12 w-12 text-neutral-400" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiM3Nzc3NzciPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+              {/* <svg className="mx-auto h-12 w-12 text-neutral-400" viewBox="0 0 231.306 231.306">  
+                
+                <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813   c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985   C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747   C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574   C219.306,206.41,206.41,219.306,190.559,219.306z"/>
+                <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"/>
+              </svg> */}
+              {/* <div className="flex flex-col sm:flex-row text-sm text-neutral-6000">
+                <label
+                  htmlFor="file-upload"
+                  className="item-center cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div> */}
+              <p className="text-xs text-neutral-500">
+                This is a test
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <label className="block md:col-span-2">
+          <Label> Post Content</Label>
+
+          <Textarea className="mt-1" rows={16} />
+        </label> */}
+
+        <ButtonPrimary className="md:col-span-2" type="submit">
+          Submit post
+        </ButtonPrimary>
+      </form>
+    </div>
+  );
+};
+
+export default DashboardSubmitPost;
+
+
+
+
+import LayoutPage from "components/LayoutPage/LayoutPage";
+import React, { ComponentType, FC, useState } from "react";
+import { Redirect, Route, Switch, useRouteMatch } from "react-router";
+import { NavLink } from "react-router-dom";
+import DashboardBillingAddress from "./DashboardBillingAddress";
+import DashboardEditProfile from "./DashboardEditProfile";
+import DashboardPosts from "./DashboardPosts";
+import DashboardRoot from "./DashboardRoot";
+import DashboardSubcription from "./DashboardSubcription";
+import DashboardSubmitPost from "./DashboardSubmitPost";
+import { Helmet } from "react-helmet";
+import { GoogleLogin, GoogleLogout  } from 'react-google-login';
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import { GdocsContext } from "utils/gdocscontext"; 
+
+export interface PageDashboardProps {
+  className?: string;
+}
+
+interface DashboardLocationState {
+  "/root"?: {};
+  "/posts"?: {};
+  "/edit-profile"?: {};
+  "/subscription"?: {};
+  "/billing-address"?: {};
+  "/submit-post"?: {};
+  "/account"?: {};
+}
+
+interface DashboardPage {
+  sPath: keyof DashboardLocationState;
+  exact?: boolean;
+  component: ComponentType<Object>;
+  emoij: string;
+  pageName: string;
+}
+
+const subPages: DashboardPage[] = [
+  {
+    sPath: "/root",
+    exact: true,
+    component: DashboardRoot,
+    emoij: "🕹",
+    pageName: "Dashboard",
+  },
+  {
+    sPath: "/posts",
+    component: DashboardPosts,
+    emoij: "📕",
+    pageName: "Posts",
+  },
+  {
+    sPath: "/edit-profile",
+    component: DashboardEditProfile,
+    emoij: "🛠",
+    pageName: "Edit profile",
+  },
+  {
+    sPath: "/subscription",
+    component: DashboardSubcription,
+    emoij: "📃",
+    pageName: "Subscription",
+  },
+  {
+    sPath: "/billing-address",
+    component: DashboardBillingAddress,
+    emoij: "✈",
+    pageName: "Billing address",
+  },
+  {
+    sPath: "/submit-post",
+    component: DashboardSubmitPost,
+    emoij: "✍",
+    pageName: "Create a post",
+  },
+];
+
+const PageDashboard: FC<PageDashboardProps> = ({ className = "" }) => {
+  let { path, url } = useRouteMatch();
+
+  const [btntxt, setbtntxt] = useState("Connect your Google Docs Account");
+  const [user, setUser] = useState();
+  
+  var usrdata:any = '';
+
+  const responseGoogle = (response: any) => {
+    usrdata = response;
+    console.log(usrdata);
+    setUser(usrdata);
+    setbtntxt("Reconnect your Google Docs Account");
+  }
+
+  const logout = () => {
+    console.log("Logged out");
+  }
+
+  return (
+    <div className={`nc-PageDashboard ${className}`} data-nc-id="PageDashboard">
+      <Helmet>
+        <title>Dashboard || Blog Magazine React Template</title>
+      </Helmet>
+      <LayoutPage
+        subHeading="View your dashboard, manage your Posts, Subscription, edit password and profile"
+        headingEmoji="⚙"
+        heading="Dashboard"
+      >
+        <div className="items-center text-center">
+          <GoogleLogin
+            clientId={import.meta.env.VITE_GAUTHDOCS_CLIENTID}
+            render={renderProps => (
+              
+              <ButtonPrimary onClick={renderProps.onClick} disabled={renderProps.disabled} className="md:col-span-2 mb-20" type="submit">
+                {btntxt}
+              </ButtonPrimary>
+            )}
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+            isSignedIn={true}
+          />
+        </div>
+        <div className="items-center text-center">
+          <GoogleLogout
+            clientId={import.meta.env.VITE_GAUTHDOCS_CLIENTID}
+            buttonText="Logout"
+            onLogoutSuccess={logout}
+          >
+          </GoogleLogout>
+        </div>
+        <GdocsContext.Provider value={{ user, setUser }}>
+          <div className="flex flex-col space-y-8 xl:space-y-0 xl:flex-row">
+            {/* SIDEBAR */}
+            <div className="flex-shrink-0 max-w-xl xl:w-80 xl:pr-8">
+              <ul className="text-base space-y-1 text-neutral-6000 dark:text-neutral-400">
+                {subPages.map(({ sPath, pageName, emoij }, index) => {
+                  return (
+                    <li key={index}>
+                      <NavLink
+                        className="flex px-6 py-2.5 font-medium rounded-lg hover:text-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                        to={`${url}${sPath}`}
+                        activeClassName="bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                      >
+                        <span className="w-8 mr-1">{emoij}</span>
+                        {pageName}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="border border-neutral-100 dark:border-neutral-800 md:hidden"></div>
+            <div className="flex-grow">
+              <Switch>
+                {subPages.map(({ component, sPath, exact }, index) => {
+                  return (
+                    <Route
+                      key={index}
+                      exact={exact}
+                      component={component}
+                      path={!!sPath ? `${path}${sPath}` : path}
+                    />
+                  );
+                })}
+                <Redirect to={path + "/root"} />
+              </Switch>
+            </div>
+          </div>
+        </GdocsContext.Provider>
+      </LayoutPage>
+    </div>
+  );
+};
+
+export default PageDashboard;
+
+
+
+
+import React, {useEffect, useState} from "react";
+import Input from "components/Input/Input";
+import ButtonPrimary from "components/Button/ButtonPrimary";
+import Select from "components/Select/Select";
+import Textarea from "components/Textarea/Textarea";
+import Label from "components/Label/Label";
+import useDrivePicker from 'react-google-drive-picker';
+import { useGDocsContext } from 'utils/gdocscontext';
+import axios from "axios";
+
+const DashboardSubmitPost = () => {
+  const [openPicker, authResponse] = useDrivePicker(); 
+  const [oauthToken, setoauthToken] = useState();
+  const [docs, setDocs] = useState<any>();
+  const [docsName, setdocsName] = useState("Select your Google Docs from your Google Account");
+  const { user } = useGDocsContext();
+
+  var scope = ['https://www.googleapis.com/auth/drive.file'];
+  var authtoken: any = '';
+  
+  useEffect(() => {
+    console.log(user);
+    
+  }, []);
+
+  const createPicker = (e: any) => {
+    e.preventDefault();
+    openPicker({
+      clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,
+      developerKey: "AIzaSyB-1hDSWdCbUqyRPIZ1x77brHFkO8xR8fc",
+      viewId: "DOCUMENTS",
+      token: user.accessToken, // pass oauth token in case you already have one
+      showUploadView: false,
+      showUploadFolders: true,
+      supportDrives: true,
+      multiselect: false,
+      // customViews: customViewsArray, // custom view
+      callbackFunction: (data: any) => {
+        if (data.action === 'cancel') {
+          console.log('User clicked cancel/close button')
+        }else if (data.action === 'picked') {
+          setDocs(data.docs[0].id);
+          setdocsName(data.docs[0].name + ' Selected');
+          const fileId = data.docs[0].id;
+          console.log(data.docs[0].id);
+          console.log(user.accessToken);
+          const accessToken = user.accessToken;
+          axios.post("http://localhost:55232/.netlify/functions/gdocs/", { 
+            docs
+          }).then(res => {
+              console.log(res);
+            }).catch(err => {
+              console.log(err);
+            });
+        
+          // axios.post('/functions/gdocs', {
+          //   docs, accessToken
+          // }).then((res) => {
+          //   //getting some error axios req rest all is dne
+          //     console.log(res);
+          // }).catch((err) => {
+          //   console.log(err);
+          // });
+        }
+        console.log(data);
+        // setDocsName(data.docs[0].name + " Selected");
+      },
+    })
+  }
+
+  return (
+    <div className="rounded-xl md:border md:border-neutral-100 dark:border-neutral-800 md:p-6">
+      <form className="grid md:grid-cols-2 gap-6" action="#" method="post">
+      
+        <label className="block md:col-span-2">
+          <Label>Post Title *</Label>
+
+          <Input type="text" className="mt-1" />
+        </label>
+        {/* <label className="block md:col-span-2">
+          <Label>Post Excerpt</Label>
+
+          <Textarea className="mt-1" rows={4} />
+          <p className="mt-1 text-sm text-neutral-500">
+            Brief description for your article. URLs are hyperlinked.
+          </p>
+        </label> */}
+        <label className="block md:col-span-2">
+          <Label>Category</Label>
+
+          <Select className="mt-1">
+            <option value="-1">– select –</option>
+            <option value="ha'apai">Category 1</option>
+            <option value="tongatapu">Category 2</option>
+            <option value="vava'u">Category 3</option>
+          </Select>
+        </label>
+        {/* <label className="block">
+          <Label>Tags</Label>
+
+          <Input type="text" className="mt-1" />
+        </label> */}
+
+        <div onClick={(e: any) => createPicker(e)} className="block md:col-span-2 cursor-pointer ">
+          <Label>Select Google Doc</Label>
+
+          <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 dark:border-neutral-700 border-dashed rounded-md">
+            <div className="space-y-1 text-center">
+            <img className="mx-auto h-12 w-12 text-neutral-400" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjUiIGhlaWdodD0iMjUiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIHRyYW5zZm9ybT0iIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMCwxNzJ2LTE3MmgxNzJ2MTcyeiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxwYXRoIGQ9IiIgZmlsbD0ibm9uZSI+PC9wYXRoPjxnIGZpbGw9IiM3Nzc3NzciPjxwYXRoIGQ9Ik00OC4xNiwyNC4wOGMtNS43MDAwOCwwIC0xMC4zMiw0LjYxOTkyIC0xMC4zMiwxMC4zMnYxMDMuMmMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmg3NS42OGM1LjcwMDA4LDAgMTAuMzIsLTQuNjE5OTIgMTAuMzIsLTEwLjMydi02MS41MDM0NGMwLC0xLjgyMzIgLTAuNzI1NjMsLTMuNTc0MzggLTIuMDE1NjMsLTQuODY0MzhsLTQ1LjEzNjU2LC00NS4xMzY1NmMtMS4yOSwtMS4yOSAtMy4wNDExOCwtMi4wMTU2MiAtNC44NjQzOCwtMi4wMTU2MnpNNDguMTYsMjcuNTJoMzQuNHYzNy44NGMwLDUuNzAwMDggNC42MTk5MiwxMC4zMiAxMC4zMiwxMC4zMmgzNy44NHY2MS45MmMwLDMuODAxMiAtMy4wNzg4LDYuODggLTYuODgsNi44OGgtNzUuNjhjLTMuODAxMiwwIC02Ljg4LC0zLjA3ODggLTYuODgsLTYuODh2LTEwMy4yYzAsLTMuODAxMiAzLjA3ODgsLTYuODggNi44OCwtNi44OHpNODYsMjkuOTUyMTlsNDIuMjg3ODEsNDIuMjg3ODFoLTM1LjQwNzgxYy0zLjgwMTIsMCAtNi44OCwtMy4wNzg4IC02Ljg4LC02Ljg4ek02MC4yLDk2LjMyYy0wLjk0OTQ0LDAgLTEuNzIsMC43NzA1NiAtMS43MiwxLjcyYzAsMC45NDk0NCAwLjc3MDU2LDEuNzIgMS43MiwxLjcyaDUxLjZjMC45NDk0NCwwIDEuNzIsLTAuNzcwNTYgMS43MiwtMS43MmMwLC0wLjk0OTQ0IC0wLjc3MDU2LC0xLjcyIC0xLjcyLC0xLjcyek02MC4yLDExNi45NmMtMC45NDk0NCwwIC0xLjcyLDAuNzcwNTYgLTEuNzIsMS43MmMwLDAuOTQ5NDQgMC43NzA1NiwxLjcyIDEuNzIsMS43Mmg1MS42YzAuOTQ5NDQsMCAxLjcyLC0wLjc3MDU2IDEuNzIsLTEuNzJjMCwtMC45NDk0NCAtMC43NzA1NiwtMS43MiAtMS43MiwtMS43MnoiPjwvcGF0aD48L2c+PC9nPjwvZz48L3N2Zz4="/>
+              {/* <svg className="mx-auto h-12 w-12 text-neutral-400" viewBox="0 0 231.306 231.306">  
+                
+                <path d="M229.548,67.743L163.563,1.757C162.438,0.632,160.912,0,159.32,0H40.747C18.279,0,0,18.279,0,40.747v149.813   c0,22.468,18.279,40.747,40.747,40.747h149.813c22.468,0,40.747-18.279,40.747-40.747V71.985   C231.306,70.394,230.673,68.868,229.548,67.743z M164.32,19.485l47.5,47.5h-47.5V19.485z M190.559,219.306H40.747   C24.896,219.306,12,206.41,12,190.559V40.747C12,24.896,24.896,12,40.747,12H152.32v60.985c0,3.313,2.687,6,6,6h60.985v111.574   C219.306,206.41,206.41,219.306,190.559,219.306z"/>
+                <path d="m103.826,52.399c-5.867-5.867-13.667-9.098-21.964-9.098s-16.097,3.231-21.964,9.098c-5.867,5.867-9.098,13.667-9.098,21.964 0,8.297 3.231,16.097 9.098,21.964l61.536,61.536c7.957,7.956 20.9,7.954 28.855,0 7.955-7.956 7.955-20.899 0-28.855l-60.928-60.926c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l60.927,60.927c3.276,3.276 3.276,8.608 0,11.884s-8.607,3.276-11.884,0l-61.536-61.535c-3.601-3.601-5.583-8.388-5.583-13.479 0-5.092 1.983-9.879 5.583-13.479 7.433-7.433 19.525-7.433 26.958,0l64.476,64.476c11.567,11.567 11.567,30.388 0,41.955-5.603,5.603-13.053,8.689-20.977,8.689s-15.374-3.086-20.977-8.689l-49.573-49.574c-2.343-2.343-6.143-2.343-8.485,0-2.343,2.343-2.343,6.142 0,8.485l49.573,49.573c7.87,7.87 18.333,12.204 29.462,12.204s21.593-4.334 29.462-12.204 12.204-18.333 12.204-29.463c0-11.129-4.334-21.593-12.204-29.462l-64.476-64.476z"/>
+              </svg> */}
+              {/* <div className="flex flex-col sm:flex-row text-sm text-neutral-6000">
+                <label
+                  htmlFor="file-upload"
+                  className="item-center cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-800 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
+                >
+                  <span>Upload a file</span>
+                  <input
+                    id="file-upload"
+                    name="file-upload"
+                    type="file"
+                    className="sr-only"
+                  />
+                </label>
+              </div> */}
+              <p className="text-xs text-neutral-500">
+                {docsName}
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <label className="block md:col-span-2">
+          <Label> Post Content</Label>
+
+          <Textarea className="mt-1" rows={16} />
+        </label> */}
+
+        <ButtonPrimary className="md:col-span-2" type="submit">
+          Submit post
+        </ButtonPrimary>
+      </form>
+    </div>
+  );
+};
+
+export default DashboardSubmitPost;
+
+
+
+    //127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8'

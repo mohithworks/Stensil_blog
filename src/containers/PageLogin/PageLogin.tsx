@@ -1,5 +1,5 @@
 import LayoutPage from "components/LayoutPage/LayoutPage";
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import facebookSvg from "images/Facebook.svg";
 import twitterSvg from "images/Twitter.svg";
 import googleSvg from "images/Google.svg";
@@ -19,18 +19,8 @@ export interface PageLoginProps {
 
 const loginSocials = [
   {
-    name: "Continue with Facebook",
-    href: "#",
-    icon: facebookSvg,
-  },
-  {
-    name: "Continue with Twitter",
-    href: "#",
-    icon: twitterSvg,
-  },
-  {
     name: "Continue with Google",
-    href: "#",
+    provider: "google",
     icon: googleSvg,
   },
 ];
@@ -53,7 +43,7 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
     setbtnLoading(false);
   }
 
-  const signin = async (e: any) => {
+  const emailSignin = async (e: any) => {
     e.preventDefault();
     if(email === "" || pwd === "") {
       alertMsg("Email/Password is empty", "error");
@@ -74,6 +64,28 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
     }
   }
 
+  const socialSignin = async (provider: string) => {
+    if(provider == 'google') {
+      const { user, session, error } = await supabaseClient.auth.signIn({
+        provider: 'google'
+      },
+      {
+        scopes: 'https://www.googleapis.com/auth/drive.readonly',
+      })
+      if(error) throw alertMsg(error.message, "error");
+      setUser(user);
+      console.log(user);
+    } 
+    // else if(provider == "facebook") {
+    //   const { user, session, error } = await supabaseClient.auth.signIn({
+    //     // https://vwporhpsnujzncbdxtaj.supabase.co/auth/v1/authorize?provider=google
+    //     provider: 'facebook'
+    //   })
+    //   if(error) throw alertMsg(error.message, "error");
+    //   console.log(user);
+    // }
+  }
+
   return (
     <div className={`nc-PageLogin ${className}`} data-nc-id="PageLogin">
       <Helmet>
@@ -89,8 +101,8 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
             {loginSocials.map((item, index) => (
               <a
                 key={index}
-                href={item.href}
-                className="flex w-full rounded-lg bg-primary-50 dark:bg-neutral-800 px-4 py-3 transform transition-transform sm:px-6 hover:translate-y-[-2px]"
+                onClick={() => socialSignin(item.provider)}
+                className="flex w-full cursor-pointer rounded-lg bg-primary-50 dark:bg-neutral-800 px-4 py-3 transform transition-transform sm:px-6 hover:translate-y-[-2px]"
               >
                 <img
                   className="flex-shrink-0"
@@ -104,14 +116,14 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
             ))}
           </div>
           {/* OR */}
-          <div className="relative text-center">
+          {/* <div className="relative text-center">
             <span className="relative z-10 inline-block px-4 font-medium text-sm bg-white dark:text-neutral-400 dark:bg-neutral-900">
               OR
             </span>
             <div className="absolute left-0 w-full top-1/2 transform -translate-y-1/2 border border-neutral-100 dark:border-neutral-800"></div>
-          </div>
+          </div> */}
           {/* FORM */}
-          <form className="grid grid-cols-1 gap-6" action="#" method="post">
+          {/* <form className="grid grid-cols-1 gap-6" action="#" method="post">
             <Collapse in={showAlert}>
               <Alert containerClassName="block" type={alertType} children={errortxt} onClick={(e: any) => {
                 e.preventDefault();
@@ -139,14 +151,14 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
               <Input type="password" className="mt-1"
                 onChange={(e: any) => setPwd(e.target.value)} />
             </label>
-            <ButtonPrimary loading={btnLoading} type="submit" onClick={(e:any) => signin(e)}>Continue</ButtonPrimary>
-          </form>
+            <ButtonPrimary loading={btnLoading} type="submit" onClick={(e:any) => emailSignin(e)}>Continue</ButtonPrimary>
+          </form> */}
 
           {/* ==== */}
-          <span className="block text-center text-neutral-700 dark:text-neutral-300">
+          {/* <span className="block text-center text-neutral-700 dark:text-neutral-300">
             New user? {` `}
             <NcLink to="/signup">Create an account</NcLink>
-          </span>
+          </span> */}
         </div>
       </LayoutPage>
     </div>

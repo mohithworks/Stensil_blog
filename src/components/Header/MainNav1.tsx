@@ -24,10 +24,10 @@ const MainNav1: FC<MainNav1Props> = ({ isTop }) => {
             <DarkModeContainer />
             <SearchDropdown />
             <div className="px-1" />
-            <ButtonPrimary href="/login">Sign up</ButtonPrimary>
+            <ButtonPrimary href="/login">Sign in</ButtonPrimary>
           </div>
           <div className="flex items-center xl:hidden">
-            <ButtonPrimary href="/login">Sign up</ButtonPrimary>
+            <ButtonPrimary href="/login">Sign in</ButtonPrimary>
             <div className="px-1" />
             <ErrorBoundary>
               <MenuBar />
