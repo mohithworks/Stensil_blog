@@ -19,19 +19,26 @@ export interface TaxonomyType {
 
 export interface PostAuthorType {
   id: string | number;
+  firstName: string;
+  lastName: string;
   full_name: string;
   avatar_url: string;
+  avatar: string;
   bgImage?: string;
   email?: string;
   posts: number;
+  count: number;
   desc: string;
+  jobName: string;
   href: string;
 }
 
 export interface PostDataType {
   id: string | number;
   authors: PostAuthorType;
+  author: PostAuthorType;
   created_at: string;
+  date: string;
   href: string;
   categories: TaxonomyType[];
   title: string;
