@@ -22,6 +22,7 @@ export interface PostAuthorType {
   firstName: string;
   lastName: string;
   full_name: string;
+  displayName: string;
   avatar_url: string;
   avatar: string;
   bgImage?: string;

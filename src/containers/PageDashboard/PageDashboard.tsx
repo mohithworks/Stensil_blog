@@ -9,9 +9,7 @@ import DashboardRoot from "./DashboardRoot";
 import DashboardSubcription from "./DashboardSubcription";
 import DashboardSubmitPost from "./DashboardSubmitPost";
 import { Helmet } from "react-helmet";
-import { GoogleLogin, GoogleLogout  } from 'react-google-login';
 import ButtonPrimary from "components/Button/ButtonPrimary";
-import { gapi } from "gapi-script";
 import { GdocsContext } from "utils/gdocscontext"; 
 
 export interface PageDashboardProps {
