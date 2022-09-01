@@ -51,6 +51,9 @@ export const SINGLE: SinglePageType = {
     href: "/author/the-demo-author-slug",
     desc: "There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.",
     jobName: "Author Job",
+    full_name: "",
+    avatar_url: "",
+    posts: 40
   },
   categories: [
     {
@@ -78,6 +81,23 @@ export const SINGLE: SinglePageType = {
   tags: [DEMO_TAGS[0], DEMO_TAGS[1], DEMO_TAGS[3]],
   content: "",
   comments: DEMO_COMMENTS,
+  authors: {
+    "id": "",
+    "firstName": "",
+    "lastName": "",
+    "full_name": "",
+    "displayName": "",
+    "avatar_url": "",
+    "avatar": "",
+    "bgImage": "",
+    "email": "",
+    "posts":20,
+    "count":20,
+    "desc": "",
+    "jobName": "",
+    "href": ""
+  },
+  created_at: ""
 };
 
 export const SINGLE_AUDIO: SinglePageType = {
@@ -103,6 +123,9 @@ export const SINGLE_AUDIO: SinglePageType = {
     href: "/author/the-demo-author-slug",
     desc: "There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.",
     jobName: "Author Job",
+    full_name: "",
+    avatar_url: "",
+    posts: 40
   },
   categories: [
     {
@@ -122,6 +145,23 @@ export const SINGLE_AUDIO: SinglePageType = {
   tags: [DEMO_TAGS[0], DEMO_TAGS[1], DEMO_TAGS[3]],
   content: "",
   comments: DEMO_COMMENTS,
+  authors: {
+    "id": "",
+    "firstName": "",
+    "lastName": "",
+    "full_name": "",
+    "displayName": "",
+    "avatar_url": "",
+    "avatar": "",
+    "bgImage": "",
+    "email": "",
+    "posts":20,
+    "count":20,
+    "desc": "",
+    "jobName": "",
+    "href": ""
+  },
+  created_at: ""
 };
 
 export const SINGLE_VIDEO: SinglePageType = {
@@ -148,6 +188,9 @@ export const SINGLE_VIDEO: SinglePageType = {
     href: "/author/the-demo-author-slug",
     desc: "There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.",
     jobName: "Author Job",
+    full_name: "",
+    avatar_url: "",
+    posts: 40
   },
   categories: [
     {
@@ -166,6 +209,23 @@ export const SINGLE_VIDEO: SinglePageType = {
   tags: [DEMO_TAGS[0], DEMO_TAGS[1], DEMO_TAGS[3]],
   content: "",
   comments: DEMO_COMMENTS,
+  authors: {
+    "id": "",
+    "firstName": "",
+    "lastName": "",
+    "full_name": "",
+    "displayName": "",
+    "avatar_url": "",
+    "avatar": "",
+    "bgImage": "",
+    "email": "",
+    "posts":20,
+    "count":20,
+    "desc": "",
+    "jobName": "",
+    "href": ""
+  },
+  created_at: ""
 };
 
 export const SINGLE_GALLERY: SinglePageType = {
@@ -192,6 +252,9 @@ export const SINGLE_GALLERY: SinglePageType = {
     href: "/author/the-demo-author-slug",
     desc: "There’s no stopping the tech giant. Apple now opens its 100th store in China.There’s no stopping the tech giant.",
     jobName: "Author Job",
+    full_name: "",
+    avatar_url: "",
+    posts: 40
   },
   categories: [
     {
@@ -216,4 +279,21 @@ export const SINGLE_GALLERY: SinglePageType = {
   tags: [DEMO_TAGS[0], DEMO_TAGS[1], DEMO_TAGS[3]],
   content: "",
   comments: DEMO_COMMENTS,
+  authors: {
+    "id": "",
+    "firstName": "",
+    "lastName": "",
+    "full_name": "",
+    "displayName": "",
+    "avatar_url": "",
+    "avatar": "",
+    "bgImage": "",
+    "email": "",
+    "posts":20,
+    "count":20,
+    "desc": "",
+    "jobName": "",
+    "href": ""
+  },
+  created_at: ""
 };

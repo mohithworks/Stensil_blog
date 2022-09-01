@@ -1,6 +1,6 @@
 //  ######  CustomLink  ######## //
 export interface CustomLink {
-  label: number;
+  label: string;
   href: string;
   targetBlank?: boolean;
 }

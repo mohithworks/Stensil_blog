@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { PostDataType, TaxonomyType } from "data/types";
 import NcImage from "components/NcImage/NcImage";
 import { SINGLE } from "data/single";
-import SingleContent from "./SingleContent";
+import SingleContentBlog from "./SingleContentBlog";
 import { CommentType } from "components/CommentCard/CommentCard";
 import { useAppDispatch } from "app/hooks";
 import { changeCurrentPage } from "app/pages/pages";
@@ -164,7 +164,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
   
           {/* SINGLE MAIN CONTENT */}
           <div className="container">
-            <SingleContent data={post[0].post} />
+            <SingleContentBlog data={post[0].post} />
           </div>
   
           {/* RELATED POSTS */}

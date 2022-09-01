@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import NcImage from "components/NcImage/NcImage";
-import Pagination from "components/Pagination/Pagination";
+import PostPagination from "components/Pagination/PostPagination";
 import { Link } from "react-router-dom";
 import supabaseClient from "utils/supabaseClient";
 import ButtonSecondary from "components/Button/ButtonSecondary";
@@ -237,7 +237,7 @@ const DashboardPosts = () => {
           </div>
         </div>
   
-        <Pagination totalPosts={totalPosts} postsperPage={postsperPage} currentPage={currentPage} setcurrentPage={setcurrentPage} />
+        <PostPagination totalPosts={totalPosts} postsperPage={postsperPage} currentPage={currentPage} setcurrentPage={setcurrentPage} />
         <Snackbar
           open={snackStatus}
           autoHideDuration={snackDuration}

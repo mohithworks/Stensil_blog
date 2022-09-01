@@ -30,7 +30,6 @@ export default function AvatarDropdown() {
     navigate.push("../login");
   }
 
-  if(name && avatarUrl) {
     
     return (
       <div className="AvatarDropdown">
@@ -312,5 +311,4 @@ export default function AvatarDropdown() {
         </Popover>
       </div>
     );
-  }
 }

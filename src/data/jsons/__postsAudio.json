@@ -15,7 +15,24 @@
     "authorId": 3,
     "categoriesId": [3, 12],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_AloneMP3_128K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_AloneMP3_128K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2121122,
@@ -33,7 +50,24 @@
     "authorId": 4,
     "categoriesId": [4, 13],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Fade_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Fade_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 111113,
@@ -51,7 +85,24 @@
     "authorId": 4,
     "categoriesId": [4, 13],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 21212114,
@@ -69,7 +120,24 @@
     "authorId": 5,
     "categoriesId": [5, 14],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Ascence_-_About_You_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Ascence_-_About_You_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 212155215,
@@ -87,7 +155,24 @@
     "authorId": 10,
     "categoriesId": [10, 19],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Cartoon_-_On___On_feat._Daniel_Levi_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Cartoon_-_On___On_feat._Daniel_Levi_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 212125126,
@@ -105,7 +190,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Clarx___Harddope_-_Castle_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Clarx___Harddope_-_Castle_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2121721521,
@@ -123,7 +225,24 @@
     "authorId": 2,
     "categoriesId": [2, 11],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/DEAF_KEV_-_Invincible_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/DEAF_KEV_-_Invincible_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2128251212,
@@ -141,7 +260,24 @@
     "authorId": 4,
     "categoriesId": [4, 13],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Different_Heaven_-_Nekozilla_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Different_Heaven_-_Nekozilla_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 21552129,
@@ -159,7 +295,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Disfigure_-_Blank_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Disfigure_-_Blank_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 12125510,
@@ -177,7 +330,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Electro-Light_-_Symbolism_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Electro-Light_-_Symbolism_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 235523211,
@@ -195,7 +365,24 @@
     "authorId": 3,
     "categoriesId": [3, 12],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Elektronomia_-_Sky_High_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Elektronomia_-_Sky_High_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 232532112,
@@ -213,7 +400,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Itro___Tobu_-_Cloud_9_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Itro___Tobu_-_Cloud_9_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2121135,
@@ -231,7 +435,24 @@
     "authorId": 10,
     "categoriesId": [10, 19],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Janji_-_Heroes_Tonight_feat._Johnning_NCS_ReleaMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Janji_-_Heroes_Tonight_feat._Johnning_NCS_ReleaMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2114521521,
@@ -249,7 +470,24 @@
     "authorId": 2,
     "categoriesId": [2, 11],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Jarico_-_Island_NCS_BEST_OFMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Jarico_-_Island_NCS_BEST_OFMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 21235215,
@@ -267,6 +505,23 @@
     "authorId": 3,
     "categoriesId": [3, 12],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Jarico_-_Landscape_NCS_BEST_OFMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Jarico_-_Landscape_NCS_BEST_OFMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   }
 ]

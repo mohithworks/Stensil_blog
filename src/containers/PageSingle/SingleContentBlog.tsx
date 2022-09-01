@@ -4,15 +4,15 @@ import { SinglePageType } from "./PageSingle";
 import SingleAuthor from "./SingleAuthor";
 import SingleCommentForm from "./SingleCommentForm";
 import SingleCommentLists from "./SingleCommentLists";
-import SingleContentDemo from "./SingleContentDemo";
+import SingleContentDemoBlog from "./SingleContentDemoBlog";
 import { useLocation } from "react-router";
 
 export interface SingleContentProps {
-  data: SinglePageType;
+  data: string;
 }
 
-const SingleContent: FC<SingleContentProps> = ({ data }) => {
-  const { tags, author, commentCount, comments } = data;
+const SingleContentBlog: FC<SingleContentProps> = ({ data }) => {
+  //const { tags, author, commentCount, comments } = data;
   const commentRef = useRef<HTMLDivElement>(null);
   //
   const location = useLocation();
@@ -41,24 +41,24 @@ const SingleContent: FC<SingleContentProps> = ({ data }) => {
       >
         {/* THIS IS THE DEMP CONTENT */}
         {/* IF YOUR DATA IS JSON, YOU CAN USE render with html-react-parser (https://www.npmjs.com/package/html-react-parser) */}
-        <SingleContentDemo />
+        <SingleContentDemoBlog data={data} />
       </div>
 
       {/* TAGS */}
-      <div className="max-w-screen-md mx-auto flex flex-wrap">
+      {/* <div className="max-w-screen-md mx-auto flex flex-wrap">
         {tags.map((item) => (
           <Tag hideCount key={item.id} tag={item} className="mr-2 mb-2" />
         ))}
-      </div>
+      </div> */}
 
       {/* AUTHOR */}
-      <div className="max-w-screen-md mx-auto border-b border-t border-neutral-100 dark:border-neutral-700"></div>
+      {/* <div className="max-w-screen-md mx-auto border-b border-t border-neutral-100 dark:border-neutral-700"></div>
       <div className="max-w-screen-md mx-auto ">
         <SingleAuthor author={author} />
-      </div>
+      </div> */}
 
       {/* COMMENT FORM */}
-      <div
+      {/* <div
         id="comment"
         ref={commentRef}
         className="max-w-screen-md mx-auto pt-5"
@@ -70,14 +70,14 @@ const SingleContent: FC<SingleContentProps> = ({ data }) => {
           onClickSubmit={(id) => console.log(id)}
           onClickCancel={(id) => console.log(id)}
         />
-      </div>
+      </div> */}
 
       {/* COMMENTS LIST */}
-      <div className="max-w-screen-md mx-auto">
+      {/* <div className="max-w-screen-md mx-auto">
         <SingleCommentLists comments={comments} />
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default SingleContent;
+export default SingleContentBlog;

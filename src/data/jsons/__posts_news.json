@@ -14,7 +14,24 @@
     "like": { "count": 3366, "isLiked": true },
     "authorId": 3,
     "categoriesId": [3, 12],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 2,
@@ -32,7 +49,24 @@
     "authorId": 4,
     "categoriesId": [4, 13],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=U5afsxvz75c"
+    "videoUrl": "https://www.youtube.com/watch?v=U5afsxvz75c",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 3,
@@ -49,7 +83,24 @@
     "like": { "count": 222, "isLiked": false },
     "authorId": 4,
     "categoriesId": [4, 13],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 4,
@@ -66,7 +117,24 @@
     "like": { "count": 3735, "isLiked": true },
     "authorId": 5,
     "categoriesId": [5, 14],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 5,
@@ -84,7 +152,24 @@
     "authorId": 10,
     "categoriesId": [10, 19],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=dBsicD0ItD0&t=32s"
+    "videoUrl": "https://www.youtube.com/watch?v=dBsicD0ItD0&t=32s",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 6,
@@ -101,7 +186,24 @@
     "like": { "count": 3052, "isLiked": true },
     "authorId": 9,
     "categoriesId": [9, 18],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 7,
@@ -119,7 +221,24 @@
     "authorId": 2,
     "categoriesId": [2, 11],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=U5afsxvz75c"
+    "videoUrl": "https://www.youtube.com/watch?v=U5afsxvz75c",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 8,
@@ -137,7 +256,24 @@
     "authorId": 4,
     "categoriesId": [4, 13],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_AloneMP3_128K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_AloneMP3_128K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 9,
@@ -154,7 +290,24 @@
     "like": { "count": 2586, "isLiked": false },
     "authorId": 9,
     "categoriesId": [9, 18],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 10,
@@ -171,7 +324,24 @@
     "like": { "count": 773, "isLiked": true },
     "authorId": 9,
     "categoriesId": [9, 18],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 11,
@@ -189,7 +359,24 @@
     "authorId": 3,
     "categoriesId": [3, 12],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=yvZox35ures"
+    "videoUrl": "https://www.youtube.com/watch?v=yvZox35ures",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 12,
@@ -207,7 +394,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=yvZox35ures"
+    "videoUrl": "https://www.youtube.com/watch?v=yvZox35ures",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 13,
@@ -225,7 +429,24 @@
     "authorId": 10,
     "categoriesId": [10, 19],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Fade_NCS_ReleaseMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Fade_NCS_ReleaseMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 14,
@@ -248,7 +469,24 @@
       "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "https://images.pexels.com/photos/1660995/pexels-photo-1660995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-    ]
+    ],
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 15,
@@ -266,7 +504,24 @@
     "authorId": 3,
     "categoriesId": [3, 12],
     "postType": "audio",
-    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3"
+    "audioUrl": "https://chisnghiax.com/ncmaz_mp3/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 16,
@@ -284,7 +539,24 @@
     "authorId": 9,
     "categoriesId": [9, 18],
     "postType": "video",
-    "videoUrl": "https://www.youtube.com/watch?v=dBsicD0ItD0&t=32s"
+    "videoUrl": "https://www.youtube.com/watch?v=dBsicD0ItD0&t=32s",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 17,
@@ -301,7 +573,24 @@
     "like": { "count": 1277, "isLiked": false },
     "authorId": 10,
     "categoriesId": [10, 19],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 18,
@@ -318,7 +607,24 @@
     "like": { "count": 3126, "isLiked": false },
     "authorId": 4,
     "categoriesId": [4, 13],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 19,
@@ -335,7 +641,24 @@
     "like": { "count": 1642, "isLiked": false },
     "authorId": 7,
     "categoriesId": [7, 16],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   },
   {
     "index": 20,
@@ -352,6 +675,23 @@
     "like": { "count": 505, "isLiked": false },
     "authorId": 10,
     "categoriesId": [10, 19],
-    "postType": "standard"
+    "postType": "standard",
+    "authors": {
+      "id": "",
+      "firstName": "",
+      "lastName": "",
+      "full_name": "",
+      "displayName": "",
+      "avatar_url": "",
+      "avatar": "",
+      "bgImage": "",
+      "email": "",
+      "posts":20,
+      "count":20,
+      "desc": "",
+      "jobName": "",
+      "href": ""
+    },
+    "created_at": ""
   }
 ]
