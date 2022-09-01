@@ -25,7 +25,6 @@
     "axios": "^0.27.2",
     "dotenv-cra": "^3.0.2",
     "gapi-script": "^1.2.0",
-    "googleapis": "^105.0.0",
     "html-react-parser": "^3.0.4",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
