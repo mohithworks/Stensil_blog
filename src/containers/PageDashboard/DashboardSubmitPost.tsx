@@ -240,7 +240,7 @@ const DashboardSubmitPost = () => {
                 }
     
             }).catch((error) => {
-                console.log(error)
+              alertMsg(error.message, "error");
             });
           })
 

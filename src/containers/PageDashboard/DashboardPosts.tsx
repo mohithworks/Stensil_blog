@@ -71,6 +71,7 @@ const DashboardPosts = () => {
   const [snackDuration, setsnackDuration] = useState<any>();
   const [snackStatus, setsnackStatus] = useState<any>(false);
   const [syncDisabled, setsyncDisabled] = useState<any>(false);
+  const [loadingtxt, setloadingtxt] = useState<any>("Loading...");
 
   const { user } = useGDocsContext();
 
@@ -92,8 +93,11 @@ const DashboardPosts = () => {
           console.log(error);
         }
 
-        if(data) {
+        if(data?.length == 0) {
+          setloadingtxt("No Posts");
+        }else if(data) {
           setPosts(data);
+          console.log(data);
           settotalPosts(data[0].authors.posts);
           console.log(data);
           setLoading(false);
@@ -128,6 +132,7 @@ const DashboardPosts = () => {
           setsnackMsg("Sync Complete");
           setsnackDuration(6000);
           setsyncDisabled(false);
+          setsnackStatus(false);
         }
 
     }).catch((error) => {
@@ -151,7 +156,7 @@ const DashboardPosts = () => {
             <header className="text-center max-w-2xl mx-auto space-y-7">
               <h2 className="text-7xl md:text-8xl"></h2>
               <h2 className="text-4xl md:text-4xl font-semibold tracking-widest">
-                LOADING....
+                {loadingtxt}
               </h2>
               <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
               </span>
