@@ -763,3 +763,47 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
 };
 
 export default PageSingle;
+
+
+try {
+          Resizer.imageFileResizer(
+            e.target.files[0],
+            1024,
+            768,
+            "JPEG",
+            100,
+            0,
+            (uri) => {
+              console.log(uri);
+              setfihighRes(uri);
+              try {
+                Resizer.imageFileResizer(
+                  e.target.files[0],
+                  320,
+                  240,
+                  "JPEG",
+                  100,
+                  0,
+                  (uri) => {
+                    console.log(uri);
+                    setfilowRes(uri);
+                    setbtnDisabled(false);
+                    alertMsg("Featured Image conversion complete. You can now proceed to submit the post", "success");
+                  },
+                  "file",
+                  200,
+                  200
+                );
+              } catch (err) {
+                console.log(err);
+                alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
+              }
+            },
+            "file",
+            200,
+            200
+          );
+        } catch (err) {
+          console.log(err);
+          alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
+        }

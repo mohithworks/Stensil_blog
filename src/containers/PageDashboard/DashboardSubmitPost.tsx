@@ -10,8 +10,9 @@ import axios from "axios";
 import Collapse from '@mui/material/Collapse';
 import {Alert} from "components/Alert/Alert";
 import supabaseClient from "utils/supabaseClient";
-import Resizer from "react-image-file-resizer";
+//import Resizer from "react-image-file-resizer";
 import checkDetails from "utils/checkDetails";
+import Compress from "browser-image-compression";
 
 const DashboardSubmitPost = () => {
   const [openPicker, authResponse] = useDrivePicker(); 
@@ -35,7 +36,7 @@ const DashboardSubmitPost = () => {
   const [fiName, setfiName] = useState<any>("No file");
   const [post, setPost] = useState<any>();
 
-  const session = supabaseClient.auth.session();
+  var session:any;
 
   const alertMsg = (val: string, errtype: string) => {
     setErrortxt(val);
@@ -55,48 +56,41 @@ const DashboardSubmitPost = () => {
       if (["image/jpeg", "image/png"].indexOf(e.target.files[0].type) > -1) {
         setbtnDisabled(true);
         alertMsg("Featured Image conversion is under progress. Please wait before you submit the post", "warning");
-        try {
-          Resizer.imageFileResizer(
-            e.target.files[0],
-            1024,
-            768,
-            "JPEG",
-            100,
-            0,
-            (uri) => {
-              console.log(uri);
-              setfihighRes(uri);
-              try {
-                Resizer.imageFileResizer(
-                  e.target.files[0],
-                  320,
-                  240,
-                  "JPEG",
-                  100,
-                  0,
-                  (uri) => {
-                    console.log(uri);
-                    setfilowRes(uri);
-                    setbtnDisabled(false);
-                    alertMsg("Featured Image conversion complete. You can now proceed to submit the post", "success");
-                  },
-                  "file",
-                  200,
-                  200
-                );
-              } catch (err) {
-                console.log(err);
-                alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
-              }
-            },
-            "file",
-            200,
-            200
-          );
-        } catch (err) {
-          console.log(err);
-          alertMsg("There was an error converting your featured image. Please select your featured image & try again", "error");
+        const file = e.target.files[0];
+        const filehdName = 'hd.jpeg';
+        const filesdName = 'sd.jpeg';
+        const filetype = 'image/jpeg';
+        const highresOptions = {
+          maxSizeMB: 1,
+          maxWidthOrHeight: 1024,
+          fileType: filetype,
         }
+        const lowresOptions = {
+          maxSizeMB: 1,
+          maxWidthOrHeight: 320,
+          fileType: filetype,
+        }
+        Compress(file, highresOptions)
+        .then(compressedBlob => {
+            const convertedBlobFile = new File([compressedBlob], filehdName, { type: filetype, lastModified: Date.now()})
+            setfihighRes(convertedBlobFile);
+            console.log(convertedBlobFile);
+            Compress(file, lowresOptions)
+            .then(compressedBlob => {
+                const convertedBlobFile = new File([compressedBlob], filesdName, { type: filetype, lastModified: Date.now()})
+                setfilowRes(convertedBlobFile);
+                console.log(convertedBlobFile);
+                setbtnDisabled(false);
+                alertMsg("Featured Image conversion complete. You can now proceed to submit the post", "success");
+            })
+            .catch(e => {
+              console.log(e);
+            })
+
+        })
+        .catch(e => {
+          console.log(e);
+        })
         setFi(e.target.files[0]);
         setfiName(e.target.files[0].name);
       }else {
@@ -107,7 +101,9 @@ const DashboardSubmitPost = () => {
 
   const createPicker = (e: any) => {
     e.preventDefault();
+    const session = supabaseClient.auth.session();
     const provider = session?.provider_token;
+    console.log(session);
     if(provider) {
       openPicker({
         clientId: import.meta.env.VITE_GAUTHDOCS_CLIENTID,

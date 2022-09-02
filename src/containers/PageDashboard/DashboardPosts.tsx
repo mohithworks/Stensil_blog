@@ -75,6 +75,8 @@ const DashboardPosts = () => {
   const { user } = useGDocsContext();
 
   const authUser = supabaseClient.auth.user();
+  const authSession = supabaseClient.auth.session();
+  const authProvider = authSession?.provider_token;
   const authorfullname = authUser?.user_metadata.full_name;
   const authorusername = authorfullname.replace(/ /g, "").toLowerCase();
 
@@ -111,7 +113,7 @@ const DashboardPosts = () => {
     const options = {
       method: 'GET',
       url: 'https://stensil-backend.herokuapp.com/api',
-      params: {fileId: docsid, accessToken: oauthToken, title: postTitle },
+      params: {fileId: docsid, accessToken: authProvider, title: postTitle },
     }
     
     axios.request(options).then(async (response) => {
