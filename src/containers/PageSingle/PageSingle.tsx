@@ -57,7 +57,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           setLoading(false);
         }
     }
-    //fetchPost();
+    fetchPost();
   }, []);
 
   useEffect(() => {

@@ -234,7 +234,7 @@ const DashboardRoot = () => {
             }).eq('id', authId);
             if(error) throw alertMsg(error.message, "error");
             if(data) {
-              alertMsg("Profile updated successfully", "success");
+              window.location.reload();
             }
 
           }
