@@ -1,10 +1,15 @@
 import React from "react";
-import MyRouter from "routers/index";
+import {SubDomainRoutes, MainRoute} from "routers/index";
 
 function App() {
+  const location = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;
+
   return (
     <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
-      <MyRouter />
+      {
+        location != url ? <SubDomainRoutes /> : <MainRoute />
+      }
     </div>
   );
 }

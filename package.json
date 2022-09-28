@@ -44,6 +44,7 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "sass": "^1.53.0",
+    "validator": "^13.7.0",
     "vite-tsconfig-paths": "^3.5.0",
     "web-vitals": "^2.1.4"
   },
@@ -56,6 +57,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.9",
+    "@types/validator": "^13.7.6",
     "@vitejs/plugin-react": "^2.0.0",
     "autoprefixer": "^10.4.7",
     "cssjanus": "^2.1.0",

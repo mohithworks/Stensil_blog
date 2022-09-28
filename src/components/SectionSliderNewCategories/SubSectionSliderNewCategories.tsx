@@ -3,7 +3,7 @@ import Heading from "components/Heading/Heading";
 import Glide from "@glidejs/glide";
 import { PostDataType, TaxonomyType } from "data/types";
 import CardCategory3 from "components/CardCategory3/CardCategory3";
-import CardCategory4 from "components/CardCategory4/CardCategory4";
+import SubCardCategory4 from "components/CardCategory4/SubCardCategory4";
 import CardCategory1 from "components/CardCategory1/CardCategory1";
 import CardCategory2 from "components/CardCategory2/CardCategory2";
 import CardCategory5 from "components/CardCategory5/CardCategory5";
@@ -15,16 +15,14 @@ export interface SectionSliderNewCategoriesProps {
   className?: string;
   itemClassName?: string;
   heading: string;
-  subHeading: string;
-  categories: PostDataType["categories"];
+  categories: any;
   categoryCardType?: "card1" | "card2" | "card3" | "card4" | "card5";
   itemPerRow?: 4 | 5;
   uniqueSliderClass: string;
 }
 
-const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
+const SubSectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
   heading,
-  subHeading,
   className = "",
   itemClassName = "",
   categories,
@@ -36,6 +34,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
     uniqueSliderClass
   )}`;
 
+  console.log(categories);
   const MY_GLIDE = new Glide(`.${UNIQUE_CLASS}`, {
     // @ts-ignore
     direction:
@@ -45,6 +44,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
     perView: itemPerRow,
     gap: 32,
     bound: true,
+    dragThreshold: false,
     breakpoints: {
       1280: {
         perView: itemPerRow - 1,
@@ -73,7 +73,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
     MY_GLIDE.mount();
   }, [MY_GLIDE]);
 
-  const renderCard = (item: TaxonomyType, index: number) => {
+  const renderCard = (item: any, index: number) => {
     const topIndex = index < 3 ? `#${index + 1}` : undefined;
     switch (categoryCardType) {
       case "card1":
@@ -83,7 +83,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
       case "card3":
         return <CardCategory3 taxonomy={item} />;
       case "card4":
-        return <CardCategory4 index={topIndex} taxonomy={item} />;
+        return <SubCardCategory4 index={topIndex} taxonomy={item} />;
       case "card5":
         return <CardCategory5 taxonomy={item} />;
       default:
@@ -94,26 +94,30 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
   return (
     <div className={`nc-SectionSliderNewCategories ${className}`}>
       <div className={`${UNIQUE_CLASS} flow-root`}>
-        <Heading desc={subHeading} hasNextPrev>
+        <Heading desc={`Discover ${categories.length} categories`} hasNextPrev>
           {heading}
         </Heading>
-        <div className="glide__track pb-10" data-glide-el="track">
+        <div className="glide__track pb-10 grid place-items-center" data-glide-el="track">
           <ul className="glide__slides">
-            {categories.map((item, index) => (
-              <li key={index} className={`glide__slide ${itemClassName}`}>
+            {categories.map((item:any, index:any) => (
+              <li key={index} className={`glide__slide  ${itemClassName}`}>
                 {renderCard(item, index)}
               </li>
             ))}
           </ul>
         </div>
         
-        <NextPrev
-          btnClassName="w-12 h-12"
-          containerClassName="justify-center"
-        />
+        {
+          categories.length > 5 && (
+            <NextPrev
+              btnClassName="w-12 h-12"
+              containerClassName="justify-center"
+            />
+          )
+        }
       </div>
     </div>
   );
 };
 
-export default SectionSliderNewCategories;
+export default SubSectionSliderNewCategories;

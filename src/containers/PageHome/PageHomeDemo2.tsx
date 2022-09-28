@@ -58,7 +58,7 @@ const PageHomeDemo2: React.FC = () => {
           categoryCardType="card5"
           itemPerRow={4}
           subHeading="Discover over 112 topics"
-          categories={DEMO_CATEGORIES.filter((_, i) => i < 10)}
+          categories={DEMO_CATEGORIES.filter((_, i) => i < 1)}
           uniqueSliderClass="PageHomeDemo2"
         />
 

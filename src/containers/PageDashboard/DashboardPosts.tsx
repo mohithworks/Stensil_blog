@@ -8,64 +8,11 @@ import { useGDocsContext } from 'utils/gdocscontext';
 import axios from "axios";
 import Snackbar from '@mui/material/Snackbar';
 
-const people = [
-  {
-    id: 1,
-    title: "Tokyo Fashion Week Is Making Itself Great Again",
-    image:
-      "https://images.unsplash.com/photo-1617059063772-34532796cdb5?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: true,
-    payment: "Not Applicable",
-  },
-  {
-    id: 2,
-    title: "Traveling Tends to Magnify All Human Emotions",
-    image:
-      "https://images.unsplash.com/photo-1622987437805-5c6f7c2609d7?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: true,
-    payment: "Not Applicable",
-  },
-  {
-    id: 3,
-    title: "Interior Design: Hexagon is the New Circle in 2018",
-    image:
-      "https://images.unsplash.com/photo-1617201277988-f0efcc14e626?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: true,
-    payment: "Not Applicable",
-  },
-  {
-    id: 4,
-    title: "Heritage Museums & Gardens to Open with New Landscape",
-    image:
-      "https://images.unsplash.com/photo-1622960748096-1983e5f17824?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: true,
-    payment: "Not Applicable",
-  },
-  {
-    id: 5,
-    title:
-      "Man agrees to complete $5,000 Hereford Inlet Lighthouse painting job",
-    image:
-      "https://images.unsplash.com/photo-1617202227468-7597afc7046d?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: false,
-    payment: "Not Applicable",
-  },
-  {
-    id: 6,
-    title:
-      "Denton Corker Marshall the mysterious black box is biennale pavilion",
-    image:
-      "https://images.unsplash.com/photo-1622978147823-33d5e241e976?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=60",
-    liveStatus: true,
-    payment: "Not Applicable",
-  },
-];
-
 const DashboardPosts = () => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<any>();
   const [currentPage, setcurrentPage] = useState<any>(1);
-  const [totalPosts, settotalPosts] = useState<any>();
+  const [authorDetails, setauthorDetails] = useState<any>();
   const [postsperPage, setpostsperPage] = useState<any>(5);
   const [snackMsg, setsnackMsg] = useState<any>("");
   const [snackDuration, setsnackDuration] = useState<any>();
@@ -77,32 +24,34 @@ const DashboardPosts = () => {
 
   const authUser = supabaseClient.auth.user();
   const authSession = supabaseClient.auth.session();
+  const authId = authUser?.id;
   const authProvider = authSession?.provider_token;
   const authorfullname = authUser?.user_metadata.full_name;
   const authorusername = authorfullname.replace(/ /g, "").toLowerCase();
 
+  const fetchPost = async() => {
+    setLoading(true);
+    const { data, error } = await supabaseClient
+      .from('posts')
+      .select(`*, authors(*)`)
+      .eq('postedby', authId)
+
+      if(error) {
+        console.log(error);
+      }
+
+      if(data?.length == 0) {
+        setloadingtxt("No Posts");
+      }else if(data) {
+        setPosts(data);
+        console.log(data);
+        setauthorDetails(data[0].authors);
+        console.log(data);
+        setLoading(false);
+      }
+  }
+
   useEffect(() => {
-
-    const fetchPost = async() => {
-      const { data, error } = await supabaseClient
-        .from('posts')
-        .select(`*, authors(*)`)
-        .eq('postedby', authorusername)
-
-        if(error) {
-          console.log(error);
-        }
-
-        if(data?.length == 0) {
-          setloadingtxt("No Posts");
-        }else if(data) {
-          setPosts(data);
-          console.log(data);
-          settotalPosts(data[0].authors.posts);
-          console.log(data);
-          setLoading(false);
-        }
-    }
     fetchPost();
   }, []);
 
@@ -140,6 +89,46 @@ const DashboardPosts = () => {
       setsyncDisabled(false);
     });
   }
+
+  const deletePosts = async (posttitle: any, post: any) => {
+    const imgRegex = /[\w\.\$]+(?=png|jpeg|jpg|gif)\w*/gi;
+
+    const mainfolderPath = 'public/'+authId+'/'+posttitle;
+    const folderPath = mainfolderPath+'/featuredImg/'+'hd.jpeg';
+    const folderPath2 = mainfolderPath+'/featuredImg/'+'sd.jpeg';
+
+    var res = post.match(imgRegex);
+    res = res.map((item: any) => {
+      return mainfolderPath+'/'+item;
+    });
+    res.push(folderPath, folderPath2);
+    console.log(res);
+
+    setsnackMsg("Deleting.....");
+    setsnackStatus(true);
+
+    const { data, error } = await supabaseClient.storage
+    .from('posts')
+    .remove(res);
+
+    if(error) throw setsnackMsg(error.message);
+    if(data) {
+      const { data, error } = await supabaseClient
+      .from("posts")
+      .delete()
+      .eq('posttitle', posttitle)
+      .eq('postedby', authId);
+      if(error) throw setsnackMsg(error.message);
+      if(data) {
+        fetchPost().then(() => {
+          setsnackMsg("Delete Complete");
+          setsyncDisabled(false);
+          setsnackStatus(false);
+        });
+      }
+    }
+    
+  } 
 
   if(loading) {
 
@@ -195,15 +184,19 @@ const DashboardPosts = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white dark:bg-neutral-900 divide-y divide-neutral-200 dark:divide-neutral-800">
-                  {currentPosts.map((item:any) => (
-                    <tr key={item.id}>
+                  {currentPosts.map((item:any, index:any) => {
+                    var href = '/'+authorDetails.username+item.href;
+                    console.log(href);
+                    console.log(index);
+                    return (
+                    <tr key={index}>
                       <td className="px-6 py-4">
                         <div className="flex items-center w-96 lg:w-auto max-w-md overflow-hidden">
                           <NcImage
                             containerClassName="flex-shrink-0 h-12 w-12 rounded-lg overflow-hidden lg:h-14 lg:w-14"
                             src={item.featured_imgsd}
                           />
-                          <Link to={item.href} className="ml-4 flex-grow">
+                          <Link to={href} className="ml-4 flex-grow">
                             <h2 className="inline-flex line-clamp-2 text-sm font-semibold  dark:text-neutral-300">
                               {item.title}
                             </h2>
@@ -226,25 +219,25 @@ const DashboardPosts = () => {
                         {/* )} */}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-neutral-500 dark:text-neutral-400">
-                        <span> {item.created_at}</span>
+                        <span>{new Date(item.created_at).toDateString()}</span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-neutral-300">
                         <a
-                          href="/#"
-                          className="text-rose-600 hover:text-rose-900"
+                          onClick={() => deletePosts(item.posttitle, item.post)}
+                          className="text-rose-600 hover:text-rose-900 cursor-pointer"
                         >
                           Delete
                         </a>
                       </td>
                     </tr>
-                  ))}
+                  )})}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
   
-        <PostPagination totalPosts={totalPosts} postsperPage={postsperPage} currentPage={currentPage} setcurrentPage={setcurrentPage} />
+        <PostPagination totalPosts={authorDetails.posts} postsperPage={postsperPage} currentPage={currentPage} setcurrentPage={setcurrentPage} />
         <Snackbar
           open={snackStatus}
           autoHideDuration={snackDuration}

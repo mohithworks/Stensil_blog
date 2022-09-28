@@ -6,6 +6,7 @@ import PostCardLikeContainer from "containers/PostCardLikeContainer/PostCardLike
 import MainNav2Logged from "./MainNav2Logged";
 import MainNav2 from "./MainNav2";
 import MainNav1 from "./MainNav1";
+import SubMainNav1 from "./SubMainNav1";
 import { useLocation } from "react-router-dom";
 import { SINGLE } from "data/single";
 
@@ -21,6 +22,8 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mainMenuRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const urlLocation = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;
   //
   //
   const location = useLocation();
@@ -161,14 +164,14 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
   const renderMainNav = () => {
     switch (mainNavStyle) {
       case "style1":
-        return <MainNav1 />;
+        return urlLocation != url ? <SubMainNav1 /> : <MainNav1 />;
       case "style2":
         return <MainNav2 />;
       case "style2Logedin":
         return <MainNav2Logged />;
 
       default:
-        return <MainNav1 />;
+        return urlLocation != url ? <SubMainNav1 /> : <MainNav1 />;
     }
   };
 

@@ -44,6 +44,8 @@ export interface PostDataType {
   categories: TaxonomyType[];
   title: string;
   featuredImage: string;
+  featured_imghd: string;
+  featured_imgsd: string;
   desc?: string;
   like: {
     count: number;

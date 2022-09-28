@@ -70,7 +70,6 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
     const passwordReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,30}$/;
     const fnameReg = /^([a-zA-Z ]){3,30}$/;
     const lnameReg = /^([a-zA-Z ]){1,30}$/;
-    const unameReg = /^([a-z0-9]){6,30}$/;
     setFullname(fname + " " + lname);
 
     if(email == ""||pwd == ""||fname == ""||lname == "") {

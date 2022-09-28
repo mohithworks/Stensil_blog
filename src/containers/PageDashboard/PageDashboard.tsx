@@ -2,15 +2,16 @@ import LayoutPage from "components/LayoutPage/LayoutPage";
 import React, { ComponentType, FC, useState, useEffect } from "react";
 import { Redirect, Route, Switch, useRouteMatch } from "react-router";
 import { NavLink } from "react-router-dom";
-import DashboardBillingAddress from "./DashboardBillingAddress";
+import DashboardNavigation from "./DashboardNavigation";
 import DashboardEditProfile from "./DashboardEditProfile";
 import DashboardPosts from "./DashboardPosts";
 import DashboardRoot from "./DashboardRoot";
-import DashboardSubcription from "./DashboardSubcription";
+import DashboardCategories from "./DashboardCategories";
 import DashboardSubmitPost from "./DashboardSubmitPost";
 import { Helmet } from "react-helmet";
 import ButtonPrimary from "components/Button/ButtonPrimary";
 import { GdocsContext } from "utils/gdocscontext"; 
+import supabaseClient from "utils/supabaseClient";
 
 export interface PageDashboardProps {
   className?: string;
@@ -20,8 +21,8 @@ interface DashboardLocationState {
   "/root"?: {};
   "/posts"?: {};
   "/edit-profile"?: {};
-  "/subscription"?: {};
-  "/billing-address"?: {};
+  "/categories"?: {};
+  "/navigation"?: {};
   "/submit-post"?: {};
   "/account"?: {};
 }
@@ -55,16 +56,16 @@ const subPages: DashboardPage[] = [
     pageName: "Edit profile",
   },
   {
-    sPath: "/subscription",
-    component: DashboardSubcription,
+    sPath: "/categories",
+    component: DashboardCategories,
     emoij: "📃",
-    pageName: "Subscription",
+    pageName: "Categories",
   },
   {
-    sPath: "/billing-address",
-    component: DashboardBillingAddress,
+    sPath: "/navigation",
+    component: DashboardNavigation,
     emoij: "✈",
-    pageName: "Billing address",
+    pageName: "Navigation",
   },
   {
     sPath: "/submit-post",

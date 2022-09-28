@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Page } from "./types";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "components/Footer/Footer";
+import SubFooter from "components/Footer/SubFooter";
 import Page404 from "containers/Page404/Page404";
 import PageArchive from "containers/PageArchive/PageArchive";
 import PageAuthor from "containers/PageAuthor/PageAuthor";
@@ -21,6 +22,7 @@ import PageForgotPass from "containers/PageForgotPass/PageForgotPass";
 import PageDashboard from "containers/PageDashboard/PageDashboard";
 import PageSubcription from "containers/PageSubcription/PageSubcription";
 import HeaderContainer from "containers/HeaderContainer/HeaderContainer";
+import SubHeaderContainer from "containers/HeaderContainer/SubHeaderContainer";
 import PageHome from "containers/PageHome/PageHome";
 import PageHomeDemo2 from "containers/PageHome/PageHomeDemo2";
 import PageHomeDemo3 from "containers/PageHome/PageHomeDemo3";
@@ -41,9 +43,90 @@ import { MyGlobalContext } from "utils/context";
 
 import supabaseClient from "utils/supabaseClient";
 
-export const pages: Page[] = [
+export const subDomainPages: Page[] = [
   { path: "/", exact: true, component: PageHome },
   { path: "/#", exact: true, component: PageHome },
+  //
+  { path: "/home-header-style1", exact: true, component: PageHome },
+  { path: "/home-header-style2", exact: true, component: PageHome },
+  { path: "/home-header-style2-logedin", exact: true, component: PageHome },
+  //
+  { path: "/archive/:slug", component: PageArchive },
+  { path: "/archive-video/:slug", component: PageArchiveVideo },
+  { path: "/archive-audio/:slug", component: PageArchiveAudio },
+  //
+  { path: "/author/:slug", component: PageAuthor },
+  { path: "/author-v2/:slug", component: PageAuthorV2 },
+  //
+  { path: "/single/:slug", component: PageSingleTemp3Sidebar },
+  {
+    path: "/single-sidebar/:slug",
+    component: PageSingleTemplate3,
+  },
+  {
+    path: "/single-template-2/:slug",
+    component: PageSingleTemplate2,
+  },
+  {
+    path: "/single-2-sidebar/:slug",
+    component: PageSingleTemp2Sidebar,
+  },
+  {
+    path: "/single-template-3/:slug",
+    component: PageSingle,
+  },
+  {
+    path: "/single-3-sidebar/:slug",
+    component: PageSingleHasSidebar,
+  },
+  {
+    path: "/single-4-sidebar/:slug",
+    component: PageSingleTemp4Sidebar,
+  },
+  {
+    path: "/posts/:postslug",
+    component: PageSingle,
+  },
+  {
+    path: "/category/:categoryslug",
+    component: PageArchive,
+  },
+  {
+    path: "/single-gallery/:slug",
+    component: PageSingleGallery,
+  },
+  {
+    path: "/single-audio/:slug",
+    component: PageSingleAudio,
+  },
+  {
+    path: "/single-video/:slug",
+    component: PageSingleVideo,
+  },
+
+  { path: "/search", component: PageSearch },
+  { path: "/search-v2", component: PageSearchV2 },
+  { path: "/about", component: PageAbout },
+  { path: "/contact", component: PageContact },
+  { path: "/page404", component: Page404 },
+  { path: "/login", component: PageLogin },
+  { path: "/signup", component: PageSignUp },
+  { path: "/forgot-pass", component: PageForgotPass },
+  { path: "/dashboard", component: PageDashboard },
+  { path: "/subscription", component: PageSubcription },
+  //
+  { path: "/home-demo-2", component: PageHomeDemo2 },
+  { path: "/home-demo-3", component: PageHomeDemo3 },
+  { path: "/home-demo-4", component: PageHomeDemo4 },
+  { path: "/home-demo-5", component: PageHomeDemo5 },
+  { path: "/home-demo-6", component: PageHomeDemo6 },
+  { path: "/home-demo-7", component: PageHomeDemo7 },
+  //
+];
+
+export const mainPages: Page[] = [
+  { path: "/", exact: true, component: PageHomeDemo2 },
+  { path: "/#", exact: true, component: PageHomeDemo2 },
   //
   { path: "/home-header-style1", exact: true, component: PageHome },
   { path: "/home-header-style2", exact: true, component: PageHome },
@@ -86,6 +169,10 @@ export const pages: Page[] = [
     component: PageSingle,
   },
   {
+    path: "/:authorslug/category/:categoryslug",
+    component: PageArchive,
+  },
+  {
     path: "/single-gallery/:slug",
     component: PageSingleGallery,
   },
@@ -118,7 +205,199 @@ export const pages: Page[] = [
   //
 ];
 
-const Routes = () => {
+export const SubDomainRoutes = () => {
+  const [user, setUser] = useState<any>(null);
+  const [event, setEvent] = useState<any>(null);
+  const [loading, setLoading] = useState<any>(true);
+  const [author, setAuthor] = useState<any>();
+  const [navigation, setNavigation] = useState<any>();
+  const [post, setPost] = useState<any>();
+  const [error, setError] = useState<any>();
+  const location = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;
+ 
+  const initpostRange = 0, finpostRange = 0;
+
+ // const authUser = supabaseClient.auth.user();
+ const supabaseFetch = async (table: any, query: any, type: any) => {
+  const { data, error } = await supabaseClient
+    .from(table)
+    .select(query)
+    .eq(type, location);
+
+    if(error) {
+      throw setError(error);
+    }
+    return data;
+ } 
+
+
+  useEffect(() => {
+    const fetchPost = async() => {
+      // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
+      var posts:any = await supabaseClient
+      .from('posts')
+      .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
+      .eq('authors.username', location)
+      .range(initpostRange, finpostRange);
+
+      if(posts.error) {
+        throw setError(error.message);
+      }
+      var nav:any = await supabaseFetch('navigation', '*, authors!inner(*)', 'authors.username');
+
+      // const posts = await supabaseClient
+      //   .from('posts')
+      //   .select(`*, authors!inner(*)`)
+      //   .eq('authors.username', location)
+
+      // const navigation = await supabaseClient
+      //   .from('posts')
+      //   .select(`*, authors!inner(*)`)
+      //   .eq('authors.username', location)
+
+      if(posts.length == 0) {
+        const authors:any =  await supabaseFetch('authors', '*', 'username');
+        // const { data, error } = await supabaseClient
+        //   .from('authors')
+        //   .select(`*`)
+        //   .eq('username', location);
+
+          if(authors) {
+            setAuthor(authors);
+            setNavigation(nav);
+            //console.log(authors);
+            setLoading(false);
+          }
+        
+      }else if(posts.data && nav) {
+        setPost(posts.data);
+        setAuthor([posts.data[0].authors]);
+        setNavigation(nav);
+        console.log(posts);
+        console.log(nav);
+        setLoading(false);
+      }
+    }
+    
+    location != url ? fetchPost() : null;
+    
+    //setLoading(false);
+  }, []);
+
+  if(error) {
+
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          
+            <div className="container relative py-16 lg:py-20">
+              {/* HEADER */}
+              <header className="text-center max-w-2xl mx-auto space-y-7">
+                <h2 className="text-7xl md:text-8xl"></h2>
+                <h1 className="text-8xl md:text-9xl font-semibold tracking-widest">
+                  ERROR
+                </h1>
+                <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+                  Please check your internet connection & refresh the page
+                </span>
+              </header>
+            </div>
+        </div>
+      </>
+    );
+
+  }else if(loading == true) {
+    return (
+      <div
+        className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16`}
+        data-nc-id="PageSingleTemp4Sidebar"
+      >
+        {/*  */}
+        
+        <div className="container relative py-16 lg:py-20">
+          {/* HEADER */}
+          <header className="text-center max-w-2xl mx-auto space-y-7">
+            <h2 className="text-7xl md:text-8xl"></h2>
+            <h1 className="text-6xl md:text-6xl font-semibold tracking-widest">
+              LOADING....
+            </h1>
+            <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+            </span>
+          </header>
+        </div>
+      </div>
+    )
+  }else if(author.length == 0) {
+
+    return (
+      <>
+        <div
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16`}
+          data-nc-id="PageSingleTemp4Sidebar"
+        >
+          {/*  */}
+          
+            <div className="container relative py-16 lg:py-20">
+              {/* HEADER */}
+              <header className="text-center max-w-2xl mx-auto space-y-7">
+                <h2 className="text-7xl md:text-8xl">🪔</h2>
+                <h1 className="text-8xl md:text-9xl font-semibold tracking-widest">
+                  404
+                </h1>
+                <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+                  THE BLOG YOU WERE LOOKING FOR DOESN'T EXIST.{" "}
+                </span>
+              </header>
+            </div>
+        </div>
+      </>
+    );
+
+  }else {
+    
+    return (
+      <>
+      <MyGlobalContext.Provider value={{ author, setAuthor, post, setPost, navigation, setNavigation, initpostRange, finpostRange }}>
+        <BrowserRouter
+          basename={
+            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
+          }
+        >
+          <MediaRunningContainer />
+
+          <ScrollToTop />
+          <SubHeaderContainer />
+          <Switch>
+            {subDomainPages.map(({ component, path, exact }) => {
+              return (
+                <Route
+                  key={path}
+                  component={component}
+                  exact={!!exact}
+                  path={path}
+                />
+              );
+            })}
+            <Route component={Page404} />
+          </Switch>
+          <div className="hidden xl:block">
+            <SubFooter username={author[0].username} logo={author[0].logoimg} menus={navigation} />
+          </div>
+          {/* MEDIA */}
+        </BrowserRouter>
+
+      </MyGlobalContext.Provider>
+      </>
+    );
+  }
+};
+
+export const MainRoute = () => {
   const [user, setUser] = useState<any>(null);
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState<any>(false);
@@ -152,39 +431,34 @@ const Routes = () => {
     )
   }else {
     
-  return (
-    <>
-    <MyGlobalContext.Provider value={{ user, setUser, event, setEvent, loading, setLoading }}>
-      <BrowserRouter
-        basename={
-          import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
-        }
-      >
-        <MediaRunningContainer />
+    return (
+      <>
+        <BrowserRouter
+          basename={
+            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
+          }
+        >
+          <MediaRunningContainer />
 
-        <ScrollToTop />
-        <HeaderContainer />
-        <Switch>
-          {pages.map(({ component, path, exact }) => {
-            return (
-              <Route
-                key={path}
-                component={component}
-                exact={!!exact}
-                path={path}
-              />
-            );
-          })}
-          <Route component={Page404} />
-        </Switch>
-        <Footer />
-        {/* MEDIA */}
-      </BrowserRouter>
-
-    </MyGlobalContext.Provider>
-    </>
-  );
+          <ScrollToTop />
+          <HeaderContainer />
+          <Switch>
+            {mainPages.map(({ component, path, exact }) => {
+              return (
+                <Route
+                  key={path}
+                  component={component}
+                  exact={!!exact}
+                  path={path}
+                />
+              );
+            })}
+            <Route component={Page404} />
+          </Switch>
+          <Footer />
+          {/* MEDIA */}
+        </BrowserRouter>
+      </>
+    );
   }
 };
-
-export default Routes;

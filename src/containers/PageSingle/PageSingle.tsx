@@ -30,16 +30,22 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
   const [post, setPost] = useState<any>();
   const [error, setError] = useState<any>();
 
+  const location = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;
+
   useEffect(() => {
     console.log(authorslug);
     console.log(postslug);
 
+    const author = location != url ? location : authorslug;
+    console.log(author);
+
     const fetchPost = async() => {
       const { data, error } = await supabaseClient
         .from('posts')
-        .select(`*, authors(*)`)
+        .select(`*, authors!inner(*)`)
         .eq('posttitle', postslug)
-        .eq('postedby', authorslug)
+        .eq('authors.username', author)
 
         if(error) {
           setError(error);
@@ -51,7 +57,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           setLoading(false);
         }
     }
-    fetchPost();
+    //fetchPost();
   }, []);
 
   useEffect(() => {
@@ -94,16 +100,16 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return (
       <>
         <div
-          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          className={`nc-PageSingleTemp4Sidebar relative text-center pb-50 lg:pt-40 pb-40 ${className}`}
           data-nc-id="PageSingleTemp4Sidebar"
         >
           {/*  */}
           
-          <div className="container relative py-16 lg:py-20">
+          <div className="container relative">
             {/* HEADER */}
             <header className="text-center max-w-2xl mx-auto space-y-7">
               <h2 className="text-7xl md:text-8xl"></h2>
-              <h1 className="text-6xl md:text-6xl font-semibold tracking-widest">
+              <h1 className="text-3xl md:text-6xl font-semibold tracking-widest">
                 LOADING....
               </h1>
               <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
