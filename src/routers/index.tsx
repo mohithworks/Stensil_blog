@@ -218,6 +218,7 @@ export const SubDomainRoutes = () => {
   const url = import.meta.env.VITE_URL;
  
   const initpostRange = 0, finpostRange = 10;
+  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
 
  // const authUser = supabaseClient.auth.user();
  const supabaseFetch = async (table: any, query: any, type: any) => {
@@ -239,7 +240,7 @@ export const SubDomainRoutes = () => {
       var posts:any = await supabaseClient
       .from('posts')
       .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
-      .eq('authors.username', location)
+      .eq('authors.username', authorSlug)
       .range(initpostRange, finpostRange);
 
       if(posts.error) {
@@ -281,7 +282,7 @@ export const SubDomainRoutes = () => {
       }
     }
     
-    location != url ? fetchPost() : null;
+    fetchPost();
     
     //setLoading(false);
   }, []);
@@ -366,7 +367,7 @@ export const SubDomainRoutes = () => {
       <MyGlobalContext.Provider value={{ author, setAuthor, post, setPost, navigation, setNavigation, initpostRange, finpostRange }}>
         <BrowserRouter
           basename={
-            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/test" : "/"
+            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
           }
         >
           <MediaRunningContainer />
