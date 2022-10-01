@@ -27,7 +27,7 @@ const SubCardLarge1: FC<CardLarge1Props> = ({
   const { featured_imghd, title, created_at, category, authors, href } =
     post;
 
-  const date = new Date(created_at).toDateString();
+  const date = new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) ;
 
   return (
     <div
