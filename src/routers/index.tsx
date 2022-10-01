@@ -225,7 +225,7 @@ export const SubDomainRoutes = () => {
   const { data, error } = await supabaseClient
     .from(table)
     .select(query)
-    .eq(type, location);
+    .eq(type, authorSlug);
 
     if(error) {
       throw setError(error);

@@ -50,6 +50,7 @@ const PageHome: React.FC = () => {
   const [categories, setCategories] = useState<any>();
   
   const [categoryList, setcategoryList] = useState<any>(catVal);
+  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
 
   const [currentPosts, setcurrentPosts] = useState<any>(postsLoc);
   console.log("currentPosts", currentPosts);
@@ -79,7 +80,7 @@ const PageHome: React.FC = () => {
       const {data, error} = await supabaseClient
       .from('category')
       .select('*, authors!inner(*)')
-      .eq('authors.username', location)
+      .eq('authors.username', authorSlug)
       .gt('posts', 0);
 
       if(error) {

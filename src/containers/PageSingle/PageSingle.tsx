@@ -37,15 +37,15 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     console.log(authorslug);
     console.log(postslug);
 
-    const author = location != url ? location : authorslug;
-    console.log(author);
+    const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
+    console.log(authorSlug);
 
     const fetchPost = async() => {
       const { data, error } = await supabaseClient
         .from('posts')
         .select(`*, authors!inner(*), category!inner(*)`)
         .eq('posttitle', postslug)
-        .eq('authors.username', author)
+        .eq('authors.username', authorSlug)
 
         if(error) {
           setError(error);

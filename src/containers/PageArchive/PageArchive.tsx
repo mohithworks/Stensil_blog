@@ -54,7 +54,7 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
   console.log(authorslug);
   console.log(categoryslug);
 
-  const authorSlug = location != url ? location : authorslug;
+  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
 
   const FILTERS = [
     { name: "Most Recent" },
