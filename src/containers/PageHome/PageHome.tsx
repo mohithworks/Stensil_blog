@@ -147,7 +147,7 @@ const PageHome: React.FC = () => {
     const {data,error} = await supabaseClient
       .from('posts')
       .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
-      .eq('authors.username', location)
+      .eq('authors.username', authorSlug)
       .range(inPage, fnPage);
 
       if(error) {
@@ -183,7 +183,7 @@ const PageHome: React.FC = () => {
     const {data,error} = await supabaseClient
       .from('posts')
       .select('title, created_at, featured_imghd, href, authors!inner(*)')
-      .eq('authors.username', location)
+      .eq('authors.username', authorSlug)
       .eq('category', catId)
       .range(icPage, fcPage);
 
