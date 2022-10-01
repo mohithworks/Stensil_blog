@@ -18,6 +18,9 @@ import ButtonSecondary from "components/Button/ButtonSecondary";
 import SectionSliderNewAuthors from "components/SectionSliderNewAthors/SectionSliderNewAuthors";
 import { DEMO_AUTHORS } from "data/authors";
 import supabaseClient from "utils/supabaseClient";
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import { XIcon } from "@heroicons/react/solid";
 
 export interface PageArchiveProps {
   className?: string;
@@ -26,21 +29,32 @@ export interface PageArchiveProps {
 // Tag and category have same data type - we will use one demo data
 const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 16);
 
+var inPage:any = 0, fnPage:any = 10, postsLoc:any = [];
+
 const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
   const PAGE_DATA: TaxonomyType = DEMO_CATEGORIES[0];
 
   const { authorslug, categoryslug } = useParams<any>();
 
+  const [btnLoading, setbtnLoading] = useState<any>(false);
   const [loading, setLoading] = useState(true);
+  const [postLoading, setpostLoading] = useState<any>(false);
   const [author, setAuthor] = useState<any>();
   const [post, setPost] = useState<any>();
   const [category, setCategory] = useState<any>();
   const [error, setError] = useState<any>();
   const [currentPage, setcurrentPage] = useState<any>(1);
   const [postsperPage, setpostsperPage] = useState<any>(10);
+  const [snackMsg, setsnackMsg] = useState<any>("");
+  const [snackDuration, setsnackDuration] = useState<any>();
+  const [snackStatus, setsnackStatus] = useState<any>(false);
 
   const location = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;
+  console.log(authorslug);
+  console.log(categoryslug);
+
+  const authorSlug = location != url ? location : authorslug;
 
   const FILTERS = [
     { name: "Most Recent" },
@@ -50,24 +64,25 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
     { name: "Most Viewed" },
   ];
 
-  useEffect(() => {
-    console.log(authorslug);
-    console.log(categoryslug);
+  const supabaseFetch = async () => { 
+    
+    const supabaseData = await supabaseClient
+      .from('posts')
+      .select('*, category!inner(*), authors!inner(*)')
+      .eq('authors.username', authorSlug)
+      .eq('category.title', categoryslug)
+      .range(inPage, fnPage);
 
-    const author = location != url ? location : authorslug;
-    console.log(author);
+    return supabaseData; 
+  }
 
-    const fetchPost = async() => {
-      const { data, error } = await supabaseClient
-        .from('posts')
-        .select('*, category!inner(*), authors!inner(*)')
-        .eq('authors.username', author)
-        .eq('category.title', categoryslug)
-
+  const fetchPost = async() => {
+      inPage = 0; fnPage = 10;
+      supabaseFetch().then(async ({data,error}) => { 
         if(error) {
           setError(error);
         }
-
+  
         if(data?.length == 0) {
           setPost([]);
           const { data, error } = await supabaseClient
@@ -82,20 +97,118 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
               console.log(data);
               setCategory(data[0]);
               setLoading(false);
-
+  
             }
         }else if(data) {
-          setPost(data);
+          postsLoc = data;
+          setPost(postsLoc);
           setAuthor(data[0].authors);
           setCategory(data[0].category);
           console.log(data);
           setLoading(false);
         }
+      });
+    
+  }
+
+  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
     }
+
+    setsnackStatus(false);
+  };
+
+  const snackAction = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        
+        <XIcon className={`w-5 h-5`} />
+      </IconButton>
+    </>
+  );
+
+  useEffect(() => {
+    console.log("In useeffect");
+    console.log(author);
     fetchPost();
   }, []);
 
-  
+  const fetchNxtPost = async () => {
+    inPage = inPage + 10;
+    fnPage = fnPage + 10;
+    
+    console.log(inPage);
+    console.log(fnPage);
+
+    supabaseFetch().then(async ({data,error}) => { 
+      if(error) {
+        setsnackMsg(error.message);
+        throw setsnackStatus(true);
+      }
+
+      if(data.length > 0) {
+        console.log(data);
+        postsLoc = [...postsLoc, ...data];
+        // localStorage.setItem('postsLoc', JSON.stringify(newPosts));
+        // localStorage.setItem('initpostRange', iPage);
+        // localStorage.setItem('finpostRange', fPage);
+
+        // var npostsLoc:any = JSON.parse(localStorage.getItem('postsLoc')!);
+        console.log(postsLoc);
+        setPost(postsLoc);
+        setbtnLoading(false);
+
+      }else {
+        setbtnLoading(false);
+        setsnackMsg("No Posts to show");
+        setsnackStatus(true);
+
+      }
+    });
+
+    // const {data,error} = await supabaseClient
+    //   .from('posts')
+    //   .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
+    //   .eq('authors.username', location)
+    //   .range(inPage, fnPage);
+
+    //   if(error) {
+    //     setsnackMsg(error.message);
+    //     throw setsnackStatus(true);
+    //   }
+
+    //   if(data.length > 0) {
+    //     console.log(data);
+    //     postsLoc = [...postsLoc, ...data];
+    //     // localStorage.setItem('postsLoc', JSON.stringify(newPosts));
+    //     // localStorage.setItem('initpostRange', iPage);
+    //     // localStorage.setItem('finpostRange', fPage);
+
+    //     // var npostsLoc:any = JSON.parse(localStorage.getItem('postsLoc')!);
+    //     console.log(postsLoc);
+    //     setPost(postsLoc);
+    //     setbtnLoading(false);
+
+    //   }else {
+    //     setbtnLoading(false);
+    //     setsnackMsg("No Posts to show");
+    //     setsnackStatus(true);
+
+    //   }
+
+  }
+
+  const setPosts = () => {
+    setbtnLoading(true);
+    fetchNxtPost();
+  }
+
   const href = (post: any) => { return location != url ? post.href : author.username+post.href; }
 
   if(error) {
@@ -221,31 +334,81 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
             </div>
           ) : (
             <div className="container py-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
+              
               <div>
-                <div className="flex flex-col sm:items-center sm:justify-between sm:flex-row">
-                  <div className="flex space-x-2.5">
-                    <ModalCategories categories={DEMO_CATEGORIES} />
-                    <ModalTags tags={DEMO_TAGS} />
-                  </div>
-                  <div className="block my-4 border-b w-full border-neutral-100 sm:hidden"></div>
-                  <div className="flex justify-end">
-                    <ArchiveFilterListBox lists={FILTERS} />
-                  </div>
-                </div>
+                {
+                  (error) ?
+                  (
+                      <>
+                        <div
+                          className={`nc-PageSingleTemp4Sidebar pt-5 lg:pt-5`}
+                          data-nc-id="PageSingleTemp4Sidebar"
+                        >
+                          {/*  */}
+                          
+                            <div className="container">
+                              {/* HEADER */}
+                              <header className="text-center max-w-2xl mx-auto space-y-7">
+                                <h2 className="text-7xl md:text-8xl"></h2>
+                                <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
+                                  ERROR
+                                </h1>
+                                <span className="block text-1xl text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+                                  Please check your internet connection & refresh the page
+                                </span>
+                              </header>
+                            </div>
+                        </div>
+                      </>
+                  )
+                  :
+                  (postLoading == true) ?
+                  (
+                    <div
+                      className={`nc-PageSingleTemp4Sidebar text-center pt-10 lg:pt-16`}
+                      data-nc-id="PageSingleTemp4Sidebar"
+                    >
+                      {/*  */}
+                      
+                      <div className="container relative py-16 lg:py-20">
+                        {/* HEADER */}
+                        <header className="text-center max-w-2xl mx-auto space-y-4">
+                          <h2 className="text-7xl md:text-8xl"></h2>
+                          <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
+                            LOADING....
+                          </h1>
+                          <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
+                          </span>
+                        </header>
+                      </div>
+                    </div>
+                  )
+                  :
+                  (
+                    <>
+                    {/* LOOP ITEMS */}
+                    <div className="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
+                      {
+                        post.map((post:any, index:any) => (
+                          <Card20 key={index} post={post} postHref={'../'+'../'+href(post)} />
+                        ))
+                      }
+                    </div>
+          
+                    {/* PAGINATIONS */}
+                    
+                    {
+                      (postsLoc.length > 10) && (
+                        <div className="flex mt-20 justify-center items-center">
+                          <ButtonPrimary loading={btnLoading} onClick={setPosts}>Show me more</ButtonPrimary>
+                        </div>
+                      ) 
+                    }
+                    </>
+
+                  )
+                }
       
-                {/* LOOP ITEMS */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
-                  {
-                    currentPosts.map((post:any, index:any) => (
-                      <Card20 key={index} post={post} postHref={'../'+'../'+href(post)} />
-                    ))
-                  }
-                </div>
-      
-                {/* PAGINATIONS */}
-                <div className="flex flex-col mt-12 lg:mt-16 space-y-5 sm:space-y-0 sm:space-x-3 sm:flex-row sm:justify-between sm:items-center">
-                  <PostPagination totalPosts={post.length} postsperPage={postsperPage} currentPage={currentPage} setcurrentPage={setcurrentPage} />
-                </div>
               </div>
       
               {/* MORE SECTIONS */}
@@ -273,6 +436,13 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
 
           )
         }
+        <Snackbar
+          open={snackStatus}
+          autoHideDuration={snackDuration}
+          onClose={handleClose}
+          action={snackAction}
+          message={snackMsg}
+        />
   
       </div>
     );

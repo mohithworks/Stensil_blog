@@ -7,7 +7,7 @@ import SingleContentBlog from "./SingleContentBlog";
 import { CommentType } from "components/CommentCard/CommentCard";
 import { useAppDispatch } from "app/hooks";
 import { changeCurrentPage } from "app/pages/pages";
-import SingleHeader from "./SingleHeader";
+import SubSingleHeader from "./SubSingleHeader";
 import SingleRelatedPosts from "./SingleRelatedPosts";
 import supabaseClient from "utils/supabaseClient";
 
@@ -26,7 +26,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
 
   const { authorslug, postslug } = useParams<any>();
 
-  const [loading, setLoading] = useState(true);
+  const [postLoading, setpostLoading] = useState(true);
   const [post, setPost] = useState<any>();
   const [error, setError] = useState<any>();
 
@@ -43,7 +43,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     const fetchPost = async() => {
       const { data, error } = await supabaseClient
         .from('posts')
-        .select(`*, authors!inner(*)`)
+        .select(`*, authors!inner(*), category!inner(*)`)
         .eq('posttitle', postslug)
         .eq('authors.username', author)
 
@@ -54,7 +54,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
         if(data) {
           setPost(data);
           console.log(data);
-          setLoading(false);
+          setpostLoading(false);
         }
     }
     fetchPost();
@@ -95,7 +95,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
       </>
     );
 
-  }else if(loading) {
+  }else if(postLoading == true) {
 
     return (
       <>
@@ -157,7 +157,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           {/* SINGLE HEADER */}
           <header className="container rounded-xl">
             <div className="max-w-screen-md mx-auto">
-              <SingleHeader pageData={post[0]} />
+              <SubSingleHeader hiddenDesc pageData={post[0]} />
             </div>
           </header>
   
@@ -169,7 +169,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           />
   
           {/* SINGLE MAIN CONTENT */}
-          <div className="container">
+          <div className="container pb-20">
             <SingleContentBlog data={post[0].post} />
           </div>
   

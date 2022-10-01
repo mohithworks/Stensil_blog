@@ -53,7 +53,7 @@ const Card20: FC<Card11Props> = ({
       </span> */}
 
       <div className="p-4 flex flex-col flex-grow space-y-3">
-          <span className="text-xs text-neutral-500">{new Date(created_at).toDateString()}</span>
+          <span className="text-xs text-neutral-500">{ new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) }</span>
         <h2 className="nc-card-title block text-base font-semibold text-neutral-900 dark:text-neutral-100 ">
           <Link to={postHref} className="line-clamp-2" title={title}>
             {title}

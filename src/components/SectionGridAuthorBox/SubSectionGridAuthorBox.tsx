@@ -20,9 +20,9 @@ const SubSectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
       <Heading desc="Say hello to the creator of the Blog" isCenter>
         Author
       </Heading>
-      <div className="nc-CardAuthorBox flex flex-col items-center justify-center text-center">
+      <div className="nc-CardAuthorBox flex justify-center text-center">
         {authors.map((author:any) => (
-          <SubCardAuthorBox key={author.id} author={author} />
+          <SubCardAuthorBox className="" key={author.id} author={author} />
         ))}
       </div>
     </div>

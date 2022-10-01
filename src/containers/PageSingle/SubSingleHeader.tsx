@@ -4,26 +4,26 @@ import React, { FC } from "react";
 import SingleTitle from "./SingleTitle";
 import { SinglePageType } from "./PageSingleTemp3Sidebar";
 import PostMeta2 from "components/PostMeta2/PostMeta2";
-import SingleMetaAction2 from "./SingleMetaAction2";
+import SubSingleMetaAction2 from "./SubSingleMetaAction2";
 import { Helmet } from "react-helmet";
 import { SINGLE } from "data/single";
 
 export interface SingleHeaderProps {
-  pageData: SinglePageType;
+  pageData: any;
   hiddenDesc?: boolean;
   metaActionStyle?: "style1" | "style2";
   titleMainClass?: string;
   className?: string;
 }
 
-const SingleHeader: FC<SingleHeaderProps> = ({
+const SingleHeaderDemo: FC<SingleHeaderProps> = ({
   pageData,
   titleMainClass,
   hiddenDesc = false,
   className = "",
   metaActionStyle = "style1",
 }) => {
-  const { title } = pageData;
+  const { title, category } = pageData;
 
   return (
     <>
@@ -32,7 +32,7 @@ const SingleHeader: FC<SingleHeaderProps> = ({
       </Helmet>
       <div className={`nc-SingleHeader ${className}`}>
         <div className="space-y-5">
-          {/* <SubCategoryBadgeList itemClass="!px-3" categories={category} /> */}
+          <SubCategoryBadgeList itemClass="!px-3" categories={category} />
           <SingleTitle mainClass={titleMainClass} title={title} />
           {/* {!!desc && !hiddenDesc && (
             <span className="block text-base text-neutral-500 md:text-lg dark:text-neutral-400 pb-1">
@@ -48,7 +48,7 @@ const SingleHeader: FC<SingleHeaderProps> = ({
               hiddenCategories
               avatarRounded="rounded-full shadow-inner"
             />
-            <SingleMetaAction2 meta={SINGLE} />
+            <SubSingleMetaAction2 meta={pageData} />
           </div>
         </div>
       </div>
@@ -56,4 +56,4 @@ const SingleHeader: FC<SingleHeaderProps> = ({
   );
 };
 
-export default SingleHeader;
+export default SingleHeaderDemo;

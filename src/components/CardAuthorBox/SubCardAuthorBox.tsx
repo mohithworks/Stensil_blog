@@ -15,7 +15,7 @@ const SubCardAuthorBox: FC<CardAuthorBoxProps> = ({ className = "", author }) =>
   return (
     <NavLink
       to={href}
-      className={`nc-CardAuthorBox flex flex-col items-center justify-center text-center px-3 py-5 sm:px-6 sm:py-7  [ nc-box-has-hover ] [ nc-dark-box-bg-has-hover ] ${className}`}
+      className={`nc-CardAuthorBox flex flex-col items-center justify-center text-center sm:px-6 sm:py-7  [ nc-box-has-hover ] [ nc-dark-box-bg-has-hover ] ${className}`}
       data-nc-id="CardAuthorBox"
     >
       <Avatar
@@ -24,7 +24,7 @@ const SubCardAuthorBox: FC<CardAuthorBoxProps> = ({ className = "", author }) =>
         imgUrl={avatar_url}
         userName={full_name}
       />
-      <div className="mt-3">
+      <div className={`mt-3 ${(full_name.length <= 6) ? `ml-20 mr-20`: `ml-10 mr-10`}`}>
         <h2 className={`text-base font-medium`}>
           <span className="line-clamp-1">{full_name}</span>
         </h2>

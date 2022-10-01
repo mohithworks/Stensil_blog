@@ -5,6 +5,10 @@ import ButtonPrimary from "components/Button/ButtonPrimary";
 import ButtonSecondary from "components/Button/ButtonSecondary";
 import { RadioGroup } from "@headlessui/react";
 import twFocusClass from "utils/twFocusClass";
+import supabaseClient from "utils/supabaseClient";
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import { XIcon } from "@heroicons/react/solid";
 
 export interface ProblemPlan {
   name: string;
@@ -14,6 +18,7 @@ export interface ProblemPlan {
 
 export interface ModalReportItemProps {
   id: number | string;
+  author?: any,
   show: boolean;
   problemPlans?: ProblemPlan[];
   onCloseModalReportItem: () => void;
@@ -29,12 +34,17 @@ const problemPlansDemo = [
 const ModalReportItem: FC<ModalReportItemProps> = ({
   problemPlans = problemPlansDemo,
   id,
+  author = 'author',
   show,
   onCloseModalReportItem,
 }) => {
   const textareaRef = useRef(null);
 
   const [problemSelected, setProblemSelected] = useState(problemPlans[0]);
+
+  const [snackMsg, setsnackMsg] = useState<any>("");
+  const [snackDuration, setsnackDuration] = useState<any>();
+  const [snackStatus, setsnackStatus] = useState<any>(false);
 
   useEffect(() => {
     if (show) {
@@ -47,12 +57,53 @@ const ModalReportItem: FC<ModalReportItemProps> = ({
     }
   }, [show]);
 
-  const handleClickSubmitForm = () => {
-    console.log({
-      id,
-      problem: problemSelected,
-      message: (textareaRef.current as unknown as HTMLTextAreaElement).value,
-    });
+  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setsnackStatus(false);
+  };
+  
+  const snackAction = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        
+        <XIcon className={`w-5 h-5`} />
+      </IconButton>
+    </>
+  );
+
+  const handleClickSubmitForm = async (e:any) => {
+    e.preventDefault();
+    console.log(id);
+    console.log(author);
+    const { data, error } = await supabaseClient
+    .from('reports')
+    .insert([
+      { problem: problemSelected.name, post: id, author: author, message: (textareaRef.current as unknown as HTMLTextAreaElement).value },
+    ])
+    
+    if(error) {
+      setsnackMsg(error.message);
+      throw setsnackStatus(true);
+    }
+
+    if(data) {
+      setsnackMsg('Reported successfully');
+      setsnackDuration(2000);
+      setsnackStatus(true);
+    }
+    // console.log({
+    //   id,
+    //   problem: problemSelected,
+    //   message: (textareaRef.current as unknown as HTMLTextAreaElement).value,
+    // });
   };
 
   const renderCheckIcon = () => {
@@ -144,6 +195,13 @@ const ModalReportItem: FC<ModalReportItemProps> = ({
             Cancel
           </ButtonSecondary>
         </div>
+        <Snackbar
+          open={snackStatus}
+          autoHideDuration={snackDuration}
+          onClose={handleClose}
+          action={snackAction}
+          message={snackMsg}
+        />
       </form>
     );
   };

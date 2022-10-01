@@ -69,7 +69,7 @@ const DashboardRoot = () => {
   }
 
   const handleName = (e:any) => {
-    const unameReg = /^([a-z0-9]){6,30}$/;
+    const unameReg = /^([a-z0-9]){3,30}$/;
     if(unameReg.test(e.target.value)) { 
       setnameError(false);
       setName(e.target.value);

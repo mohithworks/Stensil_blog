@@ -25,16 +25,16 @@ const PostActionDropdown: FC<PostActionDropdownProps> = ({
       name: "Copy link",
       icon: "las la-copy",
     },
-    {
-      id: "commentThisArticle",
-      name: "Comment this article",
-      icon: "las la-comment-dots",
-    },
-    {
-      id: "hideThisAuthor",
-      name: "Hide this author",
-      icon: "las la-user-slash",
-    },
+    // {
+    //   id: "commentThisArticle",
+    //   name: "Comment this article",
+    //   icon: "las la-comment-dots",
+    // },
+    // {
+    //   id: "hideThisAuthor",
+    //   name: "Hide this author",
+    //   icon: "las la-user-slash",
+    // },
     {
       id: "reportThisArticle",
       name: "Report this article",
@@ -105,14 +105,15 @@ const PostActionDropdown: FC<PostActionDropdownProps> = ({
 
       <ModalReportItem
         show={isReporting}
-        id={postData.id}
+        id={postData.title}
+        author={postData.authors.id}
         onCloseModalReportItem={closeModalReportPost}
       />
-      <ModalHideAuthor
+      {/* <ModalHideAuthor
         show={showModalHideAuthor}
         auhthor={postData.author}
         onCloseModalHideAuthor={onCloseModalHideAuthor}
-      />
+      /> */}
     </div>
   );
 };

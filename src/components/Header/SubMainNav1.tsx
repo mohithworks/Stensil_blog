@@ -40,7 +40,9 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
             {
           
               buttons.length != 0 && (
-                <ButtonPrimary targetBlank={true} href={buttons[0].link}>{buttons[0].name}</ButtonPrimary>)
+                <a href={buttons[0].link} target="_blank">
+                 <ButtonPrimary>{buttons[0].name}</ButtonPrimary>
+                </a>)
             }
           </div>
           <div className="flex items-center xl:hidden">

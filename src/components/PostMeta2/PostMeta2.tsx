@@ -60,7 +60,7 @@ const PostMeta2: FC<PostMeta2Props> = ({
           )} */}
         </div>
         <div className="text-xs mt-[6px]">
-          <span className="text-neutral-700 dark:text-neutral-300">{ new Date(created_at).toDateString() }</span>
+          <span className="text-neutral-700 dark:text-neutral-300">{ new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) }</span>
           {/* <span className="mx-2 font-semibold">·</span>
           <span className="text-neutral-700 dark:text-neutral-300">
             {readingTime} min read

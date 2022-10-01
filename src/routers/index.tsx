@@ -46,6 +46,7 @@ import supabaseClient from "utils/supabaseClient";
 export const subDomainPages: Page[] = [
   { path: "/", exact: true, component: PageHome },
   { path: "/#", exact: true, component: PageHome },
+  { path: "/:authorslug", exact: true, component: PageHome },
   //
   { path: "/home-header-style1", exact: true, component: PageHome },
   { path: "/home-header-style2", exact: true, component: PageHome },
@@ -216,7 +217,7 @@ export const SubDomainRoutes = () => {
   const location = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;
  
-  const initpostRange = 0, finpostRange = 0;
+  const initpostRange = 0, finpostRange = 10;
 
  // const authUser = supabaseClient.auth.user();
  const supabaseFetch = async (table: any, query: any, type: any) => {
@@ -256,7 +257,7 @@ export const SubDomainRoutes = () => {
       //   .select(`*, authors!inner(*)`)
       //   .eq('authors.username', location)
 
-      if(posts.length == 0) {
+      if(posts.data.length == 0) {
         const authors:any =  await supabaseFetch('authors', '*', 'username');
         // const { data, error } = await supabaseClient
         //   .from('authors')
@@ -365,7 +366,7 @@ export const SubDomainRoutes = () => {
       <MyGlobalContext.Provider value={{ author, setAuthor, post, setPost, navigation, setNavigation, initpostRange, finpostRange }}>
         <BrowserRouter
           basename={
-            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"
+            import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/test" : "/"
           }
         >
           <MediaRunningContainer />
