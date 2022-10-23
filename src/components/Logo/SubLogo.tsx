@@ -18,7 +18,7 @@ const SubLogo: React.FC<LogoProps> = ({
       {/* THIS USE FOR MY MULTI DEMO */}
       {/* IF YOU ARE MY CLIENT. PLESE DELETE THIS CODE AND YOU YOUR IMAGE PNG BY BELLOW CODE */}
       
-      <img className="mx-auto h-14 text-neutral-400" alt="svgImg" src={img}/>
+      <img className="mx-auto h-14 sm:h-12 md:h-12 text-neutral-400" alt="svgImg" src={img}/>
     </Link>
   );
 };

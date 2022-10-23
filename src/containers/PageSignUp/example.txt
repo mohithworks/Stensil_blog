@@ -1270,3 +1270,154 @@ export default DashboardSubmitPost;
 
 
     //127zNmT3JXmgkoE0SgQ2RMsanQkCzRlzKqH9Aoa-qNG8'
+
+
+session: {
+    "provider_token": "ya29.a0Aa4xrXN3ZcTjW2q9CSrvp73WAVs2lhELfBmQyGol-3Kg1ENyB3ALIswgt9PCTCZ6bpIP2ycccqyrRf580zBPNt4KJUjnyuAQUBI38lh0fR1GTNxR_OY8fTuXZJfha5OgFPUMyEyc_uxDytNGl6vh8NXLJ3gHbQaCgYKATASARASFQEjDvL9q6Ps38d5e2uAGtx_2GLwgg0165",
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjY0ODkyNjUwLCJzdWIiOiJhYjZiODFlNi1hNGE4LTQzYzEtYTUzNC04MWYwODc4YjI5NzgiLCJlbWFpbCI6InNhdml0aGFtb2hpNDNAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJnb29nbGUiLCJwcm92aWRlcnMiOlsiZ29vZ2xlIl19LCJ1c2VyX21ldGFkYXRhIjp7ImF2YXRhcl91cmwiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUNOUEV1OXBWTkpmdmtSQm1yd2JvUkZiRzRELWhkbjlUanVlcGNVaXlUd3pnQT1zOTYtYyIsImVtYWlsIjoic2F2aXRoYW1vaGk0M0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZnVsbF9uYW1lIjoiRU5HMjBDVDAwMTRfTW9oaXRoIEIiLCJpc3MiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS91c2VyaW5mby92Mi9tZSIsIm5hbWUiOiJFTkcyMENUMDAxNF9Nb2hpdGggQiIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQUNOUEV1OXBWTkpmdmtSQm1yd2JvUkZiRzRELWhkbjlUanVlcGNVaXlUd3pnQT1zOTYtYyIsInByb3ZpZGVyX2lkIjoiMTEwOTk4NTkzMDczOTM3NTkxNzUzIiwic3ViIjoiMTEwOTk4NTkzMDczOTM3NTkxNzUzIn0sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwic2Vzc2lvbl9pZCI6ImI2ZWM0NjA5LTFlMmEtNGM4Zi04NmE3LWVjMTU2MmIyMDIwZSJ9.UsiN1U6YYH-xfVJp5BptJajEQrhbpN2CC0ut9eKzj-s",
+    "expires_in": 3600,
+    "expires_at": 1664892658,
+    "refresh_token": "AHy_RRffK2M0KNRChiuQBg",
+    "token_type": "bearer",
+    "user": {
+        "id": "ab6b81e6-a4a8-43c1-a534-81f0878b2978",
+        "aud": "authenticated",
+        "role": "authenticated",
+        "email": "savithamohi43@gmail.com",
+        "email_confirmed_at": "2022-09-03T07:13:22.171695Z",
+        "phone": "",
+        "confirmed_at": "2022-09-03T07:13:22.171695Z",
+        "last_sign_in_at": "2022-10-04T13:10:50.022174Z",
+        "app_metadata": {
+            "provider": "google",
+            "providers": [
+                "google"
+            ]
+        },
+        "user_metadata": {
+            "avatar_url": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+            "email": "savithamohi43@gmail.com",
+            "email_verified": true,
+            "full_name": "ENG20CT0014_Mohith B",
+            "iss": "https://www.googleapis.com/userinfo/v2/me",
+            "name": "ENG20CT0014_Mohith B",
+            "picture": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+            "provider_id": "110998593073937591753",
+            "sub": "110998593073937591753"
+        },
+        "identities": [
+            {
+                "id": "110998593073937591753",
+                "user_id": "ab6b81e6-a4a8-43c1-a534-81f0878b2978",
+                "identity_data": {
+                    "avatar_url": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+                    "email": "savithamohi43@gmail.com",
+                    "email_verified": true,
+                    "full_name": "ENG20CT0014_Mohith B",
+                    "iss": "https://www.googleapis.com/userinfo/v2/me",
+                    "name": "ENG20CT0014_Mohith B",
+                    "picture": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+                    "provider_id": "110998593073937591753",
+                    "sub": "110998593073937591753"
+                },
+                "provider": "google",
+                "last_sign_in_at": "2022-09-03T07:13:22.168353Z",
+                "created_at": "2022-09-03T07:13:22.168402Z",
+                "updated_at": "2022-10-04T13:10:50.010878Z"
+            }
+        ],
+        "created_at": "2022-09-03T07:13:22.16449Z",
+        "updated_at": "2022-10-04T13:10:50.025883Z"
+    }
+}
+
+user: {
+    "id": "ab6b81e6-a4a8-43c1-a534-81f0878b2978",
+    "aud": "authenticated",
+    "role": "authenticated",
+    "email": "savithamohi43@gmail.com",
+    "email_confirmed_at": "2022-09-03T07:13:22.171695Z",
+    "phone": "",
+    "confirmed_at": "2022-09-03T07:13:22.171695Z",
+    "last_sign_in_at": "2022-10-04T13:10:50.022174Z",
+    "app_metadata": {
+        "provider": "google",
+        "providers": [
+            "google"
+        ]
+    },
+    "user_metadata": {
+        "avatar_url": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+        "email": "savithamohi43@gmail.com",
+        "email_verified": true,
+        "full_name": "ENG20CT0014_Mohith B",
+        "iss": "https://www.googleapis.com/userinfo/v2/me",
+        "name": "ENG20CT0014_Mohith B",
+        "picture": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+        "provider_id": "110998593073937591753",
+        "sub": "110998593073937591753"
+    },
+    "identities": [
+        {
+            "id": "110998593073937591753",
+            "user_id": "ab6b81e6-a4a8-43c1-a534-81f0878b2978",
+            "identity_data": {
+                "avatar_url": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+                "email": "savithamohi43@gmail.com",
+                "email_verified": true,
+                "full_name": "ENG20CT0014_Mohith B",
+                "iss": "https://www.googleapis.com/userinfo/v2/me",
+                "name": "ENG20CT0014_Mohith B",
+                "picture": "https://lh3.googleusercontent.com/a-/ACNPEu9pVNJfvkRBmrwboRFbG4D-hdn9TjuepcUiyTwzgA=s96-c",
+                "provider_id": "110998593073937591753",
+                "sub": "110998593073937591753"
+            },
+            "provider": "google",
+            "last_sign_in_at": "2022-09-03T07:13:22.168353Z",
+            "created_at": "2022-09-03T07:13:22.168402Z",
+            "updated_at": "2022-10-04T13:10:50.010878Z"
+        }
+    ],
+    "created_at": "2022-09-03T07:13:22.16449Z",
+    "updated_at": "2022-10-04T13:10:50.025883Z"
+}
+
+
+	const setBlogLogo = file => {
+		setlogoImgURL(URL.createObjectURL(file[0]))
+	}
+
+	const setFaviconLogo = (file, form, field, values) => {
+		const url = URL.createObjectURL(file[0]);
+		const fileName = 'favicon.jpeg'
+		const filetype = 'image/jpeg'
+		const convertedBlobFile = new File([file[0]], fileName, { type: filetype, lastModified: Date.now()})
+		console.log(convertedBlobFile)
+		form.setFieldValue(field.name, convertedBlobFile)
+		setfaviconImgURL(url)
+		console.log(values)
+
+		// const img = new Image()
+		// img.src = url
+
+		// img.onload = function () {
+		// 	const width = img.width; const height = img.height;
+		// 	console.log(width)
+		// 	console.log(height)
+		// 	if(width != height) {
+		// 		openNotification('danger', "Image must be square")
+		// 	}else {
+		// 		//setfaviconImg(file[0])
+		// 		fileList = [];
+		// 		setfaviconImgURL(url)
+		// 	}
+		// };
+	}
+
+  { 
+        title: title,
+        description: description,
+        username: name,
+        logoimg: logo,
+        faviconimg: favicon,  
+    }

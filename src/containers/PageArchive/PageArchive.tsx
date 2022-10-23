@@ -89,7 +89,7 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
             .from('category')
             .select(`*, authors!inner(*)`)
             .eq('title', categoryslug)
-            .eq('authors.username', authorslug)
+            .eq('authors.username', authorSlug)
             if(error) {
               setError(error);
             }
@@ -387,10 +387,10 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
                   (
                     <>
                     {/* LOOP ITEMS */}
-                    <div className="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
                       {
                         post.map((post:any, index:any) => (
-                          <Card20 key={index} post={post} postHref={'../'+'../'+href(post)} />
+                          <Card20 key={index} posts={post} postHref={'../'+'../'+href(post)} />
                         ))
                       }
                     </div>

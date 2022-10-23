@@ -6,14 +6,14 @@ import Badge from "components/Badge/Badge";
 
 export interface CardCategory5Props {
   className?: string;
-  taxonomy: TaxonomyType;
+  taxonomy: any;
 }
 
 const CardCategory5: FC<CardCategory5Props> = ({
   className = "",
   taxonomy,
 }) => {
-  const { count, name, href = "/", thumbnail, color } = taxonomy;
+  const { posts, name, href = "/", featured_imgsd, color } = taxonomy;
 
   return (
     <Link
@@ -25,7 +25,7 @@ const CardCategory5: FC<CardCategory5Props> = ({
         className={`flex-shrink-0 relative w-full aspect-w-7 aspect-h-7 sm:aspect-h-5 h-0 rounded-2xl sm:rounded-3xl overflow-hidden group`}
       >
         <NcImage
-          src={thumbnail}
+          src={featured_imgsd}
           className="object-cover w-full h-full rounded-2xl"
         />
         <span className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-opacity"></span>
@@ -35,7 +35,7 @@ const CardCategory5: FC<CardCategory5Props> = ({
         color={color as TwMainColor}
         name={
           <div>
-            {count}
+            {posts}
             <i className="ml-3 las la-arrow-right"></i>
           </div>
         }

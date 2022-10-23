@@ -39,6 +39,7 @@ export interface PostDataType {
   authors: PostAuthorType;
   author: PostAuthorType;
   created_at: string;
+  post: string;
   date: string;
   href: string;
   categories: TaxonomyType[];

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export interface CardCategory1Props {
   className?: string;
-  taxonomy: TaxonomyType;
+  taxonomy: any;
   size?: "large" | "normal";
 }
 
@@ -14,7 +14,7 @@ const CardCategory1: FC<CardCategory1Props> = ({
   size = "normal",
   taxonomy,
 }) => {
-  const { count, name, href = "/", thumbnail } = taxonomy;
+  const { count, name, href = "/", featured_imgsd } = taxonomy;
   return (
     <NavLink
       to={href}
@@ -25,7 +25,7 @@ const CardCategory1: FC<CardCategory1Props> = ({
         containerClassName={`flex-shrink-0 ${
           size === "large" ? "w-20 h-20" : "w-12 h-12"
         } rounded-lg mr-4 overflow-hidden`}
-        src={thumbnail}
+        src={featured_imgsd}
       />
       <div>
         <h2

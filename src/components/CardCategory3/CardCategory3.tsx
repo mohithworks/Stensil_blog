@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 export interface CardCategory3Props {
   className?: string;
-  taxonomy: TaxonomyType;
+  taxonomy: any;
 }
 
 const CardCategory3: FC<CardCategory3Props> = ({
   className = "",
   taxonomy,
 }) => {
-  const { count, name, href = "/", thumbnail } = taxonomy;
+  const { count, name, href = "/", featured_imgsd } = taxonomy;
   return (
     <Link
       to={href}
@@ -23,7 +23,7 @@ const CardCategory3: FC<CardCategory3Props> = ({
         className={`flex-shrink-0 relative w-full aspect-w-5 aspect-h-4 sm:aspect-h-7 h-0 rounded-2xl overflow-hidden group`}
       >
         <NcImage
-          src={thumbnail}
+          src={featured_imgsd}
           className="object-cover w-full h-full rounded-2xl"
         />
         <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity"></span>

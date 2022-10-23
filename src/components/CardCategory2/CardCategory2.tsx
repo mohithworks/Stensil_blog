@@ -6,8 +6,9 @@ import Badge from "components/Badge/Badge";
 
 export interface CardCategory2Props {
   className?: string;
-  taxonomy: TaxonomyType;
+  taxonomy: any;
   index?: string;
+  onClick?: () => void;
 }
 
 const CardCategory2: FC<CardCategory2Props> = ({
@@ -15,7 +16,7 @@ const CardCategory2: FC<CardCategory2Props> = ({
   taxonomy,
   index,
 }) => {
-  const { count, name, href = "/", thumbnail, color } = taxonomy;
+  const { count, name, href = "/", featured_imgsd, color } = taxonomy;
   return (
     <Link
       to={href}
@@ -31,7 +32,7 @@ const CardCategory2: FC<CardCategory2Props> = ({
       )}
       <NcImage
         containerClassName={`flex-shrink-0 w-20 h-20 rounded-full overflow-hidden`}
-        src={thumbnail}
+        src={featured_imgsd}
       />
       <div className="mt-3 ">
         <h2 className={`text-base sm:text-lg font-semibold `}>

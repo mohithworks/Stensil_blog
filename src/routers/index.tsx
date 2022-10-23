@@ -40,13 +40,13 @@ import PageHomeDemo7 from "containers/PageHome/PageHomeDemo7";
 import PageSingleTemp4Sidebar from "containers/PageSingle/PageSingleTemp4Sidebar";
 import MediaRunningContainer from "containers/MediaRunningContainer/MediaRunningContainer";
 import { MyGlobalContext } from "utils/context"; 
+import getAuthorSlug from "utils/getAuthorSlug";
 
 import supabaseClient from "utils/supabaseClient";
 
 export const subDomainPages: Page[] = [
   { path: "/", exact: true, component: PageHome },
   { path: "/#", exact: true, component: PageHome },
-  { path: "/:authorslug", exact: true, component: PageHome },
   //
   { path: "/home-header-style1", exact: true, component: PageHome },
   { path: "/home-header-style2", exact: true, component: PageHome },
@@ -59,7 +59,6 @@ export const subDomainPages: Page[] = [
   { path: "/author/:slug", component: PageAuthor },
   { path: "/author-v2/:slug", component: PageAuthorV2 },
   //
-  { path: "/single/:slug", component: PageSingleTemp3Sidebar },
   {
     path: "/single-sidebar/:slug",
     component: PageSingleTemplate3,
@@ -105,8 +104,7 @@ export const subDomainPages: Page[] = [
     component: PageSingleVideo,
   },
 
-  { path: "/search", component: PageSearch },
-  { path: "/search-v2", component: PageSearchV2 },
+  { path: "/search", component: PageSearchV2 },
   { path: "/about", component: PageAbout },
   { path: "/contact", component: PageContact },
   { path: "/page404", component: Page404 },
@@ -214,11 +212,10 @@ export const SubDomainRoutes = () => {
   const [navigation, setNavigation] = useState<any>();
   const [post, setPost] = useState<any>();
   const [error, setError] = useState<any>();
-  const location = window.location.hostname.split(".")[0];
-  const url = import.meta.env.VITE_URL;
  
   const initpostRange = 0, finpostRange = 10;
-  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
+  
+  const authorSlug = getAuthorSlug();
 
  // const authUser = supabaseClient.auth.user();
  const supabaseFetch = async (table: any, query: any, type: any) => {
@@ -239,7 +236,7 @@ export const SubDomainRoutes = () => {
       // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
       var posts:any = await supabaseClient
       .from('posts')
-      .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
+      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
       .eq('authors.username', authorSlug)
       .range(initpostRange, finpostRange);
 

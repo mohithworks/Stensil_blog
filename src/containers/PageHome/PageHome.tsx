@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import SectionLatestPosts from "./SectionLatestPosts";
 import SectionVideos from "./SectionVideos";
 import SectionLargeSlider from "./SectionLargeSlider";
@@ -24,6 +24,10 @@ import IconButton from '@mui/material/IconButton';
 import { XIcon } from "@heroicons/react/solid";
 import Select from "components/Select/Select";
 import Heading from "components/Heading/Heading";
+import { Listbox, Transition } from "@headlessui/react";
+import { CheckIcon } from "@heroicons/react/solid";
+import { ListBoxItemType } from "components/NcListBox/NcListBox";
+import ButtonDropdown from "components/ButtonDropdown/ButtonDropdown";
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
 //
@@ -31,7 +35,7 @@ const MAGAZINE1_TABS = ["all", "Garden", "Fitness", "Design"];
 const MAGAZINE1_POSTS = DEMO_POSTS.filter((_, i) => i >= 8 && i < 16);
 const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 //
-var inPage:any = 0, fnPage:any = 10, postsLoc:any = [], icPage:any = 0, fcPage:any = 10, catVal: any = "-1";
+var inPage:any = 0, fnPage:any = 10, postsLoc:any = [], icPage:any = 0, fcPage:any = 0, catVal: any = "-1", maxPost: any = 10;
 
 const PageHome: React.FC = () => {
   const { author, post, navigation, initpostRange, finpostRange } = useGlobalContext();
@@ -50,6 +54,7 @@ const PageHome: React.FC = () => {
   const [categories, setCategories] = useState<any>();
   
   const [categoryList, setcategoryList] = useState<any>(catVal);
+  const [categoryListL, setcategoryListL] = useState<any>("All");
   const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
 
   const [currentPosts, setcurrentPosts] = useState<any>(postsLoc);
@@ -57,6 +62,8 @@ const PageHome: React.FC = () => {
 
   if(currentPosts?.length == 0){
     postsLoc = post;
+    inPage = postsLoc.length;
+    fnPage = postsLoc.length + maxPost;
     setcurrentPosts(postsLoc);
   }
 
@@ -88,7 +95,7 @@ const PageHome: React.FC = () => {
       }
 
       if(data) {
-        console.log(data);
+        console.log("Inside cat");
         setCategories(data);
         setcatLoading(false);
       }
@@ -132,21 +139,12 @@ const PageHome: React.FC = () => {
 
   // var initRange:any = parseInt(localStorage.getItem('initpostRange')!);
   // var finRange:any = parseInt(localStorage.getItem('finpostRange')!);
-
-  console.log(currentPosts);
-  console.log(inPage);
-  console.log(fnPage);
   
   const fetchNxtPost = async () => {
-    inPage = inPage + 10;
-    fnPage = fnPage + 10;
-    
-    console.log(inPage);
-    console.log(fnPage);
 
     const {data,error} = await supabaseClient
       .from('posts')
-      .select('title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)')
+      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
       .eq('authors.username', authorSlug)
       .range(inPage, fnPage);
 
@@ -158,6 +156,12 @@ const PageHome: React.FC = () => {
       if(data.length > 0) {
         console.log(data);
         postsLoc = [...postsLoc, ...data];
+        inPage = postsLoc.length;
+        fnPage = postsLoc.length + maxPost;
+        
+        console.log(inPage);
+        console.log(fnPage);
+    
         // localStorage.setItem('postsLoc', JSON.stringify(newPosts));
         // localStorage.setItem('initpostRange', iPage);
         // localStorage.setItem('finpostRange', fPage);
@@ -177,12 +181,10 @@ const PageHome: React.FC = () => {
   }
 
   const fetchNewCat = async (catId:any) => {
-    icPage = icPage + 10;
-    fcPage = fcPage + 10;
     
     const {data,error} = await supabaseClient
       .from('posts')
-      .select('title, created_at, featured_imghd, href, authors!inner(*)')
+      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
       .eq('authors.username', authorSlug)
       .eq('category', catId)
       .range(icPage, fcPage);
@@ -194,6 +196,12 @@ const PageHome: React.FC = () => {
       if(data.length > 0) {
         console.log(data);
         postsLoc = [...postsLoc, ...data];
+        icPage = postsLoc.length;
+        fcPage = postsLoc.length + maxPost;
+        
+        console.log(icPage);
+        console.log(fcPage);
+
         setcurrentPosts(postsLoc);
         setLoading(false);
 
@@ -207,18 +215,21 @@ const PageHome: React.FC = () => {
 
   const fetchCatPost = async (catId:any) => {
     setLoading(true);
-    catVal = catId;
-    setcategoryList(catId);
-    if(catId == "-1") {
-      inPage = -10, fnPage = 0;
+    catVal = catId.id;
+    setcategoryListL(catId.name);
+    setcategoryList(catId.id);
+    if(catVal == "-1") {
       postsLoc = [];
+      inPage = postsLoc.length;
+      fnPage = postsLoc.length + maxPost;
       fetchNxtPost().then(() => {
         setLoading(false);
       });
     }else {
-      icPage = -10, fcPage = 0;
       postsLoc = [];
-      fetchNewCat(catId).then(() => {
+      icPage = postsLoc.length;
+      fcPage = postsLoc.length + maxPost;
+      fetchNewCat(catVal).then(() => {
         setLoading(false);
       });
 
@@ -267,12 +278,12 @@ const PageHome: React.FC = () => {
           />
 
           {/* === SECTION  === */}
-          <div className="relative py-16">
+          {/* <div className="relative py-16">
             <BackgroundSection />
             <SubSectionGridAuthorBox
               authors={author}
             />
-          </div>
+          </div> */}
 
           {/* === SECTION 5 === */}
           {
@@ -330,7 +341,7 @@ const PageHome: React.FC = () => {
                 heading="Top trending categories"
                 itemPerRow={5}
                 categories={categories}
-                categoryCardType="card4"
+                categoryCardType="card5"
                 uniqueSliderClass="pageHome-section3"
               />
             ) : null
@@ -388,29 +399,90 @@ const PageHome: React.FC = () => {
             tags={DEMO_CATEGORIES}
           /> */}
           {/* === SECTION 12 === */}
-          {
+          
+        </div>
+         {
             (currentPosts?.length > 0) && (
               
-              <div className="relative py-16">
-                <div className="container py-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
+                <div className="container lg:pb-28 lg:pt-20">
                   <Heading isCenter desc={"Discover the most outstanding articles of our blog."}>
                     Explore latest articles
                   </Heading>
                   <div>
-                    <div className="flex flex-col sm:items-center sm:justify-between sm:flex-row">
-                      <div className="block my-4 border-b w-full border-neutral-100 sm:hidden"></div>
-                      <div className="flex justify-end">
-                        <select value={categoryList} onChange={(e) => fetchCatPost(e.target.value)} className={`nc-Select mt-1 block text-sm rounded-lg border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-primary-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900`}>
-                          <option value="-1">All</option>
-                          {
-                            catLoading == false && categories.map((cat: any, i: number) => {
-                              return (
-                                <option key={i} value={cat.id}>{cat.name}</option>
-                              )
-                            })
-                          }
-                        </select>
-                      </div>
+                    <div className={`nc-ArchiveFilterListBox flex justify-end`}>
+                      <Listbox value={categoryListL} onChange={(e) => fetchCatPost(e)}>
+                        <div className="relative md:min-w-[200px]">
+                          <Listbox.Button as={"div"}>
+                            <ButtonDropdown>{categoryListL}</ButtonDropdown>
+                          </Listbox.Button>
+                          <Transition
+                            as={Fragment}
+                            leave="transition ease-in duration-100"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
+                              <Listbox.Option
+                                className={({ active }) =>
+                                  `${
+                                    active
+                                      ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
+                                      : ""
+                                  } cursor-default select-none relative py-2 pl-10 pr-4`
+                                }
+                                value={{ name: "All", id: "-1"}}
+                              >
+                                {({ selected }) => (
+                                  <>
+                                    <span
+                                      className={`${
+                                        selected ? "font-medium" : "font-normal"
+                                      } block truncate`}
+                                    >
+                                      All
+                                    </span>
+                                    {selected ? (
+                                      <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
+                                        <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                                      </span>
+                                    ) : null}
+                                  </>
+                                )}
+                              </Listbox.Option>
+                              {catLoading == false && categories.map((item: any, index: number) => (
+                                <Listbox.Option
+                                  key={index}
+                                  className={({ active }) =>
+                                    `${
+                                      active
+                                        ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
+                                        : ""
+                                    } cursor-default select-none relative py-2 pl-10 pr-4`
+                                  }
+                                  value={item}
+                                >
+                                  {({ selected }) => (
+                                    <>
+                                      <span
+                                        className={`${
+                                          selected ? "font-medium" : "font-normal"
+                                        } block truncate`}
+                                      >
+                                        {item.name}
+                                      </span>
+                                      {selected ? (
+                                        <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
+                                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                                        </span>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </Listbox.Option>
+                              ))}
+                            </Listbox.Options>
+                          </Transition>
+                        </div>
+                      </Listbox>
                     </div>
                     {
                       (error) ?
@@ -463,17 +535,17 @@ const PageHome: React.FC = () => {
                       (
                         <>
                         {/* LOOP ITEMS */}
-                        <div className="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
                           {
                             currentPosts.map((post:any, index:any) => (
-                              <Card20 key={index} post={post} postHref={'../'+'../'+href(post)} />
+                              <Card20 key={index} posts={post} postHref={'../'+'../'+href(post)} />
                             ))
                           }
                         </div>
               
                         {/* PAGINATIONS */}
                         {
-                          (postsLoc.length > 10) && (
+                          (postsLoc.length > maxPost) && (
                             
                             <div className="flex mt-20 justify-center items-center">
                               <ButtonPrimary loading={btnLoading} onClick={() => setPosts(categoryList)}>Show me more</ButtonPrimary>
@@ -509,10 +581,8 @@ const PageHome: React.FC = () => {
           
                   <SectionSubscribe2 /> */}
               </div>
-            </div>
             )
           }
-        </div>
         {/* ======= END CONTAINER ============= */}
         <Snackbar
           open={snackStatus}

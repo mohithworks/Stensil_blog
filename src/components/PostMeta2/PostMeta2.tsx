@@ -2,10 +2,12 @@ import React, { FC } from "react";
 import Avatar from "components/Avatar/Avatar";
 import { PostDataType } from "data/types";
 import { Link } from "react-router-dom";
+import htmltoText from "utils/htmltoText";
+import { useReadingTime } from "react-hook-reading-time";
 
 export interface PostMeta2Props {
   className?: string;
-  meta: Pick<PostDataType, "created_at" | "authors">;
+  meta: Pick<PostDataType, "created_at" | "authors" | "post">;
   hiddenCategories?: boolean;
   size?: "large" | "normal";
   avatarRounded?: string;
@@ -18,7 +20,10 @@ const PostMeta2: FC<PostMeta2Props> = ({
   size = "normal",
   avatarRounded,
 }) => {
-  const { created_at, authors } = meta;
+  const { created_at, authors, post } = meta;
+
+  const { text } = useReadingTime(htmltoText(post));
+
   return (
     <div
       className={`nc-PostMeta2 flex items-center flex-wrap text-neutral-700 text-left dark:text-neutral-200 ${
@@ -61,10 +66,10 @@ const PostMeta2: FC<PostMeta2Props> = ({
         </div>
         <div className="text-xs mt-[6px]">
           <span className="text-neutral-700 dark:text-neutral-300">{ new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) }</span>
-          {/* <span className="mx-2 font-semibold">·</span>
+          <span className="mx-2 font-semibold">·</span>
           <span className="text-neutral-700 dark:text-neutral-300">
-            {readingTime} min read
-          </span> */}
+            {text}
+          </span>
         </div>
       </div>
     </div>
