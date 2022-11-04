@@ -51,7 +51,7 @@ const PageHome: React.FC = () => {
   const [snackMsg, setsnackMsg] = useState<any>("");
   const [snackDuration, setsnackDuration] = useState<any>();
   const [snackStatus, setsnackStatus] = useState<any>(false);
-  const [categories, setCategories] = useState<any>();
+  const [categories, setCategories] = useState<any>([]);
   
   const [categoryList, setcategoryList] = useState<any>(catVal);
   const [categoryListL, setcategoryListL] = useState<any>("All");
@@ -409,49 +409,21 @@ const PageHome: React.FC = () => {
                     Explore latest articles
                   </Heading>
                   <div>
-                    <div className={`nc-ArchiveFilterListBox flex justify-end`}>
-                      <Listbox value={categoryListL} onChange={(e) => fetchCatPost(e)}>
-                        <div className="relative md:min-w-[200px]">
-                          <Listbox.Button as={"div"}>
-                            <ButtonDropdown>{categoryListL}</ButtonDropdown>
-                          </Listbox.Button>
-                          <Transition
-                            as={Fragment}
-                            leave="transition ease-in duration-100"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                          >
-                            <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
-                              <Listbox.Option
-                                className={({ active }) =>
-                                  `${
-                                    active
-                                      ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
-                                      : ""
-                                  } cursor-default select-none relative py-2 pl-10 pr-4`
-                                }
-                                value={{ name: "All", id: "-1"}}
-                              >
-                                {({ selected }) => (
-                                  <>
-                                    <span
-                                      className={`${
-                                        selected ? "font-medium" : "font-normal"
-                                      } block truncate`}
-                                    >
-                                      All
-                                    </span>
-                                    {selected ? (
-                                      <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
-                                        <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                                      </span>
-                                    ) : null}
-                                  </>
-                                )}
-                              </Listbox.Option>
-                              {catLoading == false && categories.map((item: any, index: number) => (
+                    {
+                      categories.length != 0 && <div className={`nc-ArchiveFilterListBox flex justify-end`}>
+                        <Listbox value={categoryListL} onChange={(e) => fetchCatPost(e)}>
+                          <div className="relative md:min-w-[200px]">
+                            <Listbox.Button as={"div"}>
+                              <ButtonDropdown>{categoryListL}</ButtonDropdown>
+                            </Listbox.Button>
+                            <Transition
+                              as={Fragment}
+                              leave="transition ease-in duration-100"
+                              leaveFrom="opacity-100"
+                              leaveTo="opacity-0"
+                            >
+                              <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
                                 <Listbox.Option
-                                  key={index}
                                   className={({ active }) =>
                                     `${
                                       active
@@ -459,7 +431,7 @@ const PageHome: React.FC = () => {
                                         : ""
                                     } cursor-default select-none relative py-2 pl-10 pr-4`
                                   }
-                                  value={item}
+                                  value={{ name: "All", id: "-1"}}
                                 >
                                   {({ selected }) => (
                                     <>
@@ -468,7 +440,7 @@ const PageHome: React.FC = () => {
                                           selected ? "font-medium" : "font-normal"
                                         } block truncate`}
                                       >
-                                        {item.name}
+                                        All
                                       </span>
                                       {selected ? (
                                         <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
@@ -478,12 +450,42 @@ const PageHome: React.FC = () => {
                                     </>
                                   )}
                                 </Listbox.Option>
-                              ))}
-                            </Listbox.Options>
-                          </Transition>
-                        </div>
-                      </Listbox>
-                    </div>
+                                {catLoading == false && categories.map((item: any, index: number) => (
+                                  <Listbox.Option
+                                    key={index}
+                                    className={({ active }) =>
+                                      `${
+                                        active
+                                          ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
+                                          : ""
+                                      } cursor-default select-none relative py-2 pl-10 pr-4`
+                                    }
+                                    value={item}
+                                  >
+                                    {({ selected }) => (
+                                      <>
+                                        <span
+                                          className={`${
+                                            selected ? "font-medium" : "font-normal"
+                                          } block truncate`}
+                                        >
+                                          {item.name}
+                                        </span>
+                                        {selected ? (
+                                          <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
+                                            <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                                          </span>
+                                        ) : null}
+                                      </>
+                                    )}
+                                  </Listbox.Option>
+                                ))}
+                              </Listbox.Options>
+                            </Transition>
+                          </div>
+                        </Listbox>
+                      </div>
+                    }
                     {
                       (error) ?
                       (

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonClose from "components/ButtonClose/ButtonClose";
 import SubLogo from "components/Logo/SubLogo";
 import { Disclosure } from "@headlessui/react";
@@ -12,6 +13,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 
 export interface NavMobileProps {
   data?: any;
+  username:any;
   description:any;
   logo:any;
   socials:any;
@@ -20,6 +22,7 @@ export interface NavMobileProps {
 
 const SubNavMobile: React.FC<NavMobileProps> = ({
   data,
+  username,
   description,
   logo,
   socials,
@@ -51,7 +54,15 @@ const SubNavMobile: React.FC<NavMobileProps> = ({
   return (
     <div className="w-full h-full py-2 transition transform shadow-lg ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800 border-r border-transparent dark:border-neutral-700">
       <div className="py-6 px-5">
-        <SubLogo img={logo} />
+        {
+          logo == null ? 
+          
+          <Link to="/" className="ttnc-logo mt-5 inline-block">
+            <h2 className={`text-2xl md:text-2xl font-semibold`}>{username.toUpperCase()}</h2>
+          </Link>
+          :
+          <SubLogo img={logo} />
+        }
         <div className="flex flex-col mt-5 text-neutral-700 dark:text-neutral-300 text-sm">
           <span>
             {description}

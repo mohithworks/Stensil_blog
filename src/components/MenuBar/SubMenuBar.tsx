@@ -6,10 +6,11 @@ import { useGlobalContext } from 'utils/context';
 
 export interface MenuBarProps {
     navigations?: any,
+    username?: any,
     description?: any,
     logo?: any,
 }
-const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, description, logo }) => {
+const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description, logo }) => {
   const [isVisable, setIsVisable] = useState(false);
   const location = useLocation();
   const { navigation } = useGlobalContext();
@@ -56,7 +57,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, description, logo }) 
             <div className="fixed inset-y-0 left-0 w-screen max-w-sm overflow-y-auto z-50">
               <div className="flex min-h-full">
                 <div className="w-full max-w-sm overflow-hidden transition-all">
-                  <SubNavMobile socials={socials} logo={logo} description={description} data={navigations} onClickClose={handleCloseMenu} />
+                  <SubNavMobile socials={socials} username={username} logo={logo} description={description} data={navigations} onClickClose={handleCloseMenu} />
                 </div>
               </div>
             </div>

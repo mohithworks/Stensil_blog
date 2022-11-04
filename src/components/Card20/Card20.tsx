@@ -16,6 +16,7 @@ export interface Card11Props {
   ratio?: string;
   hiddenAuthor?: boolean;
   postHref?: any;
+  onClick?: () => void;
 }
 
 const Card20: FC<Card11Props> = ({
@@ -23,7 +24,8 @@ const Card20: FC<Card11Props> = ({
   posts,
   hiddenAuthor = false,
   ratio = "aspect-w-4 aspect-h-3",
-  postHref
+  postHref,
+  onClick,
 }) => {
   const { title, featured_imghd, href, created_at, category, post } = posts;
 
@@ -38,6 +40,7 @@ const Card20: FC<Card11Props> = ({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       //
+      onClick={onClick}
     >
       <div
         className={`block flex-shrink-0 relative w-full rounded-t-xl overflow-hidden ${ratio}`}

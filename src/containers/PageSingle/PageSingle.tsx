@@ -74,7 +74,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return (
       <>
         <div
-          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-40 pb-40 lg:pt-40 lg:pb-40 ${className}`}
           data-nc-id="PageSingleTemp4Sidebar"
         >
           {/*  */}
@@ -100,7 +100,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return (
       <>
         <div
-          className={`nc-PageSingleTemp4Sidebar relative text-center pb-50 lg:pt-40 pb-40 ${className}`}
+          className={`nc-PageSingleTemp4Sidebar text-center pt-40 pb-40 lg:pt-40 lg:pb-40 ${className}`}
           data-nc-id="PageSingleTemp4Sidebar"
         >
           {/*  */}
@@ -125,7 +125,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return (
       <>
         <div
-          className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16 ${className}`}
+          className={`nc-PageSingleTemp4Sidebar text-center pt-30 pb-30 lg:pt-40 lg:pb-40 ${className}`}
           data-nc-id="PageSingleTemp4Sidebar"
         >
           {/*  */}
@@ -133,8 +133,8 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
             <div className="container relative py-16 lg:py-20">
               {/* HEADER */}
               <header className="text-center max-w-2xl mx-auto space-y-7">
-                <h2 className="text-7xl md:text-8xl">🪔</h2>
-                <h1 className="text-8xl md:text-9xl font-semibold tracking-widest">
+                <h2 className="text-6xl md:text-8xl">🪔</h2>
+                <h1 className="text-6xl md:text-9xl font-semibold tracking-widest">
                   404
                 </h1>
                 <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
@@ -163,8 +163,8 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
   
           {/* FEATURED IMAGE */}
           <NcImage
-            containerClassName="container my-10 sm:my-12"
-            className="object-cover w-full h-full rounded-xl"
+            containerClassName="my-10 sm:my-12 relative aspect-w-16 aspect-h-12 md:aspect-h-9 lg:aspect-h-6"
+            className="absolute inset-0 object-cover w-full h-full"
             src={post[0].featured_imghd}
           />
   
@@ -174,7 +174,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           </div>
   
           {/* RELATED POSTS */}
-          {/* <SingleRelatedPosts /> */}
+          <SingleRelatedPosts category={post[0].category.id} postTitle={post[0].posttitle} />
         </div>
       </>
     );

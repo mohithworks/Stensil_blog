@@ -12,6 +12,20 @@ const SubSocialList: FC<SocialsListProps> = ({
   itemClass = "block",
   socials,
 }) => {
+
+  const getIconVal = (name: any) => {
+     switch(name) {
+      case "Facebook":
+        return "lab la-facebook-f";
+      case "Twitter":
+          return "lab la-twitter";
+      case "Youtube":
+          return "lab la-youtube";
+      case "Instagram":
+          return "lab la-instagram";
+     }
+  }
+
   return (
     <nav
       className={`nc-SocialsList flex space-x-2.5 text-2xl text-neutral-6000 dark:text-neutral-300 ${className}`}
@@ -26,7 +40,7 @@ const SubSocialList: FC<SocialsListProps> = ({
           rel="noopener noreferrer"
           title={item.name}
         >
-          <i className={item.name}></i>
+          <i className={getIconVal(item.name)}></i>
         </a>
       ))}
     </nav>

@@ -1,5 +1,6 @@
 
 import SubLogo from "components/Logo/SubLogo";
+import { Link } from "react-router-dom";
 import SubSocialList from "components/SocialsList/SubSocialList";
 import { CustomLink } from "data/types";
 import React from "react";
@@ -75,6 +76,8 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
        return obj.type == "Navigation Menu";
     }); 
 
+    console.log(socials)
+
   const renderWidgetMenuItem = (menu: any, index: number) => {
     return (
       <div key={index} className="text-sm">
@@ -98,16 +101,25 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
 
   return (
     <div className="nc-Footer relative py-8 lg:py-8 border-t border-neutral-200 dark:border-neutral-700">
-        <div className="flex lg:flex-row justify-between">
+        <div className="flex flex-col items-center text-center justify-center md:flex-row md:justify-between">
           <div className="flex ml-5">
-            <SubLogo img={logo} />
+            {
+              logo == null ? 
+              
+              <Link to="/" className="ttnc-logo mt-5 inline-block">
+                <h2 className={`text-2xl md:text-2xl font-semibold`}>{username.toUpperCase()}</h2>
+              </Link>
+              :
+              <SubLogo img={logo} />
+            }
           </div>
-          <div className="flex mr-10 mt-5 text-semi-bold">
-            Copyright &nbsp;<b>@ {username}; All rights reserved</b>
-          </div>
-          <div className="flex justify-end mr-10 mt-5">
-            <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 text-xl dark:bg-neutral-800 dark:text-neutral-300" />
-          </div>
+          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright &nbsp;<span className="font-semibold">@ 2021 {username.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())} | All rights reserved</span></p>
+          {
+            socials.length > 0 && 
+            <div className="flex mt-5 mr-0 md:mr-10">
+              <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-200 text-xl dark:bg-neutral-400 dark:text-neutral-300" />
+            </div>
+          }
         </div>
     </div>
   );

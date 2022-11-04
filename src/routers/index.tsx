@@ -230,7 +230,6 @@ export const SubDomainRoutes = () => {
     return data;
  } 
 
-
   useEffect(() => {
     const fetchPost = async() => {
       // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
@@ -384,7 +383,7 @@ export const SubDomainRoutes = () => {
             })}
             <Route component={Page404} />
           </Switch>
-          <div className="hidden xl:block">
+          <div>
             <SubFooter username={author[0].username} logo={author[0].logoimg} menus={navigation} />
           </div>
           {/* MEDIA */}

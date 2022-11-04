@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import SubLogo from "components/Logo/SubLogo";
 import SubNavigation from "components/Navigation/SubNavigation";
 import SearchDropdown from "./SearchDropdown";
@@ -23,11 +24,21 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
     return obj.type == "CTA Button";
   }); 
 
+  console.log(author[0].logoimg);
+
   return (
     <div className={`nc-MainNav nc-MainNav1 relative z-10`}>
       <div className="container py-5 relative flex justify-between items-center space-x-4 xl:space-x-8">
         <div className="flex justify-start flex-grow items-center space-x-4 sm:space-x-10 2xl:space-x-14">
-          <SubLogo img={author[0].logoimg} />
+          {
+            author[0].logoimg == null ? 
+            
+             <Link to="/" className="ttnc-logo inline-block">
+              <h2 className={`text-1xl md:text-2xl font-semibold`}>{author[0].username.toUpperCase()}</h2>
+             </Link>
+            :
+            <SubLogo img={author[0].logoimg} />
+          }
           {
             navmenus.length != 0 && (<SubNavigation navigations={navmenus} />)
           }
@@ -56,7 +67,7 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
             }
             <div className="px-1" />
             <ErrorBoundary>
-              <SubMenuBar navigations={navmenus} description={author[0].description} logo={author[0].logoimg} />
+              <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} />
             </ErrorBoundary>
           </div>
         </div>

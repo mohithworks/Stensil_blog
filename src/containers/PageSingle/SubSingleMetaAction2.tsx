@@ -110,37 +110,45 @@ const SubSingleMetaAction2: FC<SingleMetaAction2Props> = ({
         <FacebookShareButton 
             url={shareUrl}
             quote={title}
-            className="flex-shrink-0 flex items-center justify-center focus:outline-none h-9 w-9 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full"
+            className=""
         >
-          <i className={`${`lab la-facebook-f`} mr-1 w-7 text-neutral-700 `} ></i>
+          <div className=" flex items-center justify-center focus:outline-none h-8 w-8 bg-neutral-200 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full">
+            <i className={`${`lab la-facebook-f`}`} ></i>
+          </div>
         </FacebookShareButton>
         <LinkedinShareButton
             title={title}
             url={shareUrl}
             className="flex-shrink-0 flex items-center justify-center focus:outline-none h-9 w-9 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full"
         >
-            <i className={`${`lab la-linkedin-in`} mr-1 w-7 text-neutral-700 `} ></i>
+            <div className=" flex items-center justify-center focus:outline-none h-8 w-8 bg-neutral-200 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full">
+              <i className={`${`lab la-linkedin-in`}`} ></i>
+            </div>
         </LinkedinShareButton>
         <TwitterShareButton
             title={title}
             url={shareUrl}
         >
-           <i className={`${`lab la-twitter`} mr-1 w-7 text-neutral-700 `} ></i>
+            <div className=" flex items-center justify-center focus:outline-none h-8 w-8 bg-neutral-200 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full">
+              <i className={`${`lab la-twitter`}`} ></i>
+            </div>
         </TwitterShareButton>
         <WhatsappShareButton
             title={title}
             url={shareUrl}
         >
-           <i className={`${`lab la-whatsapp`} mr-1 w-7 text-neutral-700 `} ></i>
+            <div className=" flex items-center justify-center focus:outline-none h-8 w-8 bg-neutral-200 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full">
+              <i className={`${`lab la-whatsapp`}`} ></i>
+            </div>
         </WhatsappShareButton>
         <button
-            className={`nc-NcBookmark relative rounded-full flex items-center justify-center ${twFocusClass()} ${`h-9 w-9`}`}
+            className={` flex items-center justify-center focus:outline-none h-8 w-8 bg-neutral-200 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-full`}
             data-nc-id="NcBookmark"
             title="Save to reading list"
             onClick={copyLink}
         >
             
-            <i className={`${`las la-copy`} mr-1 w-10 text-base`}></i>
+            <i className={`${`las la-copy`} text-base`}></i>
         </button>
         {/* <PostActionDropdown
           containerClassName="h-9 w-9 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
