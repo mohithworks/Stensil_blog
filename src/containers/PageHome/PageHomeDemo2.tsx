@@ -49,10 +49,10 @@ const PageHomeDemo2: React.FC = () => {
       {/* ======= START CONTAINER ============= */}
       <div className="container relative">
         {/* === SECTION 1 === */}
-        <SectionHero3 className="pb-16 lg:pb-28" posts={MAGAZINE1_POSTS} />
+        {/* <SectionHero3 className="pb-16 lg:pb-28" posts={MAGAZINE1_POSTS} /> */}
 
         {/* === SECTION 1 === */}
-        <SectionSliderNewCategories
+        {/* <SectionSliderNewCategories
           className="pb-16 lg:pb-28"
           heading="Top trending topics"
           categoryCardType="card5"
@@ -60,7 +60,7 @@ const PageHomeDemo2: React.FC = () => {
           subHeading="Discover over 112 topics"
           categories={DEMO_CATEGORIES.filter((_, i) => i < 1)}
           uniqueSliderClass="PageHomeDemo2"
-        />
+        /> */}
 
         {/* === SECTION 1 === */}
         <div className="relative py-16">
@@ -70,7 +70,7 @@ const PageHomeDemo2: React.FC = () => {
             sliderStype="style2"
             heading="Sea travel enthusiast"
             subHeading="Over 218 articles about sea travel"
-            posts={POSTS.filter((_, i) => i < 8)}
+            posts={POSTS.filter((_, i) => i < 5)}
             uniqueSliderClass="PageHomeDemo2_section1"
           />
         </div>
@@ -79,9 +79,9 @@ const PageHomeDemo2: React.FC = () => {
         <div className="py-16 lg:py-28">
           <Heading>Latest audio articles</Heading>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <Card16Podcast post={DEMO_POSTS_AUDIO[10]} />
-            <Card16Podcast post={DEMO_POSTS_AUDIO[11]} />
-            <Card16Podcast post={DEMO_POSTS_AUDIO[12]} />
+            <Card16Podcast post={DEMO_POSTS_AUDIO[1]} />
+            <Card16Podcast post={DEMO_POSTS_AUDIO[2]} />
+            <Card16Podcast post={DEMO_POSTS_AUDIO[3]} />
             <div className="md:col-span-2 lg:col-span-3">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {DEMO_POSTS_AUDIO.filter((_, i) => i < 9).map((p) => (
@@ -113,10 +113,10 @@ const PageHomeDemo2: React.FC = () => {
         <div className="relative py-16">
           <BackgroundSection />
           <SectionSliderPosts
-            postCardName="card9"
+            postCardName="card7"
             heading="Sea travel enthusiast"
             subHeading="Over 218 articles about sea travel"
-            posts={POSTS.filter((_, i) => i < 8)}
+            posts={POSTS.filter((_, i) => i < 4)}
             uniqueSliderClass="PageHomeDemo2_section2"
           />
         </div>

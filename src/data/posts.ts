@@ -34,7 +34,7 @@ const DEMO_POSTS_NEWS = __posts_news.map((post, index): PostDataType => {
     id: `DEMO_POSTS_NEWS_${index + 1}`,
     author: DEMO_AUTHORS.filter((user) => user.id === post.authorId)[0],
     categories: [categories[0]],
-  } as PostDataType;
+  } as unknown as PostDataType;
 });
 
 // FOR POST TYPE GALLERY
@@ -49,7 +49,7 @@ const DEMO_POSTS_GALLERY = __postsGallery.map((post, index): PostDataType => {
     id: `DEMO_POSTS_GALLERY_${index + 1}`,
     author: DEMO_AUTHORS.filter((user) => user.id === post.authorId)[0],
     categories: [categories[0]],
-  } as PostDataType;
+  } as unknown as PostDataType;
 });
 
 // FOR POST TYPE VIDEO
@@ -64,7 +64,7 @@ const DEMO_POSTS_VIDEO = __postsVideo.map((post, index): PostDataType => {
     id: `DEMO_POSTS_VIDEO_${index + 1}`,
     author: DEMO_AUTHORS.filter((user) => user.id === post.authorId)[0],
     categories: [categories[0]],
-  } as PostDataType;
+  } as unknown as PostDataType;
 });
 
 // FOR POST TYPE AUDIO
@@ -79,7 +79,7 @@ const DEMO_POSTS_AUDIO = __postsAudio.map((post, index): PostDataType => {
     id: `DEMO_POSTS_AUDIO_${index + 1}`,
     author: DEMO_AUTHORS.filter((user) => user.id === post.authorId)[0],
     categories: [categories[0]],
-  } as PostDataType;
+  } as unknown as PostDataType;
 });
 
 export {

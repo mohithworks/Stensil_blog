@@ -85,7 +85,7 @@ export const subDomainPages: Page[] = [
   },
   {
     path: "/posts/:postslug",
-    component: PageSingle,
+    component: PageSingleTemplate2,
   },
   {
     path: "/category/:categoryslug",

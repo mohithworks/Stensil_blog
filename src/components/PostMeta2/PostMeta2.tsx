@@ -21,8 +21,12 @@ const PostMeta2: FC<PostMeta2Props> = ({
   avatarRounded,
 }) => {
   const { created_at, authors, post } = meta;
+  const location = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;
 
-  const { text } = useReadingTime(htmltoText(post));
+  var postsC: any;
+  location != url ? postsC = useReadingTime(htmltoText(post)) : postsC = useReadingTime("Test Posts");
+  const { text } = postsC;
 
   return (
     <div
@@ -67,9 +71,9 @@ const PostMeta2: FC<PostMeta2Props> = ({
         <div className="text-xs mt-[6px]">
           <span className="text-neutral-700 dark:text-neutral-300">{ new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) }</span>
           <span className="mx-2 font-semibold">·</span>
-          <span className="text-neutral-700 dark:text-neutral-300">
+          {location != url && <span className="text-neutral-700 dark:text-neutral-300">
             {text}
-          </span>
+          </span>}
         </div>
       </div>
     </div>

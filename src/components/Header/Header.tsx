@@ -7,7 +7,7 @@ import MainNav2Logged from "./MainNav2Logged";
 import MainNav2 from "./MainNav2";
 import MainNav1 from "./MainNav1";
 import SubMainNav1 from "./SubMainNav1";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { SINGLE } from "data/single";
 
 export interface HeaderProps {
@@ -24,6 +24,8 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const urlLocation = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;
+
+  const { postslug } = useParams<any>();
   //
   //
   const location = useLocation();
@@ -73,7 +75,7 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
       return;
     }
 
-    const totalEntryH = entryContent.offsetTop + entryContent.offsetHeight;
+    const totalEntryH = entryContent.offsetTop + entryContent.offsetHeight-500;
     let winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
     let scrolled = (winScroll / totalEntryH) * 100;
@@ -81,7 +83,7 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
       return;
     }
 
-    scrolled = scrolled > 100 ? 100 : scrolled;
+    scrolled = scrolled >= 100 ? 100 : scrolled;
 
     progressBarRef.current.style.width = scrolled + "%";
   };
@@ -117,6 +119,12 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
     WIN_PREV_POSITION = currentScrollPos;
   };
 
+  const getTitle = () => {
+    const titleR = location.pathname.split('/')[2].replace(/-/g, ' ').toUpperCase();
+    console.log(titleR);
+    return 'ABout'
+  }
+
   const renderSingleHeader = () => {
     if (!isSingleHeaderShowing) return null;
     const { title, author, id, bookmark } = SINGLE;
@@ -132,7 +140,7 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
                 radius="rounded-full"
               />
               <h3 className="ml-4 text-lg line-clamp-1 text-neutral-100">
-                {title}
+                {getTitle()}
               </h3>
             </div>
 

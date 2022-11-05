@@ -117,7 +117,7 @@ const SectionSliderPosts: FC<SectionSliderPostsProps> = ({
                   sliderStype === "style2" ? "pb-12 xl:pb-16" : ""
                 }`}
               >
-                <CardName post={item} />
+                <CardName posts={item} post={item} />
               </li>
             ))}
           </ul>

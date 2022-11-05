@@ -43,6 +43,7 @@ export interface PostDataType {
   date: string;
   href: string;
   categories: TaxonomyType[];
+  category?: TaxonomyType[];
   title: string;
   featuredImage: string;
   featured_imghd: string;

@@ -14,6 +14,7 @@ export interface Card9Props {
   className?: string;
   ratio?: string;
   posts: any;
+  post?: any;
   hoverClass?: string;
   postHref?: any;
   onClick?: () => void;
