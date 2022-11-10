@@ -40,7 +40,7 @@ const PageHomeDemo2: React.FC = () => {
   return (
     <div className="nc-PageHomeDemo2 overflow-hidden relative">
       <Helmet>
-        <title>Home 3 || Blog Magazine React Template</title>
+        <title>Home || InkFlow</title>
       </Helmet>
 
       {/* ======== BG GLASS ======== */}
