@@ -1,10 +1,21 @@
-import React from "react";
-import {SubDomainRoutes, MainRoute} from "routers/index";
+import React, { useEffect } from "react";
+import { SubDomainRoutes, MainRoute } from "routers/index";
+import Plausible from 'plausible-tracker';
 
 function App() {
   const location = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;
   console.log(url);
+
+  const { enableAutoPageviews } = Plausible({
+    domain: window.location.hostname,
+    trackLocalhost: true
+  })
+  
+  useEffect(() => {
+
+    enableAutoPageviews();
+  }, []);
 
   return (
     <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
