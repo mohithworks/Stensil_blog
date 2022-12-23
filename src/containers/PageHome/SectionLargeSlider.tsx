@@ -1,6 +1,6 @@
 import CardLarge1 from "components/CardLarge1/CardLarge1";
 import SubCardLarge1 from "components/CardLarge1/SubCardLarge1";
-import Heading from "components/Heading/Heading";
+import TitleHeading from "components/Heading/TitleHeading";
 import { PostDataType } from "data/types";
 import React, { FC, useState } from "react";
 
@@ -43,7 +43,7 @@ const SectionLargeSlider: FC<SectionLargeSliderProps> = ({
   return (
     <div className={`nc-SectionLargeSlider relative ${className}`}>
       <div className="text-center">
-        {!!heading && <Heading desc={desc}>{heading}</Heading>}
+        {!!heading && <TitleHeading desc={desc}>{heading}</TitleHeading>}
       </div>
       {authorPosts != undefined && posts.map((item, index) => {
         if (indexActive !== index) return null;

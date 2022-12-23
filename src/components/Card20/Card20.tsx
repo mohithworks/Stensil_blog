@@ -68,12 +68,12 @@ const Card20: FC<Card11Props> = ({
               {text}
             </span>
           </div>
-          <h2 className="nc-card-title block text-base font-semibold text-neutral-900 dark:text-neutral-100 ">
+          <h2 className="nc-card-title block text-[18px] text-base font-semibold text-neutral-900 dark:text-neutral-100 ">
             <Link to={postHref} className="line-clamp-2" title={title}>
               {title}
             </Link>
           </h2>
-          <span className="line-clamp-2">{htmltoText(post)}</span>
+          <span className="text-[13px] line-clamp-2">{htmltoText(post)}</span>
         {/* <div className="flex items-end justify-between mt-auto">
           <PostCardLikeAndComment className="relative" postData={post} />
           <PostCardSaveAction className="relative" postData={post} />

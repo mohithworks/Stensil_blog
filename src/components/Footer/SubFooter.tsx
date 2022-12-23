@@ -102,7 +102,7 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
   return (
     <div className="nc-Footer relative py-8 lg:py-8 border-t border-neutral-200 dark:border-neutral-700">
         <div className="flex flex-col items-center text-center justify-center md:flex-row md:justify-between">
-          <div className="flex ml-5">
+          <div className="flex md:ml-5">
             {
               logo == null ? 
               
@@ -113,7 +113,7 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
               <SubLogo img={logo} />
             }
           </div>
-          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright &nbsp;<span className="font-semibold">@ 2021 {username.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())} | All rights reserved</span></p>
+          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {username.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}. All rights reserved</span></p>
           {
             socials.length > 0 && 
             <div className="flex mt-5 mr-0 md:mr-10">

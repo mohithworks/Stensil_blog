@@ -60,7 +60,7 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
             <DarkModeContainer />
             <SearchDropdown />
           </div>
-          <div className="flex items-center xl:hidden">
+          <div className="flex items-center md:hidden">
             {
               buttons.length != 0 && (
                 <ButtonPrimary href={buttons[0].link}>{buttons[0].name}</ButtonPrimary>)

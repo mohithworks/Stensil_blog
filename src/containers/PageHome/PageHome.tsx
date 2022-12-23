@@ -286,7 +286,7 @@ const PageHome: React.FC = () => {
           </div> */}
 
           {/* === SECTION 5 === */}
-          {
+          {/* {
             (catError) ?
             (
                 <>
@@ -294,10 +294,7 @@ const PageHome: React.FC = () => {
                     className={`nc-PageSingleTemp4Sidebar pt-5 lg:pt-5`}
                     data-nc-id="PageSingleTemp4Sidebar"
                   >
-                    {/*  */}
-                    
                       <div className="container">
-                        {/* HEADER */}
                         <header className="text-center max-w-2xl mx-auto space-y-7">
                           <h2 className="text-7xl md:text-8xl"></h2>
                           <span className="text-1xl md:text-1xl font-semibold tracking-widest">
@@ -317,10 +314,8 @@ const PageHome: React.FC = () => {
                 className={`nc-PageSingleTemp4Sidebar pt-5 lg:pt-5`}
                 data-nc-id="PageSingleTemp4Sidebar"
               >
-                {/*  */}
                 
                 <div className="container">
-                  {/* HEADER */}
                   <header className="text-center max-w-2xl mx-auto space-y-4">
                     <h2 className="text-7xl md:text-8xl"></h2>
                     <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
@@ -345,114 +340,32 @@ const PageHome: React.FC = () => {
                 uniqueSliderClass="pageHome-section3"
               />
             ) : null
-          }
+          } */}
 
-        </div>
-
-        {/* === SECTION 11 === */}
-        {/* <div className="dark bg-neutral-900 dark:bg-black dark:bg-opacity-20 text-neutral-100">
-          <div className="relative container">
-            <SectionGridPosts
-              className="py-16 lg:py-28"
-              headingIsCenter
-              postCardName="card10V2"
-              heading="Explore latest video articles"
-              subHeading="Hover on the post card and preview video 🥡"
-              posts={DEMO_POSTS_VIDEO.filter((_, i) => i > 5 && i < 12)}
-              gridClass="md:grid-cols-2 lg:grid-cols-3"
-            />
-          </div>
-        </div> */}
-
-        <div className="container ">
-
-          {/* === SECTION 8 === */}
-          <div className="relative py-16">
-            <BackgroundSection />
-             <SectionSubscribe2 className="pt-16 pb-10 lg:pt-28" />
-          </div>
-
-          {/* === SECTION 11 === */}
-          {/* <SectionMagazine4
-            className="py-16 lg:py-28"
-            heading="Life styles 🎨 "
-            posts={MAGAZINE2_POSTS}
-            tabs={MAGAZINE1_TABS}
-          /> */}
-
-
-          {/* === SECTION 14 === */}
-          {/* <div className="relative py-16">
-            <BackgroundSection />
-            <SectionBecomeAnAuthor />
-          </div> */}
-
-          {/* === SECTION 15 === */}
-          {/* <SectionVideos className="py-16 lg:py-28" /> */}
-
-          {/* === SECTION 17 === */}
-          {/* <SectionLatestPosts
-            className="pb-16 lg:pb-28"
-            posts={DEMO_POSTS.filter((_, i) => i > 8 && i < 16)}
-            widgetPosts={DEMO_POSTS.filter((_, i) => i > 2 && i < 7)}
-            categories={DEMO_CATEGORIES.filter((_, i) => i > 2 && i < 8)}
-            tags={DEMO_CATEGORIES}
-          /> */}
-          {/* === SECTION 12 === */}
-          
-        </div>
-         {
+          {
             (currentPosts?.length > 0) && (
               
-                <div className="container lg:pb-28 lg:pt-20">
-                  <Heading isCenter desc={"Discover the most outstanding articles of our blog."}>
-                    Explore latest articles
-                  </Heading>
+                <div className="container mb-20">
                   <div>
                     {
-                      categories.length != 0 && <div className={`nc-ArchiveFilterListBox flex justify-end`}>
-                        <Listbox value={categoryListL} onChange={(e) => fetchCatPost(e)}>
-                          <div className="relative md:min-w-[200px]">
-                            <Listbox.Button as={"div"}>
-                              <ButtonDropdown>{categoryListL}</ButtonDropdown>
-                            </Listbox.Button>
-                            <Transition
-                              as={Fragment}
-                              leave="transition ease-in duration-100"
-                              leaveFrom="opacity-100"
-                              leaveTo="opacity-0"
-                            >
-                              <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
-                                <Listbox.Option
-                                  className={({ active }) =>
-                                    `${
-                                      active
-                                        ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
-                                        : ""
-                                    } cursor-default select-none relative py-2 pl-10 pr-4`
-                                  }
-                                  value={{ name: "All", id: "-1"}}
-                                >
-                                  {({ selected }) => (
-                                    <>
-                                      <span
-                                        className={`${
-                                          selected ? "font-medium" : "font-normal"
-                                        } block truncate`}
-                                      >
-                                        All
-                                      </span>
-                                      {selected ? (
-                                        <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
-                                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                                        </span>
-                                      ) : null}
-                                    </>
-                                  )}
-                                </Listbox.Option>
-                                {catLoading == false && categories.map((item: any, index: number) => (
+                      categories.length != 0 && <div className={`nc-ArchiveFilterListBox flex flex-col justify-end md:flex-row md:justify-between`}>
+                        <Heading>
+                          Articles
+                        </Heading>
+                        <div className="flex justify-start">
+                          <Listbox value={categoryListL} onChange={(e) => fetchCatPost(e)}>
+                            <div className="relative min-w-[150px] md:min-w-[200px]">
+                              <Listbox.Button as={"div"}>
+                                <ButtonDropdown>{categoryListL}</ButtonDropdown>
+                              </Listbox.Button>
+                              <Transition
+                                as={Fragment}
+                                leave="transition ease-in duration-100"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                              >
+                                <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
                                   <Listbox.Option
-                                    key={index}
                                     className={({ active }) =>
                                       `${
                                         active
@@ -460,7 +373,7 @@ const PageHome: React.FC = () => {
                                           : ""
                                       } cursor-default select-none relative py-2 pl-10 pr-4`
                                     }
-                                    value={item}
+                                    value={{ name: "All", id: "-1"}}
                                   >
                                     {({ selected }) => (
                                       <>
@@ -469,7 +382,7 @@ const PageHome: React.FC = () => {
                                             selected ? "font-medium" : "font-normal"
                                           } block truncate`}
                                         >
-                                          {item.name}
+                                          All
                                         </span>
                                         {selected ? (
                                           <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
@@ -479,11 +392,41 @@ const PageHome: React.FC = () => {
                                       </>
                                     )}
                                   </Listbox.Option>
-                                ))}
-                              </Listbox.Options>
-                            </Transition>
-                          </div>
-                        </Listbox>
+                                  {catLoading == false && categories.map((item: any, index: number) => (
+                                    <Listbox.Option
+                                      key={index}
+                                      className={({ active }) =>
+                                        `${
+                                          active
+                                            ? "text-primary-700 dark:text-neutral-200 bg-primary-50 dark:bg-neutral-700"
+                                            : ""
+                                        } cursor-default select-none relative py-2 pl-10 pr-4`
+                                      }
+                                      value={item}
+                                    >
+                                      {({ selected }) => (
+                                        <>
+                                          <span
+                                            className={`${
+                                              selected ? "font-medium" : "font-normal"
+                                            } block truncate`}
+                                          >
+                                            {item.name}
+                                          </span>
+                                          {selected ? (
+                                            <span className="text-primary-700 absolute inset-y-0 left-0 flex items-center pl-3 dark:text-neutral-200">
+                                              <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                                            </span>
+                                          ) : null}
+                                        </>
+                                      )}
+                                    </Listbox.Option>
+                                  ))}
+                                </Listbox.Options>
+                              </Transition>
+                            </div>
+                          </Listbox>
+                        </div>
                       </div>
                     }
                     {
@@ -537,7 +480,7 @@ const PageHome: React.FC = () => {
                       (
                         <>
                         {/* LOOP ITEMS */}
-                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 lg:mt-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mt-8 md:mt-0">
                           {
                             currentPosts.map((post:any, index:any) => (
                               <Card20 key={index} posts={post} postHref={'../'+'../'+href(post)} />
@@ -585,6 +528,61 @@ const PageHome: React.FC = () => {
               </div>
             )
           }
+
+        </div>
+
+        {/* === SECTION 11 === */}
+        {/* <div className="dark bg-neutral-900 dark:bg-black dark:bg-opacity-20 text-neutral-100">
+          <div className="relative container">
+            <SectionGridPosts
+              className="py-16 lg:py-28"
+              headingIsCenter
+              postCardName="card10V2"
+              heading="Explore latest video articles"
+              subHeading="Hover on the post card and preview video 🥡"
+              posts={DEMO_POSTS_VIDEO.filter((_, i) => i > 5 && i < 12)}
+              gridClass="md:grid-cols-2 lg:grid-cols-3"
+            />
+          </div>
+        </div> */}
+
+        <div className="container ">
+
+          {/* === SECTION 8 === */}
+          <div className="relative">
+            <BackgroundSection />
+             <SectionSubscribe2 className="pt-16 pb-10 lg:pt-28" />
+          </div>
+
+          {/* === SECTION 11 === */}
+          {/* <SectionMagazine4
+            className="py-16 lg:py-28"
+            heading="Life styles 🎨 "
+            posts={MAGAZINE2_POSTS}
+            tabs={MAGAZINE1_TABS}
+          /> */}
+
+
+          {/* === SECTION 14 === */}
+          {/* <div className="relative py-16">
+            <BackgroundSection />
+            <SectionBecomeAnAuthor />
+          </div> */}
+
+          {/* === SECTION 15 === */}
+          {/* <SectionVideos className="py-16 lg:py-28" /> */}
+
+          {/* === SECTION 17 === */}
+          {/* <SectionLatestPosts
+            className="pb-16 lg:pb-28"
+            posts={DEMO_POSTS.filter((_, i) => i > 8 && i < 16)}
+            widgetPosts={DEMO_POSTS.filter((_, i) => i > 2 && i < 7)}
+            categories={DEMO_CATEGORIES.filter((_, i) => i > 2 && i < 8)}
+            tags={DEMO_CATEGORIES}
+          /> */}
+          {/* === SECTION 12 === */}
+          
+        </div>
         {/* ======= END CONTAINER ============= */}
         <Snackbar
           open={snackStatus}
