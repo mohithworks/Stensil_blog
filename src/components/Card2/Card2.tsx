@@ -5,32 +5,28 @@ import { PostDataType } from "data/types";
 import { Link } from "react-router-dom";
 import SocialsShare from "components/SocialsShare/SocialsShare";
 import PostCardLikeAndComment from "components/PostCardLikeAndComment/PostCardLikeAndComment";
-import CardAuthor2 from "components/CardAuthor2/CardAuthor2";
-import CategoryBadgeList from "components/CategoryBadgeList/CategoryBadgeList";
+import SubCardAuthor2 from "components/CardAuthor2/SubCardAuthor2";
+import SubCategoryBadgeList from "components/CategoryBadgeList/SubCategoryBadgeList";
 import PostTypeFeaturedIcon from "components/PostTypeFeaturedIcon/PostTypeFeaturedIcon";
+import htmltoText from "utils/htmltoText";
+import { useReadingTime } from "react-hook-reading-time";
 
 export interface Card2Props {
   className?: string;
-  post: PostDataType;
+  posts: any;
   size?: "normal" | "large";
 }
 
 const Card2: FC<Card2Props> = ({
   className = "h-full",
   size = "normal",
-  post,
+  posts,
 }) => {
-  const {
-    title,
-    href,
-    readingTime,
-    featuredImage,
-    desc,
-    categories,
-    date,
-    author,
-    postType,
-  } = post;
+  const { title, featured_imghd, href, created_at, category, post, authors } = posts;
+
+  const { text } = useReadingTime(htmltoText(post));
+
+  const date = new Date(created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'}) ;
 
   return (
     <div
@@ -40,23 +36,23 @@ const Card2: FC<Card2Props> = ({
       <span className="block flex-shrink-0 flex-grow relative w-full h-0 pt-[75%] sm:pt-[55%] rounded-xl sm:rounded-b-none overflow-hidden">
         <NcImage
           containerClassName="absolute inset-0"
-          src={featuredImage}
+          src={featured_imghd}
           alt={title}
         />
-        <PostTypeFeaturedIcon
+        {/* <PostTypeFeaturedIcon
           className="absolute bottom-2 left-2"
           postType={postType}
           wrapSize="w-8 h-8"
           iconSize="w-4 h-4"
-        />
+        /> */}
       </span>
 
-      <SocialsShare className="absolute hidden md:grid gap-[5px] right-4 top-4 opacity-0 z-[-1] group-hover:z-10 group-hover:opacity-100 transition-all duration-300" />
+      {/* <SocialsShare className="absolute hidden md:grid gap-[5px] right-4 top-4 opacity-0 z-[-1] group-hover:z-10 group-hover:opacity-100 transition-all duration-300" /> */}
       <Link to={href} className="absolute inset-0" />
 
       <div className="p-4 sm:p-5 flex flex-col">
         <div className="space-y-3">
-          <CategoryBadgeList itemClass="relative" categories={categories} />
+          <SubCategoryBadgeList categories={category} />
           <h2
             className={`nc-card-title block font-semibold text-neutral-900 dark:text-neutral-100 transition-colors ${
               size === "large" ? "text-lg sm:text-2xl" : "text-base"
@@ -66,19 +62,19 @@ const Card2: FC<Card2Props> = ({
               {title}
             </Link>
           </h2>
-          <span className="block text-neutral-500 dark:text-neutral-400 text-sm line-clamp-2">
+          {/* <span className="block text-neutral-500 dark:text-neutral-400 text-sm line-clamp-2">
             {desc}
-          </span>
+          </span> */}
         </div>
-        <CardAuthor2 className="relative my-4" date={date} author={author} />
-        <div className="flex items-center justify-between mt-auto">
+        <SubCardAuthor2 className="relative my-4" author={authors} date={date} />
+        {/* <div className="flex items-center justify-between mt-auto">
           <PostCardLikeAndComment className="relative" postData={post} />
           <PostCardSaveAction
             className="relative"
             postData={post}
-            readingTime={readingTime}
+            readingTime={text}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

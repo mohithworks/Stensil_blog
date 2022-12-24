@@ -3,6 +3,7 @@ import SubCardLarge1 from "components/CardLarge1/SubCardLarge1";
 import TitleHeading from "components/Heading/TitleHeading";
 import { PostDataType } from "data/types";
 import React, { FC, useState } from "react";
+import Card2 from "components/Card2/Card2";
 
 export interface SectionLargeSliderProps {
   className?: string;
@@ -39,31 +40,39 @@ const SectionLargeSlider: FC<SectionLargeSliderProps> = ({
       return state - 1;
     });
   };
+  
+  const location = window.location.hostname.split(".")[0];
+  const url = import.meta.env.VITE_URL;  
+
+  const href = (post: any) => { return location != url ? post.href : ''; }
 
   return (
-    <div className={`nc-SectionLargeSlider relative ${className}`}>
+    <div className={`relative ${className}`}>
       <div className="text-center">
         {!!heading && <TitleHeading desc={desc}>{heading}</TitleHeading>}
       </div>
-      {authorPosts != undefined && posts.map((item, index) => {
-        if (indexActive !== index) return null;
-        return type === "default" ? (
-          <CardLarge1
-            key={index}
-            onClickNext={handleClickNext}
-            onClickPrev={handleClickPrev}
-            post={item}
-          />
-        ) : (
-          <SubCardLarge1
-            key={index}
-            postLength={posts.length}
-            onClickNext={handleClickNext}
-            onClickPrev={handleClickPrev}
-            post={item}
-          />
-        );
-      })}
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 mt-8 md:mt-0">
+        {authorPosts != undefined && posts.map((item, index) => {
+          return type === "default" ? (
+            <CardLarge1
+              key={index}
+              onClickNext={handleClickNext}
+              onClickPrev={handleClickPrev}
+              post={item}
+            />
+          ) : (
+            // <Card20 key={index} posts={item} postHref={'../'+'../'+href(item)} />
+            <Card2 key={index} size="large" posts={item} />
+            // <SubCardLarge1
+            //   key={index}
+            //   postLength={posts.length}
+            //   onClickNext={handleClickNext}
+            //   onClickPrev={handleClickPrev}
+            //   post={item}
+            // />
+          );
+        })}
+      </div>
     </div>
   );
 };

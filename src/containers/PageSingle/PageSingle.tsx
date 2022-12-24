@@ -10,10 +10,8 @@ import { changeCurrentPage } from "app/pages/pages";
 import SubSingleHeader from "./SubSingleHeader";
 import SingleRelatedPosts from "./SingleRelatedPosts";
 import supabaseClient from "utils/supabaseClient";
-import SocialsShare from "components/SocialsShare/SocialsShare";
-import Avatar from "components/Avatar/Avatar";
-import BookmarkContainer from "containers/BookmarkContainer/BookmarkContainer";
-import PostCardLikeContainer from "containers/PostCardLikeContainer/PostCardLikeContainer";
+import BackgroundSection from "components/BackgroundSection/BackgroundSection";
+import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 
 export interface PageSingleProps {
   className?: string;
@@ -178,50 +176,6 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return 'ABout'
   }
 
-  const renderSingleHeader = () => {
-    if (!isSingleHeaderShowing) return null;
-    const { title, authors } = post[0];
-    return (
-      <div className="nc-SingleHeaderMenu dark relative py-4 bg-neutral-900 dark:bg-neutral-900">
-        <div className="container">
-          <div className="flex">
-            <div className="flex items-center mr-3">
-              <Avatar
-                imgUrl={authors.avatar_url}
-                userName={authors.full_name}
-                sizeClass="w-8 h-8 text-lg"
-                radius="rounded-full"
-              />
-              <h3 className="ml-4 text-lg line-clamp-1 text-neutral-100">
-                {title}
-              </h3>
-            </div>
-
-            {/* ACTION */}
-            <div className="flex items-center space-x-2 text-neutral-800 sm:space-x-3 dark:text-neutral-100">
-              {/* <PostCardLikeContainer postId={SINGLE.id} like={SINGLE.like} />
-              <BookmarkContainer
-                initBookmarked={bookmark.isBookmarked}
-                postId={id}
-              />
-              <div className="border-l border-neutral-300 dark:border-neutral-700 h-6"></div>
-              <SocialsShare
-                className="flex space-x-2"
-                itemClass="w-8 h-8 bg-neutral-100 text-lg dark:bg-neutral-800 dark:text-neutral-300"
-              /> */}
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-full left-0 w-full progress-container h-[5px] bg-neutral-300 overflow-hidden">
-          <div
-            ref={progressBarRef}
-            className="progress-bar h-[5px] w-0 bg-teal-600"
-          />
-        </div>
-      </div>
-    );
-  };
-
   if(error) {
 
     return (
@@ -304,19 +258,46 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     return (
       <>
         <div
+          className={`nc-PageSingle pt-8 lg:pt-16 ${className}`}
+          data-nc-id="PageSingle"
+          ref={containerRef}
+        >
+          {/* SINGLE HEADER */}
+          <header className="container rounded-xl">
+            <div className="max-w-screen-md mx-auto">
+              <SubSingleHeader hiddenDesc pageData={post[0]} />
+            </div>
+          </header>
+
+          {/* FEATURED IMAGE */}
+          <NcImage
+            containerClassName="container my-10 sm:my-12"
+            className="object-cover w-full h-full rounded-xl"
+            src={post[0].featured_imghd}
+          />
+
+          {/* SINGLE MAIN CONTENT */}
+          <div className="container">
+            <SingleContentBlog data={post[0].post} />
+          </div>
+
+          <div className="container">
+            <SectionSubscribe2 className="pt-16 lg:pt-28" />
+          </div>
+          {/* RELATED POSTS */}
+          <SingleRelatedPosts category={post[0].category.id} postTitle={post[0].posttitle} />
+        </div>
+        {/* <div
           className="nc-SingleHeaderMenu sticky top-0 w-full left-0 right-0 z-40 transition-all "
         >
-          {/* RENDER MAIN NAVIGATION */}
           {showSingleMenu && renderSingleHeader()}
 
-          {/* RENDER PROGESSBAR FOR SINGLE PAGE */}
         </div>
         <div
           className={`nc-PageSingle pt-8 lg:pt-16 ${className}`}
           data-nc-id="PageSingle"
           ref={containerRef}
         >
-          {/* SINGLE HEADER */}
           <div ref={mainMenuRef}>
             <header className="container rounded-xl">
               <div className="max-w-screen-md mx-auto">
@@ -324,23 +305,20 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
               </div>
             </header>
     
-            {/* FEATURED IMAGE */}
             <NcImage
               containerClassName="my-10 sm:my-12 relative aspect-w-16 aspect-h-12 md:aspect-h-9 lg:aspect-h-6"
               className="absolute inset-0 object-cover w-full h-full"
               src={post[0].featured_imghd}
             />
     
-            {/* SINGLE MAIN CONTENT */}
             <div className="container pb-20">
               <SingleContentBlog data={post[0].post} />
             </div>
     
-            {/* RELATED POSTS */}
             <SingleRelatedPosts category={post[0].category.id} postTitle={post[0].posttitle} />
           </div>
 
-        </div>
+        </div> */}
       </>
     );
 

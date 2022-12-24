@@ -135,7 +135,7 @@ const PageHome: React.FC = () => {
 
   const posts = post?.sort((a:any, b:any) => {
     return b.created_at - a.created_at;
-  }).slice(0, 3);
+  }).slice(0, 4);
 
   // var initRange:any = parseInt(localStorage.getItem('initpostRange')!);
   // var finRange:any = parseInt(localStorage.getItem('finpostRange')!);
@@ -345,11 +345,11 @@ const PageHome: React.FC = () => {
           {
             (currentPosts?.length > 0) && (
               
-                <div className="container mb-20">
+                <div className="mb-20">
                   <div>
                     {
                       categories.length != 0 && <div className={`nc-ArchiveFilterListBox flex flex-col justify-end md:flex-row md:justify-between`}>
-                        <Heading>
+                        <Heading className="mx-2 mb-7">
                           Articles
                         </Heading>
                         <div className="flex justify-start">
