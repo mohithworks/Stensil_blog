@@ -5,6 +5,8 @@ export type GlobalContent = {
   setAuthor:(c: any) => void
   post: any
   setPost:(c: any) => void
+  currentPost: any
+  setcurrentPost:(c: any) => void
   navigation: any
   setNavigation:(c: any) => void
   initpostRange: any
@@ -16,6 +18,8 @@ export const MyGlobalContext = createContext<GlobalContent>({
   setAuthor: () => {},
   post: 'Hello World', // set a default value
   setPost: () => {},
+  currentPost: 'Hello World', // set a default value
+  setcurrentPost: () => {},
   navigation: 'Hello World', // set a default value
   setNavigation: () => {},
   initpostRange: 0,

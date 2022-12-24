@@ -9,6 +9,7 @@ import MainNav1 from "./MainNav1";
 import SubMainNav1 from "./SubMainNav1";
 import { useLocation, useParams } from "react-router-dom";
 import { SINGLE } from "data/single";
+import { useGlobalContext } from 'utils/context';
 
 export interface HeaderProps {
   mainNavStyle?: "style1" | "style2" | "style2Logedin";
@@ -25,12 +26,14 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
   const urlLocation = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;
 
+  const { currentPost, setcurrentPost } = useGlobalContext();
+
   const { postslug } = useParams<any>();
   //
   //
   const location = useLocation();
 
-  const showSingleMenu = location.pathname.search(/^\/single/g) > -1;
+  const showSingleMenu = location.pathname.search(/^\/posts/g) > -1;
   //
   const [isSingleHeaderShowing, setIsSingleHeaderShowing] = useState(false);
 
@@ -121,32 +124,32 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
 
   const getTitle = () => {
     const titleR = location.pathname.split('/')[2].replace(/-/g, ' ').toUpperCase();
-    console.log(titleR);
+    console.log(currentPost);
     return 'ABout'
   }
 
   const renderSingleHeader = () => {
     if (!isSingleHeaderShowing) return null;
-    const { title, author, id, bookmark } = SINGLE;
+    const { title, authors } = currentPost[0];
     return (
       <div className="nc-SingleHeaderMenu dark relative py-4 bg-neutral-900 dark:bg-neutral-900">
         <div className="container">
-          <div className="flex justify-end lg:justify-between">
-            <div className="hidden lg:flex items-center mr-3">
+          <div className="flex">
+            <div className="flex items-center mr-3">
               <Avatar
-                imgUrl={author.avatar}
-                userName={author.displayName}
+                imgUrl={authors.avatar_url}
+                userName={authors.full_name}
                 sizeClass="w-8 h-8 text-lg"
                 radius="rounded-full"
               />
               <h3 className="ml-4 text-lg line-clamp-1 text-neutral-100">
-                {getTitle()}
+                {title}
               </h3>
             </div>
 
             {/* ACTION */}
             <div className="flex items-center space-x-2 text-neutral-800 sm:space-x-3 dark:text-neutral-100">
-              <PostCardLikeContainer postId={SINGLE.id} like={SINGLE.like} />
+              {/* <PostCardLikeContainer postId={SINGLE.id} like={SINGLE.like} />
               <BookmarkContainer
                 initBookmarked={bookmark.isBookmarked}
                 postId={id}
@@ -155,7 +158,7 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
               <SocialsShare
                 className="flex space-x-2"
                 itemClass="w-8 h-8 bg-neutral-100 text-lg dark:bg-neutral-800 dark:text-neutral-300"
-              />
+              /> */}
             </div>
           </div>
         </div>

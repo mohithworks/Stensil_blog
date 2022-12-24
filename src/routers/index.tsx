@@ -211,6 +211,7 @@ export const SubDomainRoutes = () => {
   const [author, setAuthor] = useState<any>();
   const [navigation, setNavigation] = useState<any>();
   const [post, setPost] = useState<any>();
+  const [currentPost, setcurrentPost] = useState<any>();
   const [error, setError] = useState<any>();
  
   const initpostRange = 0, finpostRange = 10;
@@ -270,6 +271,7 @@ export const SubDomainRoutes = () => {
         
       }else if(posts.data && nav) {
         setPost(posts.data);
+        setcurrentPost(posts.data[0]);
         setAuthor([posts.data[0].authors]);
         setNavigation(nav);
         console.log(posts);
@@ -360,7 +362,7 @@ export const SubDomainRoutes = () => {
     
     return (
       <>
-      <MyGlobalContext.Provider value={{ author, setAuthor, post, setPost, navigation, setNavigation, initpostRange, finpostRange }}>
+      <MyGlobalContext.Provider value={{ author, setAuthor, post, setPost, navigation, setNavigation, initpostRange, finpostRange, currentPost, setcurrentPost }}>
         <BrowserRouter
           basename={
             import.meta.env.VITE_LRT_OR_RTL === "rtl" ? "/" : "/"

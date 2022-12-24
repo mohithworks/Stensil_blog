@@ -12,6 +12,8 @@ import SingleRelatedPosts from "./SingleRelatedPosts";
 import supabaseClient from "utils/supabaseClient";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
+import Avatar from "components/Avatar/Avatar";
+import { useGlobalContext } from 'utils/context';
 
 export interface PageSingleProps {
   className?: string;
@@ -27,6 +29,8 @@ export interface SinglePageType extends PostDataType {
 }
 
 const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
+  const { author, setcurrentPost } = useGlobalContext();
+
   const dispatch = useAppDispatch();
 
   const { authorslug, postslug } = useParams<any>();
@@ -58,6 +62,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
 
         if(data) {
           setPost(data);
+          setcurrentPost(data);
           console.log(data);
           setpostLoading(false);
         }
@@ -75,107 +80,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
   }, []);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const mainMenuRef = useRef<HTMLDivElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  //
-  //
-  const locationW = useLocation();
-
-  const showSingleMenu = locationW.pathname.search(/^\/posts/g) > -1;
-  //
-  const [isSingleHeaderShowing, setIsSingleHeaderShowing] = useState(false);
-
-  useEffect(() => {
-    if (!mainMenuRef.current) {
-      return;
-    }
-    MAIN_MENU_HEIGHT = mainMenuRef.current.offsetHeight;
-    window.addEventListener("scroll", handleShowHideHeaderMenuEvent);
-    return () => {
-      window.removeEventListener("scroll", handleShowHideHeaderMenuEvent);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (showSingleMenu) {
-      //  BECAUSE DIV HAVE TRANSITION 100ms
-      setTimeout(() => {
-        window.addEventListener("scroll", handleShowHideSingleHeadeEvent);
-      }, 200);
-    } else {
-      window.removeEventListener("scroll", handleShowHideSingleHeadeEvent);
-    }
-    return () => {
-      window.removeEventListener("scroll", handleShowHideSingleHeadeEvent);
-    };
-  }, [showSingleMenu]);
-
-  const handleShowHideSingleHeadeEvent = () => {
-    window.requestAnimationFrame(showHideSingleHeade);
-  };
-  const handleShowHideHeaderMenuEvent = () => {
-    window.requestAnimationFrame(showHideHeaderMenu);
-  };
-
-  const handleProgressIndicator = () => {
-    const entryContent = document.querySelector(
-      "#single-entry-content"
-    ) as HTMLDivElement | null;
-
-    if (!showSingleMenu || !entryContent) {
-      return;
-    }
-
-    const totalEntryH = entryContent.offsetTop + entryContent.offsetHeight-500;
-    let winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    let scrolled = (winScroll / totalEntryH) * 100;
-    if (!progressBarRef.current || scrolled > 140) {
-      return;
-    }
-
-    scrolled = scrolled >= 100 ? 100 : scrolled;
-
-    progressBarRef.current.style.width = scrolled + "%";
-  };
-
-  const showHideSingleHeade = () => {
-    handleProgressIndicator();
-    // SHOW _ HIDE SINGLE DESC MENU
-    let winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-
-    if (winScroll > 600) {
-      setIsSingleHeaderShowing(true);
-    } else {
-      setIsSingleHeaderShowing(false);
-    }
-  };
-
-  const showHideHeaderMenu = () => {
-    let currentScrollPos = window.pageYOffset;
-    if (!containerRef.current || !mainMenuRef.current) return;
-
-    if (Math.abs(WIN_PREV_POSITION - currentScrollPos) <= 50) {
-      return;
-    }
-
-    // SHOW _ HIDE MAIN MENU
-    if (WIN_PREV_POSITION > currentScrollPos) {
-      containerRef.current.style.top = "0";
-    } else {
-      containerRef.current.style.top = `-${MAIN_MENU_HEIGHT + 2}px`;
-    }
-
-    WIN_PREV_POSITION = currentScrollPos;
-  };
-
-  const getTitle = () => {
-    const titleR = locationW.pathname.split('/')[2].replace(/-/g, ' ').toUpperCase();
-    console.log(titleR);
-    return 'ABout'
-  }
-
+  
   if(error) {
 
     return (
@@ -257,6 +162,12 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
 
     return (
       <>
+        {/* <div
+          className="nc-SingleHeaderMenu sticky top-0 w-full left-0 right-0 z-40 transition-all "
+        >
+          {showSingleMenu && renderSingleHeader()}
+
+        </div> */}
         <div
           className={`nc-PageSingle pt-8 lg:pt-16 ${className}`}
           data-nc-id="PageSingle"
