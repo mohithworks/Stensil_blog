@@ -22,6 +22,8 @@ import ButtonCircle from "components/Button/ButtonCircle";
 import CardCategory2 from "components/CardCategory2/CardCategory2";
 import Tag from "components/Tag/Tag";
 import CardAuthorBox2 from "components/CardAuthorBox2/CardAuthorBox2";
+import toTitleCase from "utils/toTitleCase";
+import { useGlobalContext } from 'utils/context';
 
 export interface PageSearchProps {
   className?: string;
@@ -45,6 +47,8 @@ const TABS = ["Articles", "Categories", "Tags", "Authors"];
 const PageSearch: FC<PageSearchProps> = ({ className = "" }) => {
   let s = "Technology";
 
+  const { author } = useGlobalContext();
+
   const [tabActive, setTabActive] = useState<typeof TABS[number]>(TABS[0]);
 
   const handleClickTab = (item: string) => {
@@ -57,7 +61,7 @@ const PageSearch: FC<PageSearchProps> = ({ className = "" }) => {
   return (
     <div className={`nc-PageSearch ${className}`} data-nc-id="PageSearch">
       <Helmet>
-        <title>Search || InkFlow</title>
+        <title>Search || {toTitleCase(author[0].username)}</title>
       </Helmet>
 
       {/* HEADER */}

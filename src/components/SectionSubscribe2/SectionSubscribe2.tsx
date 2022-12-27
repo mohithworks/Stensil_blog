@@ -84,7 +84,7 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
       className={`nc-SectionSubscribe2 relative flex flex-col items-center ${className}`}
       data-nc-id="SectionSubscribe2"
     >
-      <section className="dark:bg-gray-900">
+      <section className="dark:bg-neutral-1000">
         <div className="px-4 mx-auto max-w-screen lg:px-6">
             <div className="mx-auto max-w-screen-md sm:text-center">
                 <h2 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Sign up for our newsletter</h2>
@@ -100,13 +100,13 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
                               ref={subEmail}
                               required
                               aria-required
-                              className="h-12 block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                              className="h-12 block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border sm:rounded-none sm:rounded-l-lg dark:bg-gray-50 dark:text-gray-900" 
                               placeholder="Enter your Email"
                               type="text"
                             />
                         </div>
                         <div>
-                            <ButtonPrimary loading={btnLoading} className="h-12 py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700"
+                            <ButtonPrimary loading={btnLoading} className="h-12 py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg cursor-pointer sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700"
                               type="submit"
                             >
                               Subscribe

@@ -52,7 +52,7 @@ const SubNavMobile: React.FC<NavMobileProps> = ({
   };
 
   return (
-    <div className="w-full h-full py-2 transition transform shadow-lg ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800 border-r border-transparent dark:border-neutral-700">
+    <div className="w-full h-full py-2 transition transform dark:bg-neutral-900 divide-y-2 divide-neutral-100 dark:divide-neutral-800 border-r border-transparent dark:border-neutral-700">
       <div className="py-6 px-5">
         {
           logo == null ? 

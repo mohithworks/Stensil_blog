@@ -56,18 +56,15 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
                 </a>)
             }
           </div>
-          <div className="flex xl:hidden">
+          <div className="hidden xl:flex lg:flex md:flex">
             <DarkModeContainer />
+          </div>
+          <div className="flex xl:hidden">
             <SearchDropdown />
           </div>
-          <div className="flex items-center md:hidden">
-            {
-              buttons.length != 0 && (
-                <ButtonPrimary href={buttons[0].link}>{buttons[0].name}</ButtonPrimary>)
-            }
-            <div className="px-1" />
+          <div className="items-center md:hidden">
             <ErrorBoundary>
-              <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} />
+              <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
             </ErrorBoundary>
           </div>
         </div>

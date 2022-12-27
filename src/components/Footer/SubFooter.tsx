@@ -117,7 +117,7 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
           {
             socials.length > 0 && 
             <div className="flex mt-5 mr-0 md:mr-10">
-              <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-200 text-xl dark:bg-neutral-400 dark:text-neutral-300" />
+              <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-200 text-xl dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200" />
             </div>
           }
         </div>

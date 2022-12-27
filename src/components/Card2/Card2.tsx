@@ -75,6 +75,7 @@ const Card2: FC<Card2Props> = ({
             readingTime={text}
           />
         </div> */}
+        <span className="text-[13px] block text-neutral-500 dark:text-neutral-400 line-clamp-2 mt-3">{htmltoText(post)}</span>
       </div>
     </div>
   );

@@ -26,8 +26,8 @@ import Select from "components/Select/Select";
 import Heading from "components/Heading/Heading";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/solid";
-import { ListBoxItemType } from "components/NcListBox/NcListBox";
 import ButtonDropdown from "components/ButtonDropdown/ButtonDropdown";
+import toTitleCase from "utils/toTitleCase";
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
 //
@@ -254,7 +254,7 @@ const PageHome: React.FC = () => {
   return (
     <div className="nc-PageHome relative">
       <Helmet>
-        <title>Home || Blog Magazine React Template</title>
+        <title>{toTitleCase(author[0].username)}</title>
       </Helmet>
 
       {/* ======== ALL SECTIONS ======== */}
@@ -364,7 +364,7 @@ const PageHome: React.FC = () => {
                                 leaveFrom="opacity-100"
                                 leaveTo="opacity-0"
                               >
-                                <Listbox.Options className="absolute right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
+                                <Listbox.Options className="absolute md:right-0 xl:right-0 lg:right-0 w-52 py-1 mt-2 overflow-auto text-sm text-neutral-900 dark:text-neutral-200 bg-white rounded-xl shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-700 z-50">
                                   <Listbox.Option
                                     className={({ active }) =>
                                       `${

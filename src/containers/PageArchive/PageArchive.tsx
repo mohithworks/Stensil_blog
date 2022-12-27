@@ -21,6 +21,7 @@ import supabaseClient from "utils/supabaseClient";
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import { XIcon } from "@heroicons/react/solid";
+import toTitleCase from "utils/toTitleCase";
 
 export interface PageArchiveProps {
   className?: string;
@@ -300,7 +301,7 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
         data-nc-id="PageArchive"
       >
         <Helmet>
-          <title>Category || InFlow</title>
+          <title>Category || {toTitleCase(author.username)}</title>
         </Helmet>
   
         {/* HEADER */}

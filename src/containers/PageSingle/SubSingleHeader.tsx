@@ -6,7 +6,7 @@ import { SinglePageType } from "./PageSingleTemp3Sidebar";
 import PostMeta2 from "components/PostMeta2/PostMeta2";
 import SubSingleMetaAction2 from "./SubSingleMetaAction2";
 import { Helmet } from "react-helmet";
-import { SINGLE } from "data/single";
+import toTitleCase from "utils/toTitleCase";
 
 export interface SingleHeaderProps {
   pageData: any;
@@ -23,12 +23,12 @@ const SingleHeaderDemo: FC<SingleHeaderProps> = ({
   className = "",
   metaActionStyle = "style1",
 }) => {
-  const { title, category } = pageData;
+  const { title, category, authors } = pageData;
 
   return (
     <>
       <Helmet>
-        <title>Posts || InkFlow</title>
+        <title>Posts || {toTitleCase(authors.username)}</title>
       </Helmet>
       <div className={`nc-SingleHeader ${className}`}>
         <div className="space-y-5">

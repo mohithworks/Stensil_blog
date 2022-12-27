@@ -17,8 +17,7 @@ import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import SectionSliderNewAuthors from "components/SectionSliderNewAthors/SectionSliderNewAuthors";
 import { DEMO_AUTHORS } from "data/authors";
 import CardCategory2 from "components/CardCategory2/CardCategory2";
-import Tag from "components/Tag/Tag";
-import CardAuthorBox2 from "components/CardAuthorBox2/CardAuthorBox2";
+import { useGlobalContext } from 'utils/context';
 import { useParams, useLocation } from "react-router-dom";
 import Error from "components/Error/Error";
 import Loading from "components/Loading/Loading";
@@ -27,6 +26,7 @@ import getAuthorSlug from "utils/getAuthorSlug";
 
 import supabaseClient from "utils/supabaseClient";
 import Card20 from "components/Card20/Card20";
+import toTitleCase from "utils/toTitleCase";
 
 export interface PageSearchV2Props {
   className?: string;
@@ -48,6 +48,7 @@ const TABS = ["Posts", "Categories"];
 var fetchedPost:any = false, fetchedCat:any = false;
 
 const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
+  const { author } = useGlobalContext();
   
   const authorSlug = getAuthorSlug();
 
@@ -164,7 +165,7 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
     <div className={`nc-PageSearchV2 ${className}`} data-nc-id="PageSearchV2">
       <HeadBackgroundCommon className="h-24 2xl:h-28" />
       <Helmet>
-        <title>Search || InkFlow</title>
+        <title>Search || {toTitleCase(author[0].username)}</title>
       </Helmet>
       <div className="container">
         <header className="max-w-2xl mx-auto -mt-10 flex flex-col lg:-mt-7">
