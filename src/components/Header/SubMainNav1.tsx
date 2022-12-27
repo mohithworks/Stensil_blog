@@ -56,9 +56,6 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
                 </a>)
             }
           </div>
-          <div className="hidden xl:flex lg:flex md:flex">
-            <DarkModeContainer />
-          </div>
           <div className="flex xl:hidden">
             <SearchDropdown />
           </div>
