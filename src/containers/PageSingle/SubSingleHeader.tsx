@@ -28,7 +28,7 @@ const SingleHeaderDemo: FC<SingleHeaderProps> = ({
   return (
     <>
       <Helmet>
-        <title>Posts || {toTitleCase(authors.username)}</title>
+        <title>{title} || {toTitleCase(authors.username)}</title>
       </Helmet>
       <div className={`nc-SingleHeader ${className}`}>
         <div className="space-y-5">

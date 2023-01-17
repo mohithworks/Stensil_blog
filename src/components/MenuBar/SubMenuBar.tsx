@@ -93,7 +93,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
       <li key={index} className="text-neutral-900 dark:text-white">
         <a
           target="_blank"
-          className={`flex w-full items-center py-2.5 px-4 font-medium text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg`}
+          className={`flex w-full items-center py-2.5 font-semibold text-md hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg`}
           href={item.link}
         >
           {item.name}
@@ -133,9 +133,9 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
                     <SubLogo img={logo} />
                   }
                 </div>
-                <p className="mt-3 pl-1">
+                {/* <p className="mt-3 pl-1">
                   {description}
-                </p>
+                </p> */}
               </div>
               <div className="mt-6 pr-2">
                 <nav className="grid gap-y-8">
@@ -145,9 +145,9 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
                 </nav>
               </div>
             </div>
-            <div className="space-y-6 py-6 px-5">
+            <div className="space-y-6 pb-6 px-5">
               
-              <div className="flex justify-between items-center mt-4">
+              <div className="flex justify-between items-center">
                 <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 text-xl dark:bg-neutral-800 dark:text-neutral-300" />
                 <span>
                   <DarkModeContainer className="w-9 h-9 bg-neutral-100 dark:bg-neutral-800" />

@@ -255,6 +255,7 @@ const PageHome: React.FC = () => {
     <div className="nc-PageHome relative">
       <Helmet>
         <title>{toTitleCase(author[0].username)}</title>
+        <link rel="icon" type="image/jpeg" href={author[0].faviconimg} sizes="16x16" />
       </Helmet>
 
       {/* ======== ALL SECTIONS ======== */}
