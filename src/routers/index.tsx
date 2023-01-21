@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Loading from "components/Loading/Loading";
 import { Page } from "./types";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "components/Footer/Footer";
@@ -243,7 +244,7 @@ export const SubDomainRoutes = () => {
       if(posts.error) {
         throw setError(error.message);
       }
-      var nav:any = await supabaseFetch('navigation', '*, authors!inner(*)', 'authors.username');
+      var nav:any = await supabaseFetch('navigationv2', '*, authors!inner(*)', 'authors.username');
 
       // const posts = await supabaseClient
       //   .from('posts')
@@ -313,23 +314,8 @@ export const SubDomainRoutes = () => {
 
   }else if(loading == true) {
     return (
-      <div
-        className={`nc-PageSingleTemp4Sidebar relative text-center pt-10 lg:pt-16`}
-        data-nc-id="PageSingleTemp4Sidebar"
-      >
-        {/*  */}
-        
-        <div className="container relative py-16 lg:py-20">
-          {/* HEADER */}
-          <header className="text-center max-w-2xl mx-auto space-y-7">
-            <h2 className="text-7xl md:text-8xl"></h2>
-            <h1 className="text-6xl md:text-6xl font-semibold tracking-widest">
-              LOADING....
-            </h1>
-            <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-            </span>
-          </header>
-        </div>
+      <div className="flex justify-center align-center">
+       <Loading /> 
       </div>
     )
   }else if(author.length == 0) {

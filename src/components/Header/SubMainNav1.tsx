@@ -15,16 +15,18 @@ export interface MainNav1Props {
 
 const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
   const { author, navigation } = useGlobalContext();
-  
-  const navmenus = navigation?.filter(function(obj:any) {
-    return obj.type == "Navigation Menu";
-  }); 
-  
-  const buttons = navigation?.filter(function(obj:any) {
-    return obj.type == "CTA Button";
-  }); 
 
-  console.log(author[0].logoimg);
+  console.log(navigation)
+
+  var actualmenu = navigation[0]['navigation_menu']; 
+
+  const menuE = actualmenu.slice(0, actualmenu.length - 1);
+
+  const navmenus = navigation[0]['cta'] === false ? actualmenu : menuE; 
+  
+  const buttons = navigation[0]['cta'] === false ? [] : [actualmenu[actualmenu.length - 1]]
+
+  console.log(buttons);
 
   return (
     <div className={`nc-MainNav nc-MainNav1 relative z-10`}>

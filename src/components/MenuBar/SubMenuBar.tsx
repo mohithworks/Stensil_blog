@@ -8,7 +8,7 @@ import SubLogo from "components/Logo/SubLogo";
 import { NavItemType } from "components/Navigation/NavigationItem";
 import SubSocialList from "components/SocialsList/SubSocialList";
 import DarkModeContainer from "containers/DarkModeContainer/DarkModeContainer";
-import ButtonClose from "components/ButtonClose/ButtonClose";
+import { XIcon } from "@heroicons/react/solid";
 
 export interface MenuBarProps {
     navigations?: any,
@@ -22,67 +22,11 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
   const location = useLocation();
   const { navigation } = useGlobalContext();
 
-  const socials = navigation?.filter(function(obj:any) {
-    return obj.type == "Social Icon";
-  }); 
+  const socials = navigation[0]['social_icons']; 
 
   useEffect(() => {
     setIsVisable(false);
   }, [location.pathname]);
-
-  const handleOpenMenu = () => setIsVisable(true);
-  const handleCloseMenu = () => setIsVisable(false);
-  const solutions = [
-    {
-      name: 'Analytics',
-      description: 'Get a better understanding of where your traffic is coming from.',
-      href: '#',
-    },
-    {
-      name: 'Engagement',
-      description: 'Speak directly to your customers in a more meaningful way.',
-      href: '#',
-    },
-    { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#' },
-    {
-      name: 'Integrations',
-      description: "Connect with third-party tools that you're already using.",
-      href: '#',
-    },
-    {
-      name: 'Automations',
-      description: 'Build strategic funnels that will drive your customers to convert',
-      href: '#',
-    },
-  ]
-  const callsToAction = [
-    { name: 'Watch Demo', href: '#' },
-    { name: 'Contact Sales', href: '#' },
-  ]
-  const resources = [
-    {
-      name: 'Help Center',
-      description: 'Get all of your questions answered in our forums or contact support.',
-      href: '#',
-    },
-    {
-      name: 'Guides',
-      description: 'Learn how to maximize our platform to get the most out of it.',
-      href: '#',
-    },
-    {
-      name: 'Events',
-      description: 'See what meet-ups and other events we might be planning near you.',
-      href: '#',
-    },
-    { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
-  ]
-  const recentPosts = [
-    { id: 1, name: 'Boost your conversion rate', href: '#' },
-    { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-    { id: 3, name: 'Improve your customer experience', href: '#' },
-  ]
-
   
   const _renderItemNoChild = (
     item: any,
@@ -169,7 +113,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
             
             <div className="absolute right-2 top-2 p-1">
               <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white dark:bg-neutral-700 p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                 <ButtonClose />
+                <XIcon className={'w-5 h-5'} />    
               </Popover.Button>
             </div>
           </div>

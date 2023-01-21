@@ -9,8 +9,8 @@ export interface NavigationProps {
 const SubNavigation: FC<NavigationProps> = ({ navigations }) => {
   return (
     <ul className="nc-Navigation hidden lg:flex lg:flex-wrap lg:items-center lg:space-x-1 relative">
-      {navigations.map((item:any) => (
-        <SubNavigationItem key={item.id} menuItem={item} />
+      {navigations.map((item:any, index: any) => (
+        <SubNavigationItem key={index} menuItem={item} />
       ))}
     </ul>
   );

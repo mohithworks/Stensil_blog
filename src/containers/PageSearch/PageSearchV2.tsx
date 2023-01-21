@@ -46,6 +46,7 @@ const FILTERS = [
 const TABS = ["Posts", "Categories"];
 
 var fetchedPost:any = false, fetchedCat:any = false;
+var postsG:any = [], categoryG:any = [];
 
 const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
   const { author } = useGlobalContext();
@@ -93,6 +94,7 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
       if (data) {
         fetchedPost = true;
         setTotalData({ length: data.length, type: 'posts' });
+        postsG = data;
         setPosts(data);
         console.log(data);
         setpostLoading(false);
@@ -115,6 +117,7 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
       if (data) {
         fetchedCat = true;
         setTotalData({ length: data.length, type: 'categories' });
+        categoryG = data;
         setCategory(data);
         console.log(data);
         setcatLoading(false);
@@ -134,14 +137,32 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
 
     if(tabActive === 'Categories') {
       console.log("In cat")
-      setcatLoading(true);
-      fetchCat();
+      if(categoryG.length === 0) {   
+        setcatLoading(true);
+        fetchCat() 
+      } else {
+        setCategory(categoryG);
+        setcatLoading(false);
+      }  
     }else {
       console.log("In post")
-      setpostLoading(true);
-      fetchPost();
+      console.log(postsG)
+      if(postsG.length === 0) {  
+        setpostLoading(true);
+        fetchPost();
+      } else {
+        setPosts(postsG);
+        setpostLoading(false);
+      }  
     }
-    fetchPost();
+    if(postsG.length === 0 && categoryG.length === 0) {
+      fetchPost();
+    } else {
+      setPosts(postsG);
+      setCategory(categoryG);
+      setpostLoading(false);
+      setcatLoading(false);
+    }
     
     //setLoading(false);
   }, [search]);
@@ -153,9 +174,9 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
     setTabActive(item);
 
     if(item === 'Categories') {
-      fetchCat();
+      (categoryG.length === 0) && fetchCat();
     }else {
-      fetchPost();
+      (postsG.length === 0) && fetchPost();
     }
   };
 
@@ -220,7 +241,16 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
               :
               (postLoading == true) ?
               (
-                <Loading />
+                <div
+                  className={`nc-PageSingleTemp4Sidebar text-center pt-40 pb-40 lg:pt-40 lg:pb-40 ${className}`}
+                  data-nc-id="PageSingleTemp4Sidebar"
+                >
+                  {/*  */}
+                  
+                  <div className="container relative">
+                    <Loading />
+                  </div>
+                </div>
               )
               :
               (posts.length == 0) ?

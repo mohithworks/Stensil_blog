@@ -1,4 +1,5 @@
 import React, {useState, useEffect, Fragment} from "react";
+import Loading from "components/Loading/Loading";
 import SectionLatestPosts from "./SectionLatestPosts";
 import SectionVideos from "./SectionVideos";
 import SectionLargeSlider from "./SectionLargeSlider";
@@ -62,8 +63,8 @@ const PageHome: React.FC = () => {
 
   if(currentPosts?.length == 0){
     postsLoc = post;
-    inPage = postsLoc.length;
-    fnPage = postsLoc.length + maxPost;
+    inPage = postsLoc?.length;
+    fnPage = postsLoc?.length + maxPost;
     setcurrentPosts(postsLoc);
   }
 
@@ -458,24 +459,7 @@ const PageHome: React.FC = () => {
                       :
                       (loading == true) ?
                       (
-                        <div
-                          className={`nc-PageSingleTemp4Sidebar text-center pt-10 lg:pt-16`}
-                          data-nc-id="PageSingleTemp4Sidebar"
-                        >
-                          {/*  */}
-                          
-                          <div className="container relative py-16 lg:py-20">
-                            {/* HEADER */}
-                            <header className="text-center max-w-2xl mx-auto space-y-4">
-                              <h2 className="text-7xl md:text-8xl"></h2>
-                              <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
-                                LOADING....
-                              </h1>
-                              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-                              </span>
-                            </header>
-                          </div>
-                        </div>
+                        <Loading size={20}/>
                       )
                       :
                       (

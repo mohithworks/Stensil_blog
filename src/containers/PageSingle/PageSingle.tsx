@@ -14,6 +14,7 @@ import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import Avatar from "components/Avatar/Avatar";
 import { useGlobalContext } from 'utils/context';
+import Loading from "components/Loading/Loading";
 
 export interface PageSingleProps {
   className?: string;
@@ -118,15 +119,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
           {/*  */}
           
           <div className="container relative">
-            {/* HEADER */}
-            <header className="text-center max-w-2xl mx-auto space-y-7">
-              <h2 className="text-7xl md:text-8xl"></h2>
-              <h1 className="text-3xl md:text-6xl font-semibold tracking-widest">
-                LOADING....
-              </h1>
-              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-              </span>
-            </header>
+            <Loading />
           </div>
         </div>
       </>

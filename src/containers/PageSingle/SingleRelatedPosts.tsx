@@ -10,6 +10,7 @@ import { useGlobalContext } from 'utils/context';
 import { useHistory } from "react-router-dom";
 
 import supabaseClient from "utils/supabaseClient";
+import Loading from "components/Loading/Loading";
 
 export interface SingleRelatedPostsProps {
   category?: any;
@@ -139,26 +140,9 @@ const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
   }else if(loading == true) {
 
     return (
-      <>
-        <div
-          className={`nc-PageSingleTemp4Sidebar text-center pt-40 pb-40 lg:pt-40 lg:pb-40`}
-          data-nc-id="PageSingleTemp4Sidebar"
-        >
-          {/*  */}
-          
-          <div className="container relative">
-            {/* HEADER */}
-            <header className="text-center max-w-2xl mx-auto space-y-7">
-              <h2 className="text-2xl md:text-2xl"></h2>
-              <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
-                LOADING....
-              </h1>
-              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-              </span>
-            </header>
-          </div>
-        </div>
-      </>
+      <div className="py-10">
+        <Loading size={20}/>
+      </div>
     );
 
   }else if(relPosts.length == 0 &&  autPosts.length == 0) {

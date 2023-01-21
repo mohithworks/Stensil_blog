@@ -22,6 +22,7 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import { XIcon } from "@heroicons/react/solid";
 import toTitleCase from "utils/toTitleCase";
+import Loading from "components/Loading/Loading";
 
 export interface PageArchiveProps {
   className?: string;
@@ -243,21 +244,13 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
     return (
       <>
         <div
-          className={`nc-PageSingleTemp4Sidebar relative text-center pb-50 lg:pt-40 pb-40 ${className}`}
+          className={`nc-PageSingleTemp4Sidebar relative text-center pt-40 pb-40 lg:pt-40 pb-40 ${className}`}
           data-nc-id="PageSingleTemp4Sidebar"
         >
           {/*  */}
           
           <div className="container relative">
-            {/* HEADER */}
-            <header className="text-center max-w-2xl mx-auto space-y-7">
-              <h2 className="text-7xl md:text-8xl"></h2>
-              <h1 className="text-3xl md:text-6xl font-semibold tracking-widest">
-                LOADING....
-              </h1>
-              <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-              </span>
-            </header>
+            <Loading />
           </div>
         </div>
       </>
@@ -365,24 +358,7 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
                   :
                   (postLoading == true) ?
                   (
-                    <div
-                      className={`nc-PageSingleTemp4Sidebar text-center pt-10 lg:pt-16`}
-                      data-nc-id="PageSingleTemp4Sidebar"
-                    >
-                      {/*  */}
-                      
-                      <div className="container relative py-16 lg:py-20">
-                        {/* HEADER */}
-                        <header className="text-center max-w-2xl mx-auto space-y-4">
-                          <h2 className="text-7xl md:text-8xl"></h2>
-                          <h1 className="text-2xl md:text-2xl font-semibold tracking-widest">
-                            LOADING....
-                          </h1>
-                          <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-                          </span>
-                        </header>
-                      </div>
-                    </div>
+                    <Loading size={20}/>
                   )
                   :
                   (

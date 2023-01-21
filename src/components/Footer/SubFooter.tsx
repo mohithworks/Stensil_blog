@@ -68,9 +68,7 @@ export interface SubFooterProps {
 
 const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
 
-    const socials = menus?.filter(function(obj:any) {
-        return obj.type == "Social Icon";
-    }); 
+    const socials = menus[0]['social_icons'];
   
     const navmenus = menus?.filter(function(obj:any) {
        return obj.type == "Navigation Menu";
