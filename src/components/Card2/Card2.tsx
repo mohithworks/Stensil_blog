@@ -22,7 +22,7 @@ const Card2: FC<Card2Props> = ({
   size = "normal",
   posts,
 }) => {
-  const { title, featured_imghd, href, created_at, category, post, authors } = posts;
+  const { title, featured_imghd, href, created_at, category, post, authors, refauthors } = posts;
 
   const { text } = useReadingTime(htmltoText(post));
 
@@ -66,7 +66,7 @@ const Card2: FC<Card2Props> = ({
             {desc}
           </span> */}
         </div>
-        <SubCardAuthor2 className="relative my-4" author={authors} date={date} />
+        <SubCardAuthor2 className="relative my-4" type={refauthors.id === '153de11c-9ce8-4d79-9d19-c10da778e84c' ? 'authors': 'refauthors'} author={refauthors.id === '153de11c-9ce8-4d79-9d19-c10da778e84c' ? authors : refauthors} date={date} />
         {/* <div className="flex items-center justify-between mt-auto">
           <PostCardLikeAndComment className="relative" postData={post} />
           <PostCardSaveAction

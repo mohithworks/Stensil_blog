@@ -19,7 +19,7 @@ const SubSocialList: FC<SocialsListProps> = ({
         return "lab la-facebook-f";
       case "Twitter":
           return "lab la-twitter";
-      case "Youtube":
+      case "YouTube":
           return "lab la-youtube";
       case "Instagram":
           return "lab la-instagram";
@@ -31,7 +31,7 @@ const SubSocialList: FC<SocialsListProps> = ({
       className={`nc-SocialsList flex space-x-2.5 text-2xl text-neutral-6000 dark:text-neutral-300 ${className}`}
       data-nc-id="SocialsList"
     >
-      {socials.map((item:any, i:any) => (
+      {socials.map((item:any, i:any) => item.link !== "" && (
         <a
           key={i}
           className={`${itemClass}`}

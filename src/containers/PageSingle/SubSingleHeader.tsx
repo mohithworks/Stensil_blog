@@ -23,7 +23,7 @@ const SingleHeaderDemo: FC<SingleHeaderProps> = ({
   className = "",
   metaActionStyle = "style1",
 }) => {
-  const { title, category, authors } = pageData;
+  const { title, category, authors, refauthors } = pageData;
 
   return (
     <>

@@ -53,7 +53,7 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
     const fetchPost = async() => {
       const { data, error } = await supabaseClient
         .from('posts')
-        .select(`*, authors!inner(*), category!inner(*)`)
+        .select(`*, authors!inner(*), category!inner(*), refauthors!inner(*)`)
         .eq('posttitle', postslug)
         .eq('authors.username', authorSlug)
 

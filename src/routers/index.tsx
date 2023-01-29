@@ -237,7 +237,7 @@ export const SubDomainRoutes = () => {
       // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
       var posts:any = await supabaseClient
       .from('posts')
-      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
+      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*), refauthors!inner(*)')
       .eq('authors.username', authorSlug)
       .range(initpostRange, finpostRange);
 

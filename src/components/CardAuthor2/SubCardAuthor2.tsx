@@ -8,6 +8,7 @@ export interface CardAuthor2Props {
   hoverReadingTime?: boolean;
   author: any;
   date: any;
+  type: any;
 }
 
 const SubCardAuthor2: FC<CardAuthor2Props> = ({
@@ -15,11 +16,11 @@ const SubCardAuthor2: FC<CardAuthor2Props> = ({
   author,
   date,
   hoverReadingTime = true,
+  type
 }) => {
-  const { full_name, href = "/", avatar_url } = author;
+
   return (
-    <Link
-      to={href}
+    <div
       className={`nc-CardAuthor2 relative inline-flex items-center ${className}`}
       data-nc-id="CardAuthor2"
     >
@@ -27,14 +28,14 @@ const SubCardAuthor2: FC<CardAuthor2Props> = ({
         sizeClass="h-10 w-10 text-base"
         containerClassName="flex-shrink-0 mr-3"
         radius="rounded-full"
-        imgUrl={avatar_url}
-        userName={full_name}
+        imgUrl={type === 'authors' ? author.avatar_url : author.avatar}
+        userName={type === 'authors' ? author.full_name : author.name}
       />
       <div>
         <h2
           className={`text-sm text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white font-medium`}
         >
-          {full_name}
+          {type === 'authors' ? author.full_name : author.name}
         </h2>
         <span
           className={`flex items-center mt-1 text-xs text-neutral-500 dark:text-neutral-400`}
@@ -60,7 +61,7 @@ const SubCardAuthor2: FC<CardAuthor2Props> = ({
           )} */}
         </span>
       </div>
-    </Link>
+    </div>
   );
 };
 
