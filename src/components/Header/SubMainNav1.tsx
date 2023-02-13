@@ -18,13 +18,18 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
 
   console.log(navigation)
 
-  var actualmenu = navigation[0]['navigation_menu']; 
+  var actualmenu = [], menuE = [], navmenus = [], buttons:any = [];
 
-  const menuE = actualmenu.slice(0, actualmenu.length - 1);
+  if(navigation.length > 0) {
+    
+    actualmenu = navigation[0]['navigation_menu']; 
 
-  const navmenus = navigation[0]['cta'] === false ? actualmenu : menuE; 
-  
-  const buttons = navigation[0]['cta'] === false ? [] : [actualmenu[actualmenu.length - 1]]
+    menuE = actualmenu.slice(0, actualmenu.length - 1);
+
+    navmenus = navigation[0]['cta'] === false ? actualmenu : menuE; 
+    
+    buttons = navigation[0]['cta'] === false ? [] : [actualmenu[actualmenu.length - 1]]
+  }
 
   console.log(buttons);
 
@@ -61,11 +66,14 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
           <div className="flex md:hidden lg:hidden xl:hidden">
             <SearchDropdown />
           </div>
-          <div className="items-center md:hidden">
-            <ErrorBoundary>
-              <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
-            </ErrorBoundary>
-          </div>
+          {
+            navmenus.length > 0 && 
+            <div className="items-center md:hidden">
+              <ErrorBoundary>
+                <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
+              </ErrorBoundary>
+            </div>
+          }
         </div>
       </div>
     </div>

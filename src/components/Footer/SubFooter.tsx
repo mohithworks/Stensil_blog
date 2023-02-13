@@ -68,34 +68,8 @@ export interface SubFooterProps {
 
 const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
 
-    const socials = menus[0]['social_icons'];
-  
-    const navmenus = menus?.filter(function(obj:any) {
-       return obj.type == "Navigation Menu";
-    }); 
-
-    console.log(socials)
-
-  const renderWidgetMenuItem = (menu: any, index: number) => {
-    return (
-      <div key={index} className="text-sm">
-        <h2 className="font-semibold text-neutral-700 dark:text-neutral-200">
-            Navigation Menu
-        </h2>
-        <ul className="mt-5 space-y-4">
-            <li>
-                <a
-                target="_blank"
-                className="text-neutral-6000 dark:text-neutral-300 hover:text-black dark:hover:text-white"
-                href={menu.link}
-                >
-                {menu.name}
-                </a>
-            </li>
-        </ul>
-      </div>
-    );
-  };
+    console.log(menus)
+    const socials = menus.length > 0 ? menus[0]['social_icons'] : [];
 
   return (
     <div className="nc-Footer relative py-8 lg:py-8 border-t border-neutral-200 dark:border-neutral-700">
@@ -113,7 +87,7 @@ const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
           </div>
           <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {username.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}. All rights reserved</span></p>
           {
-            socials.length > 0 && 
+            menus.length > 0 && socials.length > 0 && 
             <div className="flex mt-5 mr-0 md:mr-10">
               <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-200 text-xl dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200" />
             </div>
