@@ -1,27 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useEffect, FC } from "react";
 import { SubDomainRoutes, MainRoute } from "routers/index";
 import Plausible from 'plausible-tracker';
 
-function App() {
-  const location = window.location.hostname.split(".")[0];
-  const url = import.meta.env.VITE_URL;
-  console.log(url);
+export interface AppProps {
+  data?: any;
+}
 
-  const { enableAutoPageviews } = Plausible({
-    domain: window.location.hostname,
-    trackLocalhost: true
-  })
+const App: FC<AppProps> = ({ data = "" }) => {
+
+  const { authors } = data;
+
+  console.log(authors);
+
+  var plausible:any;
+
+  if(authors[0].prev_name === null) {
+
+    plausible = Plausible({
+      domain: window.location.hostname,
+      trackLocalhost: true
+    })
+
+  }else {
+      
+    plausible = Plausible({
+      domain: authors[0].prev_name + "." + import.meta.env.VITE_SITE,
+      trackLocalhost: true
+    })
+  
+  }
   
   useEffect(() => {
-
-    enableAutoPageviews();
+    plausible.enableAutoPageviews();
   }, []);
 
   return (
     <div className="bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200">
-      {
-        location != url ? <SubDomainRoutes /> : <MainRoute />
-      }
+      <SubDomainRoutes data={data} />
     </div>
   );
 }

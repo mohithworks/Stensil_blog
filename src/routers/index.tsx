@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Loading from "components/Loading/Loading";
 import { Page } from "./types";
@@ -205,88 +205,23 @@ export const mainPages: Page[] = [
   //
 ];
 
-export const SubDomainRoutes = () => {
+export interface SubDomainProps {
+  data?: any;
+}
+
+export const SubDomainRoutes: FC<SubDomainProps> = ({ data = "" }) => {
   const [user, setUser] = useState<any>(null);
   const [event, setEvent] = useState<any>(null);
   const [loading, setLoading] = useState<any>(true);
-  const [author, setAuthor] = useState<any>();
-  const [navigation, setNavigation] = useState<any>();
-  const [post, setPost] = useState<any>();
-  const [currentPost, setcurrentPost] = useState<any>();
+  const [author, setAuthor] = useState<any>(data.authors);
+  const [navigation, setNavigation] = useState<any>(data.nav);
+  const [post, setPost] = useState<any>(data.posts);
+  const [currentPost, setcurrentPost] = useState<any>(data.currentpost);
   const [error, setError] = useState<any>();
  
   const initpostRange = 0, finpostRange = 10;
-  
-  const authorSlug = getAuthorSlug();
 
- // const authUser = supabaseClient.auth.user();
- const supabaseFetch = async (table: any, query: any, type: any) => {
-  const { data, error } = await supabaseClient
-    .from(table)
-    .select(query)
-    .eq(type, authorSlug);
-
-    if(error) {
-      throw setError(error);
-    }
-    return data;
- } 
-
-  useEffect(() => {
-    const fetchPost = async() => {
-      // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
-      var posts:any = await supabaseClient
-      .from('posts')
-      .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*), refauthors!inner(*)')
-      .eq('authors.username', authorSlug)
-      .range(initpostRange, finpostRange);
-
-      if(posts.error) {
-        throw setError(error.message);
-      }
-      var nav:any = await supabaseFetch('navigationv2', '*, authors!inner(*)', 'authors.username');
-
-      // const posts = await supabaseClient
-      //   .from('posts')
-      //   .select(`*, authors!inner(*)`)
-      //   .eq('authors.username', location)
-
-      // const navigation = await supabaseClient
-      //   .from('posts')
-      //   .select(`*, authors!inner(*)`)
-      //   .eq('authors.username', location)
-
-      if(posts.data.length == 0) {
-        const authors:any =  await supabaseFetch('authors', '*', 'username');
-        // const { data, error } = await supabaseClient
-        //   .from('authors')
-        //   .select(`*`)
-        //   .eq('username', location);
-
-          if(authors) {
-            setAuthor(authors);
-            setNavigation(nav);
-            //console.log(authors);
-            setLoading(false);
-          }
-        
-      }else if(posts.data && nav) {
-        setPost(posts.data);
-        setcurrentPost(posts.data[0]);
-        setAuthor([posts.data[0].authors]);
-        setNavigation(nav);
-        console.log(posts);
-        console.log(nav);
-        setLoading(false);
-      }
-    }
-    
-    fetchPost();
-    
-    //setLoading(false);
-  }, []);
-
-  if(error) {
+  if(error != null) {
 
     return (
       <>
@@ -312,13 +247,7 @@ export const SubDomainRoutes = () => {
       </>
     );
 
-  }else if(loading == true) {
-    return (
-      <div className="flex justify-center align-center">
-       <Loading /> 
-      </div>
-    )
-  }else if(author.length == 0) {
+  }else if(author[0].length == 0) {
 
     return (
       <>
