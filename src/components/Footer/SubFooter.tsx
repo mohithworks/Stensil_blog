@@ -1,9 +1,7 @@
-
-import SubLogo from "components/Logo/SubLogo";
-import { Link } from "react-router-dom";
 import SubSocialList from "components/SocialsList/SubSocialList";
 import { CustomLink } from "data/types";
 import React from "react";
+import { renderLogo } from "components/Header/SubMainNav1";
 
 export interface WidgetFooterMenu {
   id: string;
@@ -61,31 +59,22 @@ const widgetMenus: WidgetFooterMenu[] = [
 
 
 export interface SubFooterProps {
-    logo: any,
-    username: string,
-    menus: any
+    menus: any,
+    authors: any,
 }
 
-const SubFooter: React.FC<SubFooterProps> = ({ logo, username, menus }) => {
+const SubFooter: React.FC<SubFooterProps> = ({ authors, menus }) => {
 
-    console.log(menus)
+    console.log(authors)
     const socials = menus.length > 0 ? menus[0]['social_icons'] : [];
 
   return (
     <div className="nc-Footer relative py-8 lg:py-8 border-t border-neutral-200 dark:border-neutral-700">
         <div className="flex flex-col items-center text-center justify-center md:flex-row md:justify-between">
           <div className="flex md:ml-5">
-            {
-              logo == null ? 
-              
-              <Link to="/" className="ttnc-logo mt-5 inline-block">
-                <h2 className={`text-2xl md:text-2xl font-semibold`}>{username.toUpperCase()}</h2>
-              </Link>
-              :
-              <SubLogo img={logo} />
-            }
+            {renderLogo(authors)}
           </div>
-          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {username.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}. All rights reserved</span></p>
+          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {authors[0].username.replace(/(^\w{1})|(\s+\w{1})/g, (letter:any) => letter.toUpperCase())}. All rights reserved</span></p>
           {
             menus.length > 0 && socials.length > 0 && 
             <div className="flex mt-5 mr-0 md:mr-10">

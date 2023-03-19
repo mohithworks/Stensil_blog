@@ -147,7 +147,8 @@ const PageHome: React.FC = () => {
       .from('posts')
       .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
       .eq('authors.username', authorSlug)
-      .range(inPage, fnPage);
+      .range(inPage, fnPage)
+      .order("created_at", { ascending: false });
 
       if(error) {
         setsnackMsg(error.message);

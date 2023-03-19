@@ -1,14 +1,11 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { Transition, Popover } from "@headlessui/react";
-import SubNavMobile from "components/Navigation/SubNavMobile";
 import { useLocation } from "react-router-dom";
 import { useGlobalContext } from 'utils/context';
-import { Link } from "react-router-dom";
-import SubLogo from "components/Logo/SubLogo";
 import { NavItemType } from "components/Navigation/NavigationItem";
 import SubSocialList from "components/SocialsList/SubSocialList";
-import DarkModeContainer from "containers/DarkModeContainer/DarkModeContainer";
 import { XIcon } from "@heroicons/react/solid";
+import { renderLogo, renderDarkMode } from "components/Header/SubMainNav1";
 
 export interface MenuBarProps {
     navigations?: any,
@@ -16,8 +13,9 @@ export interface MenuBarProps {
     description?: any,
     logo?: any,
     buttons?: any,
+    authors?: any,
 }
-const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description, logo, buttons }) => {
+const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, authors, buttons }) => {
   const [isVisable, setIsVisable] = useState(false);
   const location = useLocation();
   const { navigation } = useGlobalContext();
@@ -31,13 +29,12 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
   const _renderItemNoChild = (
     item: any,
     index: any,
-    isChild: boolean
   ) => {
     return (
       <li key={index} className="text-neutral-900 dark:text-white">
         <a
           target="_blank"
-          className={`flex w-full items-center py-2.5 font-semibold text-md hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg`}
+          className={`flex w-full items-center py-2.5 font-light text-md hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg`}
           href={item.link}
         >
           {item.name}
@@ -47,7 +44,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
   };
 
   const _renderItem = (item: NavItemType, index: number, isChild: boolean) => {
-    return _renderItemNoChild(item, index, isChild);
+    return _renderItemNoChild(item, index);
   };
   
   const renderContent = () => {
@@ -67,15 +64,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
             <div className="pl-5 pr-3 pt-5 pb-6">
               <div className="items-center">
                 <div>
-                  {
-                    logo == null ? 
-                    
-                    <Link to="/" className="ttnc-logo mt-5 inline-block">
-                      <h2 className={`text-2xl md:text-2xl font-semibold`}>{username.toUpperCase()}</h2>
-                    </Link>
-                    :
-                    <SubLogo img={logo} />
-                  }
+                  {renderLogo(authors)}
                 </div>
                 {/* <p className="mt-3 pl-1">
                   {description}
@@ -93,9 +82,7 @@ const SubMenuBar: React.FC<MenuBarProps> = ({ navigations, username, description
               
               <div className="flex justify-between items-center">
                 <SubSocialList socials={socials} itemClass="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-100 text-xl dark:bg-neutral-800 dark:text-neutral-300" />
-                <span>
-                  <DarkModeContainer className="w-9 h-9 bg-neutral-100 dark:bg-neutral-800" />
-                </span>
+                {renderDarkMode(authors[0].darkmode)}
               </div>
               {
                 buttons.length != 0 && (

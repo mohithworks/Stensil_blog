@@ -301,7 +301,12 @@ export const SubDomainRoutes: FC<SubDomainProps> = ({ data = "" }) => {
             <Route component={Page404} />
           </Switch>
           <div>
-            <SubFooter username={author[0].username} logo={author[0].logoimg} menus={navigation} />
+            <SubFooter authors={[{
+              logoimg: author[0].logoimg,
+              username: author[0].username,
+              logoimgdark: author[0].logoimgdark,
+              darkmode: author[0].darkmode,
+            }]} menus={navigation} />
           </div>
           {/* MEDIA */}
         </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SubLogo from "components/Logo/SubLogo";
 import SubNavigation from "components/Navigation/SubNavigation";
@@ -8,15 +8,48 @@ import SubMenuBar from "components/MenuBar/SubMenuBar";
 import DarkModeContainer from "containers/DarkModeContainer/DarkModeContainer";
 import ErrorBoundary from "components/ErrorBoundary";
 import { useGlobalContext } from 'utils/context';
+import { selectDarkmodeState, disableDarkMode } from "app/darkmode/darkmode";
+import { useAppSelector, useAppDispatch } from "app/hooks";
 
 export interface MainNav1Props {
   isTop?: boolean;
 }
 
+export const renderLogo = (author: any) => {
+    
+  const darkmodeState = useAppSelector(selectDarkmodeState);
+
+  if(author[0].logoimg == null) { 
+    return <Link to="/" className="ttnc-logo inline-block">
+      <h2 className={`text-1xl md:text-2xl font-semibold`}>{author[0].username.toUpperCase()}</h2>
+    </Link>
+  }else {
+    if(darkmodeState === false) { 
+      return <SubLogo img={author[0].logoimg} />
+    }else {
+      if(author[0].logoimgdark != null) {
+        return <SubLogo img={author[0].logoimgdark} />
+      }else {
+        return <SubLogo img={author[0].logoimg} />
+      }
+    }
+  }
+}
+
+export const renderDarkMode = (darkmode: any) => {
+  const dispatch = useAppDispatch();
+
+  if(darkmode === true) {
+    return <DarkModeContainer />
+  } else {
+    dispatch(disableDarkMode());
+  }
+}
+
 const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
   const { author, navigation } = useGlobalContext();
 
-  console.log(navigation)
+  const [darkMode, setdarkMode] = useState<boolean>();
 
   var actualmenu = [], menuE = [], navmenus = [], buttons:any = [];
 
@@ -37,22 +70,14 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
     <div className={`nc-MainNav nc-MainNav1 relative z-10`}>
       <div className="container py-5 relative flex justify-between items-center space-x-4 xl:space-x-8">
         <div className="flex justify-start flex-grow items-center space-x-4 sm:space-x-10 2xl:space-x-14">
-          {
-            author[0].logoimg == null ? 
-            
-             <Link to="/" className="ttnc-logo inline-block">
-              <h2 className={`text-1xl md:text-2xl font-semibold`}>{author[0].username.toUpperCase()}</h2>
-             </Link>
-            :
-            <SubLogo img={author[0].logoimg} />
-          }
+          {renderLogo(author)}
           {
             navmenus.length != 0 && (<SubNavigation navigations={navmenus} />)
           }
         </div>
         <div className="flex-shrink-0 flex items-center justify-end text-neutral-700 dark:text-neutral-100 space-x-1">
           <div className="hidden items-center md:flex xl:flex space-x-1">
-            <DarkModeContainer />
+            {renderDarkMode(author[0].darkmode)}
             <SearchDropdown />
             <div className="px-1" />
             {
@@ -70,7 +95,7 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
             navmenus.length > 0 && 
             <div className="items-center md:hidden">
               <ErrorBoundary>
-                <SubMenuBar navigations={navmenus} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
+                <SubMenuBar navigations={navmenus} authors={author} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
               </ErrorBoundary>
             </div>
           }

@@ -43,7 +43,8 @@ const fetchPost = async (authorSlug: string) => {
       "*, authors!inner(*), category!inner(*), refauthors!inner(*)",
     )
     .eq("authors.username", authorSlug)
-    .range(initpostRange, finpostRange);
+    .range(initpostRange, finpostRange)
+    .order("created_at", { ascending: false });
 
   var nav: any = await supabaseFetch("navigationv2", "*, authors!inner(*)", "authors.username", authorSlug);
 
