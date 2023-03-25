@@ -18,10 +18,11 @@ export interface MainNav1Props {
 export const renderLogo = (author: any) => {
     
   const darkmodeState = useAppSelector(selectDarkmodeState);
+  console.log(author)
 
   if(author[0].logoimg == null) { 
     return <Link to="/" className="ttnc-logo inline-block">
-      <h2 className={`text-1xl md:text-2xl font-semibold`}>{author[0].username.toUpperCase()}</h2>
+      <h2 className={`text-1xl md:text-2xl font-semibold`}>{author[0].metatitle.toUpperCase()}</h2>
     </Link>
   }else {
     if(darkmodeState === false) { 
