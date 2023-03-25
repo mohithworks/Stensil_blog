@@ -60,7 +60,7 @@ const fetchPost = async (authorSlug: string) => {
       return returnFun("Please check your internet connection & refresh the page", null, [], null, null);
     }
     
-    return returnFun(null, null, [authors.data], nav.data, null);
+    return returnFun(null, null, authors.data, nav.data, null);
 
   } else if (posts.data && nav.data) {
     //const urlPath = window.location.pathname;

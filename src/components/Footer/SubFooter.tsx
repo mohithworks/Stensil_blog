@@ -74,7 +74,7 @@ const SubFooter: React.FC<SubFooterProps> = ({ authors, menus }) => {
           <div className="flex md:ml-5">
             {renderLogo(authors)}
           </div>
-          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {authors[0].username.replace(/(^\w{1})|(\s+\w{1})/g, (letter:any) => letter.toUpperCase())}. All rights reserved</span></p>
+          <p className="mt-5 text-sm px-5 md:mr-5 md:px-0">Copyright&nbsp;<span className="font-semibold">© 2022, {authors[0].metatitle}. All rights reserved</span></p>
           {
             menus.length > 0 && socials.length > 0 && 
             <div className="flex mt-5 mr-0 md:mr-10">

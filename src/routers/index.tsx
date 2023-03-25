@@ -303,7 +303,7 @@ export const SubDomainRoutes: FC<SubDomainProps> = ({ data = "" }) => {
           <div>
             <SubFooter authors={[{
               logoimg: author[0].logoimg,
-              username: author[0].username,
+              metatitle: author[0].metatitle,
               logoimgdark: author[0].logoimgdark,
               darkmode: author[0].darkmode,
             }]} menus={navigation} />
