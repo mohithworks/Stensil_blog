@@ -1,28 +1,18 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ModalCategories from "./ModalCategories";
-import ModalTags from "./ModalTags";
 import { DEMO_POSTS } from "data/posts";
-import { PostDataType, TaxonomyType } from "data/types";
-import { DEMO_CATEGORIES, DEMO_TAGS } from "data/taxonomies";
-import PostPagination from "components/Pagination/PostPagination";
+import { PostDataType } from "data/types";
 import ButtonPrimary from "components/Button/ButtonPrimary";
-import ArchiveFilterListBox from "components/ArchiveFilterListBox/ArchiveFilterListBox";
 import { Helmet } from "react-helmet";
-import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import NcImage from "components/NcImage/NcImage";
 import Card20 from "components/Card20/Card20";
-import BackgroundSection from "components/BackgroundSection/BackgroundSection";
-import SectionGridCategoryBox from "components/SectionGridCategoryBox/SectionGridCategoryBox";
-import ButtonSecondary from "components/Button/ButtonSecondary";
-import SectionSliderNewAuthors from "components/SectionSliderNewAthors/SectionSliderNewAuthors";
-import { DEMO_AUTHORS } from "data/authors";
 import supabaseClient from "utils/supabaseClient";
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import { XIcon } from "@heroicons/react/solid";
 import toTitleCase from "utils/toTitleCase";
 import Loading from "components/Loading/Loading";
+import getAuthorSlugv2 from "utils/getAuthorSlugv2";
 
 export interface PageArchiveProps {
   className?: string;
@@ -34,7 +24,6 @@ const posts: PostDataType[] = DEMO_POSTS.filter((_, i) => i < 16);
 var inPage:any = 0, fnPage:any = 10, postsLoc:any = [];
 
 const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
-  const PAGE_DATA: TaxonomyType = DEMO_CATEGORIES[0];
 
   const { authorslug, categoryslug } = useParams<any>();
 
@@ -56,7 +45,7 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
   console.log(authorslug);
   console.log(categoryslug);
 
-  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
+  const { domain1, domain2 } = getAuthorSlugv2();
 
   const FILTERS = [
     { name: "Most Recent" },
@@ -71,7 +60,8 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
     const supabaseData = await supabaseClient
       .from('posts')
       .select('*, category!inner(*), authors!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .eq('category.title', categoryslug)
       .range(inPage, fnPage);
 
@@ -91,7 +81,8 @@ const PageArchive: FC<PageArchiveProps> = ({ className = "" }) => {
             .from('category')
             .select(`*, authors!inner(*)`)
             .eq('title', categoryslug)
-            .eq('authors.username', authorSlug)
+            .eq('authors.username', domain1)
+            .eq('authors.cus_domain', domain2)
             if(error) {
               setError(error);
             }

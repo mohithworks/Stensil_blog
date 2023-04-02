@@ -1,20 +1,13 @@
 import React, {useState, useEffect, Fragment} from "react";
 import Loading from "components/Loading/Loading";
-import SectionLatestPosts from "./SectionLatestPosts";
-import SectionVideos from "./SectionVideos";
 import SectionLargeSlider from "./SectionLargeSlider";
 import { Helmet } from "react-helmet";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
-import SubSectionGridAuthorBox from "components/SectionGridAuthorBox/SubSectionGridAuthorBox";
 import { PostDataType, TaxonomyType } from "data/types";
 import {
   DEMO_POSTS,
 } from "data/posts";
-import { DEMO_CATEGORIES, DEMO_TAGS } from "data/taxonomies";
-import SectionBecomeAnAuthor from "components/SectionBecomeAnAuthor/SectionBecomeAnAuthor";
-import SubSectionSliderNewCategories from "components/SectionSliderNewCategories/SubSectionSliderNewCategories";
-import ArchiveFilterListBox from "components/ArchiveFilterListBox/ArchiveFilterListBox";
 import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import { useGlobalContext } from 'utils/context';
 import Card20 from "components/Card20/Card20";
@@ -23,12 +16,11 @@ import supabaseClient from "utils/supabaseClient";
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import { XIcon } from "@heroicons/react/solid";
-import Select from "components/Select/Select";
 import Heading from "components/Heading/Heading";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/solid";
 import ButtonDropdown from "components/ButtonDropdown/ButtonDropdown";
-import toTitleCase from "utils/toTitleCase";
+import getAuthorSlugv2 from "utils/getAuthorSlugv2";
 //
 const POSTS: PostDataType[] = DEMO_POSTS;
 //
@@ -39,7 +31,7 @@ const MAGAZINE2_POSTS = DEMO_POSTS.filter((_, i) => i >= 0 && i < 7);
 var inPage:any = 0, fnPage:any = 10, postsLoc:any = [], icPage:any = 0, fcPage:any = 0, catVal: any = "-1", maxPost: any = 10;
 
 const PageHome: React.FC = () => {
-  const { author, post, navigation, initpostRange, finpostRange } = useGlobalContext();
+  const { author, post } = useGlobalContext();
 
   const location = window.location.hostname.split(".")[0];
   const url = import.meta.env.VITE_URL;  
@@ -56,7 +48,7 @@ const PageHome: React.FC = () => {
   
   const [categoryList, setcategoryList] = useState<any>(catVal);
   const [categoryListL, setcategoryListL] = useState<any>("All");
-  const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
+  const { domain1, domain2 } = getAuthorSlugv2();
 
   const [currentPosts, setcurrentPosts] = useState<any>(postsLoc);
   console.log("currentPosts", currentPosts);
@@ -88,7 +80,9 @@ const PageHome: React.FC = () => {
       const {data, error} = await supabaseClient
       .from('category')
       .select('*, authors!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
+      .order('created_at', {ascending: false})
       .gt('posts', 0);
 
       if(error) {
@@ -146,7 +140,8 @@ const PageHome: React.FC = () => {
     const {data,error} = await supabaseClient
       .from('posts')
       .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .range(inPage, fnPage)
       .order("created_at", { ascending: false });
 
@@ -187,7 +182,8 @@ const PageHome: React.FC = () => {
     const {data,error} = await supabaseClient
       .from('posts')
       .select('title, created_at, featured_imghd, href, post, authors!inner(*), category!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .eq('category', catId)
       .range(icPage, fcPage);
 

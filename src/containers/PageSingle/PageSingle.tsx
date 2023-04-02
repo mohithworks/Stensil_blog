@@ -15,6 +15,7 @@ import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
 import Avatar from "components/Avatar/Avatar";
 import { useGlobalContext } from 'utils/context';
 import Loading from "components/Loading/Loading";
+import getAuthorSlugv2 from "utils/getAuthorSlugv2";
 
 export interface PageSingleProps {
   className?: string;
@@ -34,28 +35,23 @@ const PageSingle: FC<PageSingleProps> = ({ className = "" }) => {
 
   const dispatch = useAppDispatch();
 
-  const { authorslug, postslug } = useParams<any>();
+  const { postslug } = useParams<any>();
 
   const [postLoading, setpostLoading] = useState(true);
   const [post, setPost] = useState<any>();
   const [error, setError] = useState<any>();
 
-  const location = window.location.hostname.split(".")[0];
-  const url = import.meta.env.VITE_URL;
-
   useEffect(() => {
-    console.log(authorslug);
-    console.log(postslug);
 
-    const authorSlug = location != url ? location == 'stensil-blog' ? 'hrithik' : location : 'hrithik';
-    console.log(authorSlug);
+    const { domain1, domain2 } = getAuthorSlugv2();
 
     const fetchPost = async() => {
       const { data, error } = await supabaseClient
         .from('posts')
         .select(`*, authors!inner(*), category!inner(*), refauthors!inner(*)`)
         .eq('posttitle', postslug)
-        .eq('authors.username', authorSlug)
+        .eq('authors.username', domain1)
+        .eq('authors.cus_domain', domain2)
 
         if(error) {
           setError(error);

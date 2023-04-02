@@ -1,10 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Heading from "components/Heading/Heading";
-import { PostDataType } from "data/types";
-import Card11 from "components/Card11/Card11";
 import Card9 from "components/Card9/Card9";
-import { DEMO_POSTS } from "data/posts";
-import getAuthorSlug from "utils/getAuthorSlug";
+import getAuthorSlugv2 from "utils/getAuthorSlugv2";
 import Card20 from "components/Card20/Card20";
 import { useGlobalContext } from 'utils/context';
 import { useHistory } from "react-router-dom";
@@ -16,14 +13,6 @@ export interface SingleRelatedPostsProps {
   category?: any;
   postTitle?: any;
 }
-
-// DEMO DATA
-const demoRelated: PostDataType[] = DEMO_POSTS.filter(
-  (_, i) => i >= 10 && i < 14
-);
-const demoMoreFromAuthor: PostDataType[] = DEMO_POSTS.filter(
-  (_, i) => i >= 14 && i < 18
-);
 
 const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
   category, postTitle
@@ -41,28 +30,16 @@ const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
 
   const { author } = useGlobalContext();
   
-  const authorSlug = getAuthorSlug();
-  
-  const supabaseFetch = async (table: any, query: any, type: any, type2: any) => {
-    console.log('1');
-    const { data, error } = await supabaseClient
-      .from(table)
-      .select(query)
-      .eq(type, authorSlug)
-      .eq(type2, category)
-      .range(0, 3);
-
-      return {error, data};
-  } 
-
+  const { domain1, domain2 } = getAuthorSlugv2();
   
   useEffect(() => {
     const fetchPost = async() => {
-      // var posts:any = await supabaseFetch('posts', 'title, created_at, featured_imghd, href, authors!inner(*), category!inner(*)', 'authors.username');
+      
       var relposts:any = await supabaseClient
       .from('posts')
       .select('*, authors!inner(*), category!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .eq('category', category)
       .neq('posttitle', postTitle)
       .range(0, 3);
@@ -70,7 +47,8 @@ const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
       var autposts:any =  await supabaseClient
       .from('posts')
       .select('*, authors!inner(*), category!inner(*)')
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .neq('posttitle', postTitle)
       .neq('category', category)
       .range(0, 3);
@@ -79,16 +57,6 @@ const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
         console.log('error');
         throw setError(error.message);
       }
-
-      // const posts = await supabaseClient
-      //   .from('posts')
-      //   .select(`*, authors!inner(*)`)
-      //   .eq('authors.username', location)
-
-      // const navigation = await supabaseClient
-      //   .from('posts')
-      //   .select(`*, authors!inner(*)`)
-      //   .eq('authors.username', location)
 
       console.log(relposts);
       console.log(autposts);
@@ -101,7 +69,6 @@ const SingleRelatedPosts: FC<SingleRelatedPostsProps> = ({
         setLoading(false);
       }
     }
-    console.log(authorSlug);
     console.log(category);
     
     fetchPost();

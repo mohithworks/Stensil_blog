@@ -1,28 +1,17 @@
-import React, { FC, useState, useEffect } from "react";
-import { DEMO_POSTS } from "data/posts";
-import { PostDataType } from "data/types";
-import Pagination from "components/Pagination/Pagination";
-import ButtonPrimary from "components/Button/ButtonPrimary";
+import { FC, useState, useEffect } from "react";
 import Nav from "components/Nav/Nav";
 import NavItem from "components/NavItem/NavItem";
-import ArchiveFilterListBox from "components/ArchiveFilterListBox/ArchiveFilterListBox";
-import Input from "components/Input/Input";
 import HeadBackgroundCommon from "components/HeadBackgroundCommon/HeadBackgroundCommon";
 import { Helmet } from "react-helmet";
-import SectionSubscribe2 from "components/SectionSubscribe2/SectionSubscribe2";
-import ButtonSecondary from "components/Button/ButtonSecondary";
-import SectionGridCategoryBox from "components/SectionGridCategoryBox/SectionGridCategoryBox";
 import { DEMO_CATEGORIES } from "data/taxonomies";
-import BackgroundSection from "components/BackgroundSection/BackgroundSection";
-import SectionSliderNewAuthors from "components/SectionSliderNewAthors/SectionSliderNewAuthors";
 import { DEMO_AUTHORS } from "data/authors";
 import CardCategory2 from "components/CardCategory2/CardCategory2";
 import { useGlobalContext } from 'utils/context';
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Error from "components/Error/Error";
 import Loading from "components/Loading/Loading";
 import NotFound from "components/NotFound/NotFound";
-import getAuthorSlug from "utils/getAuthorSlug";
+import getAuthorSlugv2 from "utils/getAuthorSlugv2";
 
 import supabaseClient from "utils/supabaseClient";
 import Card20 from "components/Card20/Card20";
@@ -32,17 +21,6 @@ export interface PageSearchV2Props {
   className?: string;
 }
 
-const cats = DEMO_CATEGORIES.filter((_, i) => i < 15);
-const tags = DEMO_CATEGORIES.filter((_, i) => i < 32);
-const authors = DEMO_AUTHORS.filter((_, i) => i < 12);
-
-const FILTERS = [
-  { name: "Most Recent" },
-  { name: "Curated by Admin" },
-  { name: "Most Appreciated" },
-  { name: "Most Discussed" },
-  { name: "Most Viewed" },
-];
 const TABS = ["Posts", "Categories"];
 
 var fetchedPost:any = false, fetchedCat:any = false;
@@ -51,7 +29,7 @@ var postsG:any = [], categoryG:any = [];
 const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
   const { author } = useGlobalContext();
   
-  const authorSlug = getAuthorSlug();
+  const { domain1, domain2 } = getAuthorSlugv2();
 
   const searchParam = useLocation().search;
 
@@ -75,7 +53,8 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
     const { data, error } = await supabaseClient
       .from(table)
       .select(content)
-      .eq('authors.username', authorSlug)
+      .eq('authors.username', domain1)
+      .eq('authors.cus_domain', domain2)
       .textSearch(column, `'${search}'`)
   
       return { data, error }
@@ -96,7 +75,6 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
         setTotalData({ length: data.length, type: 'posts' });
         postsG = data;
         setPosts(data);
-        console.log(data);
         setpostLoading(false);
       }
     }else {
@@ -119,7 +97,6 @@ const PageSearchV2: FC<PageSearchV2Props> = ({ className = "" }) => {
         setTotalData({ length: data.length, type: 'categories' });
         categoryG = data;
         setCategory(data);
-        console.log(data);
         setcatLoading(false);
       }
     }else {

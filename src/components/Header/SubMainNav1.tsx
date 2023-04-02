@@ -93,11 +93,15 @@ const SubMainNav1: FC<MainNav1Props> = ({ isTop }) => {
             <SearchDropdown />
           </div>
           {
-            navmenus.length > 0 && 
+            navmenus.length > 0 ? 
             <div className="items-center md:hidden">
               <ErrorBoundary>
                 <SubMenuBar navigations={navmenus} authors={author} username={author[0].username} description={author[0].description} logo={author[0].logoimg} buttons={buttons} />
               </ErrorBoundary>
+            </div>
+            :
+            <div className="flex md:hidden xl:hidden lg:hidden">
+              {renderDarkMode(author[0].darkmode)}
             </div>
           }
         </div>

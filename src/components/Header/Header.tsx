@@ -130,18 +130,36 @@ const Header: FC<HeaderProps> = ({ mainNavStyle = "style1", isTopOfPage }) => {
 
   const renderSingleHeader = () => {
     if (!isSingleHeaderShowing) return null;
-    const { title, authors } = currentPost[0];
+    const { title, authors, refauthors } = currentPost[0];
+
+    console.log(currentPost);
+    
     return (
       <div className="nc-SingleHeaderMenu dark relative py-4 bg-neutral-900 dark:bg-neutral-900">
         <div className="container">
           <div className="flex">
             <div className="flex items-center mr-3">
-              <Avatar
-                imgUrl={authors.avatar_url}
-                userName={authors.full_name}
-                sizeClass="w-8 h-8 text-lg"
-                radius="rounded-full"
-              />
+              
+              {
+                refauthors.id === '153de11c-9ce8-4d79-9d19-c10da778e84c' ?
+                <div className="flex items-center space-x-2">
+                  <Avatar
+                    imgUrl={authors.avatar_url}
+                    userName={authors.full_name}
+                    sizeClass="w-8 h-8 text-lg"
+                    radius="rounded-full"
+                  />
+                </div>
+                :
+                <div className="flex items-center space-x-2">
+                  <Avatar
+                    imgUrl={refauthors.avatar}
+                    userName={refauthors.name}
+                    sizeClass="w-8 h-8 text-lg"
+                    radius="rounded-full"
+                  />
+                </div>
+              }
               <h3 className="ml-4 text-lg line-clamp-1 text-neutral-100">
                 {title}
               </h3>

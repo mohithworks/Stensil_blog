@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import ReactDOM from "react-dom/client";
 import supabaseClient from "./utils/supabaseClient";
-import getAuthorSlug from "./utils/getAuthorSlug";
+import getAuthorSlugv2 from "./utils/getAuthorSlugv2";
 
 // STYLE
 import "./index.css";
@@ -24,10 +24,17 @@ const root = ReactDOM.createRoot(
  
 const initpostRange = 0, finpostRange = 10;
 
-const authorSlug = getAuthorSlug();
+const authorSlug:any = getAuthorSlugv2();
+console.log(authorSlug);
 
-const supabaseFetch = async (table: string, query: string, type: string, authorSlug: string) => {
-  const { data, error } = await supabaseClient.from(table).select(query).eq(type, authorSlug);
+const supabaseFetch = async (table: string, query: string, type: string, authorSlug: string, type2: string, authorSlug2: any) => {
+  const { data, error } = await supabaseClient.from(table).select(query).eq(type, authorSlug).is(type2, authorSlug2);
+
+  return { error, data };
+};
+
+const supabaseFetchMultipleEq = async (table: string, query: string, type: string, authorSlug: string, type2: string, authorSlug2: string) => {
+  const { data, error } = await supabaseClient.from(table).select(query).eq(type, authorSlug).eq(type2, authorSlug2);
 
   return { error, data };
 };
@@ -36,25 +43,28 @@ const returnFun = (error: any, posts: any, authors: any, nav: any, currentPost: 
   return { error: error, posts: posts, authors: authors, nav: nav, currentpost: currentPost };
 }
 
-const fetchPost = async (authorSlug: string) => {
-  var posts: any = await supabaseClient
+const fetchPost = async (authorSlug: any) => {
+
+  var posts:any = await supabaseClient
     .from("posts")
     .select(
       "*, authors!inner(*), category!inner(*), refauthors!inner(*)",
     )
-    .eq("authors.username", authorSlug)
+    .eq("authors.username", authorSlug['domain1'])
+    .eq("authors.cus_domain", authorSlug['domain2'])
     .range(initpostRange, finpostRange)
     .order("created_at", { ascending: false });
 
-  var nav: any = await supabaseFetch("navigationv2", "*, authors!inner(*)", "authors.username", authorSlug);
+  var nav:any = await supabaseFetchMultipleEq("navigationv2", "*, authors!inner(*)", "authors.username", authorSlug['domain1'], 'authors.cus_domain', authorSlug['domain2']);
+    
+  console.log(posts)
 
   if (posts.error || nav.error) {
 
     return returnFun("Please check your internet connection & refresh the page", null, [], null, null);
 
   }else if (posts.data.length == 0) {
-
-    const authors: any = await supabaseFetch("authors", "*", "username", authorSlug);
+    var authors:any = await supabaseFetchMultipleEq("authors", "*", "username", authorSlug['domain1'], 'cus_domain', authorSlug['domain2']);
 
     if (authors.error) {
       return returnFun("Please check your internet connection & refresh the page", null, [], null, null);
@@ -63,18 +73,6 @@ const fetchPost = async (authorSlug: string) => {
     return returnFun(null, null, authors.data, nav.data, null);
 
   } else if (posts.data && nav.data) {
-    //const urlPath = window.location.pathname;
-
-    // if(urlPath.search("/posts/") != -1) { 
-    //   const postId = urlPath.split("/posts/")[1].split("/")[0];
-    //   var currentPost:any = await supabaseClient.from("posts").select(`*, authors!inner(*), category!inner(*), refauthors!inner(*)`).eq("posttitle", postId);
-
-    //   if (currentPost.error) {
-    //     return returnFun("Please check your internet connection & refresh the page", null, [], null, null);
-    //   }
-      
-    //   return returnFun(null, posts.data, [posts.data[0].authors], nav.data, currentPost.data);
-    // }
 
     return returnFun(null, posts.data, [posts.data[0].authors], nav.data, posts.data[0]);
 
